@@ -209,13 +209,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#herramientas-en-python" id="toc-herramientas-en-python" class="nav-link" data-scroll-target="#herramientas-en-python"><strong>Herramientas en Python</strong></a></li>
   <li><a href="#ejercicios-5" id="toc-ejercicios-5" class="nav-link" data-scroll-target="#ejercicios-5"><strong>Ejercicios</strong></a></li>
   </ul></li>
-  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker (★★★)</a>
+  <li><a href="#user-interface" id="toc-user-interface" class="nav-link" data-scroll-target="#user-interface">User Interface (★★★)</a>
   <ul class="collapse">
   <li><a href="#ejercicios-6" id="toc-ejercicios-6" class="nav-link" data-scroll-target="#ejercicios-6"><strong>Ejercicios</strong></a></li>
   </ul></li>
-  <li><a href="#microservice-application" id="toc-microservice-application" class="nav-link" data-scroll-target="#microservice-application">Microservice Application (★★★★)</a>
+  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker (★★★)</a>
   <ul class="collapse">
   <li><a href="#ejercicios-7" id="toc-ejercicios-7" class="nav-link" data-scroll-target="#ejercicios-7"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#microservices" id="toc-microservices" class="nav-link" data-scroll-target="#microservices">Microservices (★★★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-8" id="toc-ejercicios-8" class="nav-link" data-scroll-target="#ejercicios-8"><strong>Ejercicios</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -634,31 +638,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
+<section id="user-interface" class="level2">
+<h2 class="anchored" data-anchor-id="user-interface">User Interface (★★★)</h2>
+<p>Naturalmente, todos llegamos a un punto en la vida en el cual conectamos cientos de cablecitos para que se hablen (una base de datos con una API, que le habla a otra API a través de internet, que a su vez es capaz de intentar dominar al mundo) pero si no tenemos algo gráfico que nos permita visualizar cómo todo funciona, quizás nos sintamos un poco vacíos. O quizás el vacío sea existencial.</p>
+<p>Desde esta perspectiva, es común buscar crear <em>interfaces de usuario gráficas</em> que nos permitan interactuar con nuestros programas. Hoy les presento <a href="https://streamlit.io/"><strong>Streamlit</strong></a>, que es una librería de python que nos permite tener una interfaz gráfica sencilla funcionando en muy poco tiempo.</p>
+<section id="ejercicios-6" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-6"><strong>Ejercicios</strong></h3>
+<ol type="1">
+<li><strong>(★★★) Prueba de streamlit:</strong> Seguir el tutorial <a href="https://docs.streamlit.io/get-started/tutorials/create-an-app">Create an app</a> de Streamlit para crear una aplicación de prueba.</li>
+<li><strong>(★★★) Database management:</strong> Usando SQLAlchemy y pandas, crear una aplicación que permita controlar la base de datos del ejercicio 1 de <strong>SQL</strong>.</li>
+<li><strong>(★★★) API UI Wrapper:</strong> Usando SQLAlchemy, pandas, y FastAPI, crear una aplicación que permita controlar la base de datos del ejercicio 2 de <strong>APIs</strong>.</li>
+</ol>
+</section>
+</section>
 <section id="docker" class="level2">
 <h2 class="anchored" data-anchor-id="docker">Docker (★★★)</h2>
 <p>¿Escucharon alguna vez: “en mi computadora funciona, no sé por qué en la tuya no”? El objetivo de docker es erradicar esa problemática. Docker es un sistema que permite, a través de imágenes, enviar sistemas operativos con aplicaciones preinstaladas en “contenedores”, que funcionan directamente sobre una plataforma de docker, como una versión “lightweight” de máquinas virtuales.</p>
 <p>La genialidad de esto no es sólo el hecho de hacer un container con una aplicación, que ponga-donde-se-ponga funciona, sino también la enorme capacidad de <em>componer</em> estos containers. Es decir: podemos hacer una aplicación completa con <em>bloquecitos:</em> una API, un modelo, una cache, una base de datos, etcétera. Básicamente logra que terminemos jugando con legos en vez de escribiendo código. Si bien esto se puede hacer de muchas formas, la más sencilla es <em>docker-compose</em>.</p>
-<section id="ejercicios-6" class="level3">
-<h3 class="anchored" data-anchor-id="ejercicios-6"><strong>Ejercicios</strong></h3>
+<section id="ejercicios-7" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-7"><strong>Ejercicios</strong></h3>
 <ol type="1">
 <li><strong>(★★★) Imagen de API:</strong> A partir del ejercicio 1 de FastAPI, escribir un Dockerfile que, a partir de la imagen base de python-3.9, permita correr el servidor propuesto. <em>Tutorial:</em> https://fastapi.tiangolo.com/deployment/docker/.</li>
 <li><strong>(★★★) Imagen de DB:</strong> Resolver el ejercicio 1 de la guía de SQL utilizando una imagen de docker de PostgreSQL.</li>
 </ol>
 </section>
 </section>
-<section id="microservice-application" class="level2">
-<h2 class="anchored" data-anchor-id="microservice-application">Microservice Application (★★★★)</h2>
-<p>A partir de lo visto en <strong>Docker, APIs y SQL,</strong> construyamos una aplicación conteinarizada que tenga una API y una base de datos.</p>
+<section id="microservices" class="level2">
+<h2 class="anchored" data-anchor-id="microservices">Microservices (★★★★)</h2>
+<p>A partir de lo visto en <strong>Docker, APIs y SQL,</strong> construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/tp_0-container_app.png" class="img-fluid figure-img"></p>
+<p><img src="figures/tp0_microservices.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Arquitectura básica para la aplicación containerizada</figcaption>
 </figure>
 </div>
-<section id="ejercicios-7" class="level3">
-<h3 class="anchored" data-anchor-id="ejercicios-7"><strong>Ejercicios</strong></h3>
+<section id="ejercicios-8" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-8"><strong>Ejercicios</strong></h3>
 <ol type="1">
-<li><strong>(★★</strong>★<strong>★) Integración:</strong> Reutilizar el ejercicio 1 y 2 de <strong>Docker</strong> en un archivo de <strong>docker-compose</strong> para resolver el ejercicio 2 de APIs.</li>
+<li><strong>(★★★★) Integración:</strong> Reutilizar el ejercicio 1 y 2 de <strong>Docker</strong> en un archivo de <strong>docker-compose</strong> para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de <strong>User Interface</strong>.</li>
 </ol>
 
 
