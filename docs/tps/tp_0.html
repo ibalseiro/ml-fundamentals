@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fundamentos de Machine Learning - TP0: Tooling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_0.html">TP0: Tooling</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Fundamentos de Machine Learning</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/clase_0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L0: Tooling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Practicas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tps/tp_0.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">TP0: Tooling</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#ide" id="toc-ide" class="nav-link" data-scroll-target="#ide">IDE ★</a>
+  <ul class="collapse">
+  <li><a href="#visual-studio-code-vscode" id="toc-visual-studio-code-vscode" class="nav-link" data-scroll-target="#visual-studio-code-vscode"><strong>Visual Studio Code (VSCode)</strong></a></li>
+  </ul></li>
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git ★</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python ★</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-1" id="toc-ejercicios-1" class="nav-link" data-scroll-target="#ejercicios-1"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#sistema-operativo" id="toc-sistema-operativo" class="nav-link" data-scroll-target="#sistema-operativo">Sistema Operativo (★★)</a>
+  <ul class="collapse">
+  <li><a href="#instrucciones-para-instalar-wsl-en-windows" id="toc-instrucciones-para-instalar-wsl-en-windows" class="nav-link" data-scroll-target="#instrucciones-para-instalar-wsl-en-windows"><strong>Instrucciones para Instalar WSL en Windows</strong></a></li>
+  </ul></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">Jupyter (★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-2" id="toc-ejercicios-2" class="nav-link" data-scroll-target="#ejercicios-2"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#bases-de-datos" id="toc-bases-de-datos" class="nav-link" data-scroll-target="#bases-de-datos">Bases de Datos (★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-3" id="toc-ejercicios-3" class="nav-link" data-scroll-target="#ejercicios-3"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#apis" id="toc-apis" class="nav-link" data-scroll-target="#apis">APIs (★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-4" id="toc-ejercicios-4" class="nav-link" data-scroll-target="#ejercicios-4"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#code-quality" id="toc-code-quality" class="nav-link" data-scroll-target="#code-quality">Code Quality (★★★)</a>
+  <ul class="collapse">
+  <li><a href="#herramientas-en-python" id="toc-herramientas-en-python" class="nav-link" data-scroll-target="#herramientas-en-python"><strong>Herramientas en Python</strong></a></li>
+  <li><a href="#ejercicios-5" id="toc-ejercicios-5" class="nav-link" data-scroll-target="#ejercicios-5"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#docker" id="toc-docker" class="nav-link" data-scroll-target="#docker">Docker (★★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-6" id="toc-ejercicios-6" class="nav-link" data-scroll-target="#ejercicios-6"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  <li><a href="#microservice-application" id="toc-microservice-application" class="nav-link" data-scroll-target="#microservice-application">Microservice Application (★★★★)</a>
+  <ul class="collapse">
+  <li><a href="#ejercicios-7" id="toc-ejercicios-7" class="nav-link" data-scroll-target="#ejercicios-7"><strong>Ejercicios</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TP0: Tooling</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>El TP0 apunta a familiarizarse con herramientas que utilizaremos durante el curso y, si bien no son precisamente de aprendizaje profundo, si son prácticas usuales del campo del desarrollo de software y permiten aspectos como el versionado, la comunicación, en encapsulamiento, entre otros.</p>
+<p>Encontrará los ejercicios con diferentes marcas:</p>
+<ul>
+<li>★: Ejercicio Obligatorio - no tenés opción.</li>
+<li>★★: Ejercicio recomendado - hacelo, que no te gane la timidez.</li>
+<li>★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.</li>
+<li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
+</ul>
+<p>Completar este TP en su totalidad es una tarea <em>sumamente extensa</em>, por lo que se recomienda al lector tratar al mismo como un “repositorio de ideas”—a excepción de los ejercicios obligatorios—es decir, un lugar a dónde haya una referencia de un seleccionado de cosas que le pueden ser de utilidad para construir sistemas de información.</p>
+<p><em>Nota: Parte de esta práctica fue escrita con auxilio de algún LLM - so you may find some weird wording here and there.</em></p>
+</section>
+<section id="ide" class="level2">
+<h2 class="anchored" data-anchor-id="ide">IDE ★</h2>
+<section id="visual-studio-code-vscode" class="level3">
+<h3 class="anchored" data-anchor-id="visual-studio-code-vscode"><strong>Visual Studio Code (VSCode)</strong></h3>
+<p>Un <strong>Entorno de Desarrollo Integrado (IDE)</strong> es una herramienta esencial para cualquier programador. Facilita la tarea de escribir y depurar código, ofreciendo funcionalidades como resaltado de sintaxis, autocompletado, gestión de versiones, entre otras. En este curso, recomendamos en <strong>Visual Studio Code (VSCode)</strong>, uno de los IDEs más populares y versátiles.</p>
+<p><strong>Instrucciones:</strong></p>
+<ol type="1">
+<li><strong>Descarga e Instalación:</strong>
+<ul>
+<li>Visita la página oficial de Visual Studio Code: https://code.visualstudio.com/</li>
+<li>Selecciona la versión adecuada para tu sistema operativo (Windows, MacOS, Linux) y descárgala.</li>
+<li>Sigue las instrucciones de instalación proporcionadas en la página o por el instalador.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="git" class="level2">
+<h2 class="anchored" data-anchor-id="git">Git ★</h2>
+<p>Git es una herramienta de control de versiones esencial para cualquier desarrollador. ¿Por qué? Porque te permite tener un registro detallado y organizado de todos los cambios que hacés en tu código. Imaginate que es como un gran libro de historia, donde cada cambio que hacés en tu proyecto queda anotado, y podés volver atrás en el tiempo si algo no anda bien.</p>
+<p>Pero Git no es solo un guardián del pasado; también es fundamental para trabajar en equipo. Permite que varias personas colaboren en el mismo proyecto sin pisarse los talones. Cada uno puede trabajar en su rama, hacer cambios, y después juntar todo sin <em>tantos</em> dramas.</p>
+<p>Durante el curso, vamos a meterle mano a Git de a poco. Vamos a empezar con lo básico: crear repositorios, hacer commits, manejar branches, y entender cómo funciona el asunto de los merge. Después, vamos a explorar características más avanzadas y aprender a resolver conflictos, que siempre aparecen cuando menos los esperás.</p>
+<p>Además, vamos a usar GitHub, que es como el barrio de Git en internet. Ahí vamos a compartir nuestros códigos, colaborar en proyectos y, sobre todo, aprender a mover el ambo en este mundo del desarrollo colaborativo.</p>
+<p>Por último, a lo largo del curso vamos a usar una herramienta que se llama <strong>GitHub Classroom.</strong> Ahí mismo vamos a poder hacer correcciones (con la metodología usual de correcciones de Git - Pull Requests) y, además de eso, se van a correr automágicamente suites de tests que les van a servir de feedback instantáneo para saber si el código que están haciendo está correcto (da lo que debería dar) o no.</p>
+<section id="ejercicios" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios"><strong>Ejercicios</strong></h3>
+<ol type="1">
+<li><strong>(★) GitHub Account:</strong>
+<ul>
+<li><strong>Crear un Repositorio en GitHub:</strong>
+<ul>
+<li>(Crea y) Inicia sesión en tu cuenta de GitHub.</li>
+<li>Si no lo tenés, instala <code>git</code> en tu computadora.</li>
+<li>Crea un nuevo repositorio en tu cuenta de GitHub. Dale un nombre como <code>tp0-test</code> .</li>
+<li>Marca la opción de inicializar el repositorio con un archivo README.</li>
+</ul></li>
+<li><strong>Clonar el Repositorio:</strong>
+<ul>
+<li>Utiliza el comando <strong><code>git clone</code></strong> seguido de la URL de tu repositorio para clonarlo en tu equipo local.</li>
+</ul></li>
+<li><strong>Crear y Usar una Branch:</strong>
+<ul>
+<li>Crea una nueva branch en tu repositorio local, por ejemplo, <strong><code>feature-branch</code></strong>.</li>
+<li>Cambia a esta branch con <strong><code>git checkout feature-branch</code></strong>. Se pueden hacer ambos pasos al mismo tiempo con <strong><code>git checkout -b feature-branch</code></strong></li>
+<li><strong>Escribe un archivo README.md</strong> con tu nombre, tu carrera y un fun fact tuyo. Guarda este archivo en tu repositorio local.</li>
+</ul></li>
+<li><strong>Pushear Cambios y Crear un Pull Request (PR):</strong>
+<ul>
+<li>Pushea tus cambios a GitHub con <strong><code>git push</code></strong>.</li>
+<li>Ve a tu repositorio en GitHub y crea un PR desde tu nueva branch hacia la branch principal (<strong><code>main</code></strong> o <strong><code>master</code></strong>).</li>
+</ul></li>
+<li><strong>Mergear el Pull Request:</strong>
+<ul>
+<li>Completa el proceso de revisión de código (si es aplicable) y mergea el PR.</li>
+</ul></li>
+</ul></li>
+<li><strong>(★) GitHub Classroom</strong>
+<ol type="1">
+<li><strong>Acceso a GitHub Classroom:</strong>
+<ul>
+<li>Utiliza el enlace proporcionado por la cátedra para acceder al GitHub Classroom de tu curso (<a href="https://classroom.github.com/a/gYQqpSVs">https://classroom.github.com/a/KpD5PDYo</a>). Esto va a generar un nuevo repositorio para tu cuenta.</li>
+<li>En el nuevo repositorio creado en tu cuenta encontrarás en su interior algunas carpetas asociadas a este trabajo práctico.</li>
+</ul></li>
+<li><strong>Completar el Assignment:</strong>
+<ul>
+<li>Creá un archivo que se llame “fun_fact.txt”, con algún fun fact tuyo en su interior.</li>
+<li>Pusheá los cambios al repositorio.</li>
+<li>Esto va a crear automágicamente un PR que se llama “Feedback”, a donde vamos a poder interactuar para chequear que el código escrito esté correcto.</li>
+</ul></li>
+<li><strong>Uso del Autograding:</strong>
+<ul>
+<li>Revisá el Autograding (ver aquí como) para ver que el test (Ejercicio 2) pase correctamente.</li>
+</ul></li>
+</ol></li>
+<li><strong>(★★) GitFlow</strong>
+<ol type="1">
+<li><strong>Crear y Usar Branches de Desarrollo y Features:</strong>
+<ul>
+<li>Crea una branch <code>main</code>y haz algunos cambios en ella.</li>
+<li>Luego, crea dos branches de características, <strong><code>F1</code></strong> y <strong><code>F2</code></strong>, basándote en <code>main</code>. Hacé cambios en archivos similares en ambas branches - por ejemplo, en el fun_fact.txt que mencionamos anteriormente. Intentá cambiar un fun fact por un unfun-fact en una branch, y por otro weird_fact en la otra.</li>
+</ul></li>
+<li><strong>Mergear Branches y Resolver Conflictos:</strong>
+<ul>
+<li>Mergear <strong><code>F1</code></strong> con <code>main</code>.</li>
+<li>Intentá mergear <strong><code>F2</code></strong> con <code>main</code>y maneja los conflictos que surjan.</li>
+</ul></li>
+</ol></li>
+</ol>
+</section>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python ★</h2>
+<p><strong>Python</strong> es un lenguaje de programación de alto nivel. Se ha convertido en uno de los lenguajes más populares en el campo de la inteligencia artificial y el aprendizaje automático (AI/ML) debido a su simplicidad y a la amplia gama de bibliotecas disponibles.</p>
+<p>En este curso, vamos a explorar las características básicas de Python, incluyendo su sintaxis, estructuras de datos, funciones y clases. Además, nos sumergiremos en bibliotecas específicas como Numpy, Pandas y Matplotlib, las cuales son fundamentales en el análisis de datos y visualización. Más adelante, también utilizaremos librerías especializadas de aprendizaje automático, como Torch, HuggingFace, o Xgboost.</p>
+<ul>
+<li>Descarga e instala Python desde <a href="https://www.python.org/">python.org</a>.</li>
+<li>Verifica la instalación ejecutando <strong><code>python --version</code></strong> en tu terminal.</li>
+</ul>
+<p><strong>Conda</strong> es un gestor de paquetes que nos permite tener distintos ambientes en nuestra computadora, con distintos ejecutables de python instalados y además con varias versiones de librerías por ambiente. Para instalar conda<strong>:</strong></p>
+<ul>
+<li>Instala miniconda siguiendo las instrucciones en el sitio de Conda.</li>
+<li>Creá un ambiente en conda llamado “tp0” con el siguiente comando: <code>conda create -n tp0 python=3.9</code>.</li>
+<li>Activalo con <code>conda activate tp0</code>.</li>
+<li>Instalá las siguientes librerías: <code>conda install pytest numpy pandas matplotlib</code>.</li>
+</ul>
+<p>Por último, los siguientes son ejercicios para recorrer el lenguaje de forma amena. Para que los tests automáticos funcionen, cada uno de los ejercicios debe vivir en la carpeta <code>python/src/ejericico_N.py</code> , donde N es el número de ejercicio correspondiente.</p>
+<section id="ejercicios-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-1"><strong>Ejercicios</strong></h3>
+<ol type="1">
+<li><strong>(★) Hola Mundo:</strong>
+<ol type="1">
+<li><strong>Hola mundo:</strong> Escribe un script en Python que guarde el string “Hola mundo!” en una variable llamada <code>hola_mundo</code> y que luego la imprima usando <code>print</code> .</li>
+</ol></li>
+<li><strong>(★) Funciones:</strong>
+<ol type="1">
+<li><strong>Suma de Números:</strong> Crea una función en Python llamada <strong><code>sumar(a, b)</code></strong> que reciba dos números como argumentos y devuelva su suma.</li>
+<li><strong>Pitágoras:</strong> Crea una función en Python llamada <strong><code>pitagoras(a, b, tipo="hipotenusa")</code></strong> que reciba dos números como argumentos (a) la hipotenusa si el tipo es “hipotenusa” o (b) el cateto si el tipo es “cateto”. Pensar cómo se puede hacer para tomar el lado más grande (a o b) para el segundo caso.</li>
+</ol></li>
+<li><strong>(★) Clases:</strong>
+<ol type="1">
+<li><strong>Rectángulo:</strong> Define una clase <strong><code>Rectangulo</code></strong> en Python que se inicialice con longitud y ancho. La clase debe tener dos métodos, <strong><code>area</code></strong> y <strong><code>perimetro</code></strong>, que devuelvan respectivamente el área y el perímetro del rectángulo.</li>
+<li><strong>Cuadrado:</strong> Define una clase <code>Cuadrado</code> que herede de rectángulo y que sólo se inicialice con lado.</li>
+</ol></li>
+<li><strong>(★) NumPy:</strong>
+<ol type="1">
+<li><strong>Estadísticas de un arreglo</strong>: Crea una función <code>stats(a)</code> que tome un array de floats python, y que calcule y devuelve la media y la desviación estándar de esos números usando Numpy para crear un array de números.</li>
+<li><strong>Producto matricial:</strong> Crea una función <code>matmul(a, b)</code> que tome dos matrices a y b y devuelva el producto entre ellas, si son compatibles, y que retorne un <code>ValueError</code> si no.</li>
+<li><strong>Autovectores y autovalores:</strong> Cree una función <code>eigen(a)</code> que devuelva los autovectores y autovalores de una matriz si es cuadrada, y retorne <code>ValueError</code> sino.</li>
+</ol></li>
+<li><strong>(★) Pandas:</strong>
+<ol type="1">
+<li><strong>Lectura de CSV:</strong> Cree una función <code>read_data</code> que lea el archivo <code>data/python/ej5.csv</code> que se encuentra en el repositorio dentro de un <code>DataFrame</code> y retorne una lista con las columnas, y un entero con la cantidad de filas que el archivo posee.</li>
+<li><strong>Modificación de datos:</strong> Cree función que <code>modify_data</code> tome los datos anteriormente mencionados, cree una nueva columna, <code>mes</code>, a partir de <code>fecha</code> (recomendado: usar <code>datetime</code>) y devuelva el <code>DataFrame</code> modificado. Pista: puede usar <code>apply</code>.</li>
+<li><strong>Agrupación:</strong> Cree función <code>group_data</code> que tome los datos anteriormente mencionados, cree una nueva y retorne el valor total de las ventas y de los costos (sumando la columna <code>valor</code>, agrupando por <code>tipo</code>).</li>
+</ol></li>
+</ol>
+</section>
+</section>
+<section id="sistema-operativo" class="level2">
+<h2 class="anchored" data-anchor-id="sistema-operativo">Sistema Operativo (★★)</h2>
+<p>En el amplio mundo del desarrollo de software y, específicamente en áreas como el aprendizaje automático y la ciencia de datos, es fundamental tener una base sólida en el manejo de sistemas operativos. Para nuestro curso, sería ideal para no sufrir innecesariamente tener algún sistema operativo que brinde acceso a una terminal tipo GNU, como lo son las distintas distribuciones de Linux. Esto se debe a que Linux ofrece una gran versatilidad, una comunidad de soporte activa, y es ampliamente adoptado en entornos de investigación y producción.</p>
+<p>Ahora, si estás utilizando Windows, no te preocupes. Hay una solución práctica llamada Subsistema de Windows para Linux (WSL), que te permite ejecutar un entorno de Linux directamente en Windows. Esto es ideal para quienes prefieren o necesitan mantener Windows como su sistema operativo principal, pero igual quieren disfrutar de las ventajas de Linux.</p>
+<p>Instalar WSL te permitirá trabajar en un ambiente similar al que encontrarías en un sistema operativo basado en Unix, lo cual es una habilidad valiosa en el campo de la informática. A lo largo del curso, veremos cómo aprovechar estas herramientas para maximizar tu aprendizaje y eficiencia en la programación y gestión de proyectos de software.</p>
+<section id="instrucciones-para-instalar-wsl-en-windows" class="level3">
+<h3 class="anchored" data-anchor-id="instrucciones-para-instalar-wsl-en-windows"><strong>Instrucciones para Instalar WSL en Windows</strong></h3>
+<ol type="1">
+<li><strong>Habilita el Subsistema de Windows para Linux:</strong>
+<ul>
+<li><p>Abre PowerShell como administrador y ejecuta:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Habilita la Plataforma de Máquina Virtual:</strong>
+<ul>
+<li><p>En el mismo PowerShell ejecuta:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dism.exe</span> /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Reinicia tu computadora para completar la instalación.</p></li>
+</ul></li>
+<li><strong>Descarga el Paquete de Actualización del Kernel de Linux para WSL 2:</strong>
+<ul>
+<li>Descarga el paquete de actualización desde el sitio oficial de Microsoft. Busca “WSL2 Linux kernel update package for x64 machines” en la página de Microsoft.</li>
+</ul></li>
+<li><strong>Establece WSL 2 como Versión Predeterminada:</strong>
+<ul>
+<li><p>Abre nuevamente PowerShell y ejecuta:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wsl</span> <span class="at">--set-default-version</span> 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Instala tu Distribución de Linux Favorita:</strong>
+<ul>
+<li>Abre Microsoft Store y busca la distribución de Linux que prefieras (Ubuntu, Debian, etc.).</li>
+<li>Selecciona la distribución y haz clic en “Obtener” para instalarla.</li>
+</ul></li>
+<li><strong>Configura tu Distribución de Linux:</strong>
+<ul>
+<li>Una vez instalada la distribución, ábrela desde el menú de inicio.</li>
+<li>La primera vez que la abras, tendrás que configurar tu cuenta de usuario y contraseña.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter">Jupyter (★★)</h2>
+<p>En el ámbito de la ciencia de datos y el aprendizaje automático, Jupyter Notebook se ha establecido como una herramienta esencial. Permite combinar código, texto enriquecido, visualizaciones y otros elementos multimedia en un solo documento interactivo.</p>
+<p>Para quienes usan Python y otras herramientas de análisis de datos, Jupyter ofrece una forma práctica de experimentar con el código y visualizar los resultados al instante. En este curso, aprenderemos a utilizar Jupyter Notebook de manera local y también exploraremos Google Colab, una versión basada en la nube que se integra perfectamente con Google Drive, proporcionando un entorno poderoso y colaborativo para el desarrollo de proyectos de ciencia de datos.</p>
+<section id="ejercicios-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-2"><strong>Ejercicios</strong></h3>
+<p><strong>1. (★★) Uso de Jupyter Notebook Local</strong></p>
+<ul>
+<li><strong>Instalación y Ejecución:</strong>
+<ul>
+<li>Instala Jupyter Notebook en tu máquina local. Puedes hacerlo instalando Anaconda, que incluye Jupyter, o instalándolo mediante pip con <strong><code>pip install notebook</code></strong>.</li>
+<li>Inicia Jupyter Notebook ejecutando <strong><code>jupyter notebook</code></strong> en tu terminal. Esto abrirá una nueva ventana o pestaña en tu navegador predeterminado.</li>
+</ul></li>
+<li>Crea una nueva notebook, escribe un código simple en Python (por ejemplo, imprimir “Hola, mundo!”) y ejecuta la celda.</li>
+<li>En una celda siguiente creemos una función con numpy, para dibujar algunas funciones con matplotlib como ejemplo:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Genera un rango de valores</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">400</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcula valores para diferentes funciones</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>y_sin <span class="op">=</span> np.sin(x)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>y_cos <span class="op">=</span> np.cos(x)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>y_tan <span class="op">=</span> np.tan(x)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Configura el gráfico</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibuja cada función</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_sin, label<span class="op">=</span><span class="st">'seno'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_cos, label<span class="op">=</span><span class="st">'coseno'</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_tan, label<span class="op">=</span><span class="st">'tangente'</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Añade una leyenda</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestra el gráfico</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Algunas opciones de IPython nos permiten interactuar con la terminal directamente desde una celda de Jupyter, y también permiten configurar el comportamiento de la notebook en sí (autoreload de imports, matplotlib interactivo, etc). Juegue con la siguiente celda, que ejemplifica el concepto:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestra la lista de archivos en el directorio actual</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>ls</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Autoreload de módulos importados (útil para desarrollo)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext autoreload</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>autoreload <span class="dv">2</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Permite que los gráficos de matplotlib se muestren interactivamente</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplo de ejecución de comandos de shell</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>echo <span class="st">"Hola desde el shell"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>2. (★★) Uso de Google Colab con Información de Google Drive</strong></p>
+<ul>
+<li><strong>Configuración y Uso:</strong>
+<ul>
+<li><p>Accede a Google Colab.</p></li>
+<li><p>Inicia sesión con tu cuenta de Google si aún no lo has hecho.</p></li>
+<li><p>Crea una nueva notebook.</p></li>
+<li><p>En una celda, escribe y ejecuta el siguiente código para montar tu Google Drive:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/content/drive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Navega a través de tus archivos de Google Drive desde la barra lateral de Colab.</p></li>
+</ul></li>
+<li>Carga un archivo de datos desde tu Google Drive en la notebook de Google Colab, realiza una operación simple (como leer el archivo si es un CSV) y muestra los resultados.</li>
+</ul>
+<p><strong>3. (★★★) Creación y Publicación de un Documento con Quarto</strong></p>
+<p>Quarto es una herramienta poderosa que extiende las capacidades de Jupyter Notebooks, permitiendo una mayor flexibilidad en la creación de documentos y presentaciones atractivas. Es ideal para preparar informes profesionales y científicos, así como presentaciones interactivas.</p>
+<ul>
+<li><strong>Instalación y Configuración:</strong>
+<ul>
+<li>Para instalar Quarto, visita <a href="https://quarto.org/">su página web oficial</a> y sigue las instrucciones de instalación.</li>
+<li>Una vez instalado, crea un nuevo proyecto de Quarto en un directorio de tu elección.</li>
+<li>Dentro de tu proyecto Quarto, crea un documento que combine texto enriquecido, código en Python y sus respectivas salidas.</li>
+<li>Añade elementos avanzados como gráficos interactivos o widgets.</li>
+<li>Utiliza las herramientas de formato de Quarto para darle un diseño profesional a tu documento.</li>
+<li>Genera una salida en el formato de tu elección (HTML, PDF, etc.) y renderizalo. Eso te va a dar algo en HTML que podrías subir a una página, o un PDF para presentar.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="bases-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="bases-de-datos">Bases de Datos (★★)</h2>
+<p>Las bases de datos son un componente crucial en el mundo del machine learning y el análisis de datos. Nos permiten almacenar, organizar y acceder a grandes volúmenes de información de manera eficiente, lo que es esencial para entrenar modelos de machine learning con datos precisos y variados. Existen dos tipos principales de bases de datos: relacionales y no relacionales. Las bases de datos relacionales, como MySQL o PostgreSQL, utilizan una estructura de tablas y son excelentes para datos estructurados y consultas complejas. Por otro lado, las bases de datos no relacionales, como MongoDB o Cassandra, ofrecen mayor flexibilidad para almacenar datos no estructurados.</p>
+<p>Nos vamos a concentrar en usar solo una base de datos muy sencilla para ilustrar esto: SQLite. Esto es algo que no necesita setupear ni instalar nada, y desde python es, de hecho, muy sencillo de usar. En el futuro utilizaremos PostgreSQL para alguno de los proyectos que puedan llegar a surgir.</p>
+<p><em>Nota: Si quieren practicar SQL, les recomiendo resolver el robo del patito de hule de Harvard:</em> https://cs50.harvard.edu/summer/2022/psets/7/fiftyville/.</p>
+<section id="ejercicios-3" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-3"><strong>Ejercicios</strong></h3>
+<p><strong>1. (★★) Nuestra primera base de datos con SQLite</strong></p>
+<p>Vamos a armar el siguiente modelito de datos, super sencillo, en una base de datos: vamos a introducir algunos datos y luego responder algunas preguntas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/74e11970-0ef9-4dbc-b256-346ef5eeaeda/c0446c62-7236-4541-bafd-0381a8bcf145/Untitled.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Untitled</figcaption>
+</figure>
+</div>
+<p>A partir del siguiente snippet de código, cree una base de datos en el archivo <code>db_file.db</code> :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> sqlite3</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Conectar a la base de datos SQLite:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conexion</span> = sqlite3.connect<span class="er">(</span><span class="st">'db_file.db'</span><span class="kw">)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">cursor</span> = conexion.cursor<span class="er">(</span><span class="kw">)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear las tablas (</span><span class="al">TODO</span><span class="co">)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ex">cursor.execute</span><span class="er">(</span><span class="st">'''</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE alumnos (FILL_ME)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE materias (FILL_ME)</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="st">CREATE TABLE notas (FILL_ME)</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="st">'''</span><span class="kw">)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar datos (</span><span class="al">TODO</span><span class="co">)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ex">alumnos</span> = [<span class="er">(</span><span class="ex">1,</span> <span class="st">"Agustin"</span>, <span class="st">"Bernardo"</span>, 1234567, <span class="st">"28/04/1995"</span><span class="kw">)</span><span class="ex">,</span> ...]</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ex">materias</span> = [<span class="er">(</span><span class="ex">1,</span> <span class="st">"MLF"</span>, [<span class="st">"fisica"</span>, <span class="st">"teleco"</span>, <span class="st">"doctorado"</span>]<span class="kw">)</span><span class="ex">,</span> ...]</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Insertar datos</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="ex">cursor.executemany</span><span class="er">(</span><span class="st">'INSERT INTO alumnos VALUES (?,?,?,?,?)'</span><span class="ex">,</span> alumnos<span class="kw">)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ex">cursor.executemany</span><span class="er">(</span><span class="st">'INSERT INTO materias VALUES (?,?,?)'</span><span class="ex">,</span> materias<span class="kw">)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar (commit) los cambios</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">conexion.commit()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Escriba una query que dado un nombre de un alumno y una materia, guarde su nota.</li>
+<li>Escriba queries que permitan calcular:
+<ol type="1">
+<li>Promedio histórico de un alumno.</li>
+<li>Promedio de la carrera.</li>
+<li>Promedio por carrera para cada materia.</li>
+<li>Certificado analítico de un alumno.</li>
+</ol></li>
+<li>Corra esta queries en python y muestre los resultados.</li>
+</ol>
+<p>Nota: Para correr los tests automáticos en autograding, respete el formato de las tablas y suba el archivo “.db” en conjunto con el código. <em>Esto es un antipattern, es solo por motivos didácticos. Jamás committee una base de datos a un repositorio.</em></p>
+<p><strong>2. (★★★) ORMs y SQLAlchemy</strong></p>
+<p>Resuelva el ejercicio (1) utilizando SQLAlchemy en vez de el conector por defecto de SQLite. ¿Por qué es común utilizar ORMs en sistemas de software productivos? <em>Nota: “Porque es más fachero” casi que puede ser una respuesta adecuada.</em></p>
+<p><strong>3. (★★★) Migraciones (Alembic)</strong></p>
+<p>Resuelva el ejercicio (1) utilizando Alembic para manejar el versionado de la base de datos en vez de crearla a través del script propuesto. ¿Por qué es importante mantener un versionado de bases de datos? ¿Qué rol cubren las migraciones?</p>
+</section>
+</section>
+<section id="apis" class="level2">
+<h2 class="anchored" data-anchor-id="apis">APIs (★★)</h2>
+<p>API es un acrónimo para “Application Programming Interface”. Para poder conectar una aplicación con otra, es común utilizar este concepto. Por ejemplo, si queremos que nuestra aplicación sea capaz de utilizar alguna aplicación que se provee en internet, o si queremos que nuestra aplicación pueda ser usada a través de internet.</p>
+<p>Existen centenas de protocolos distintos para poder utilizar estas interfaces. No obstante, nos vamos a concentrar en uno: REST APIs (por “Representation State Transfer”). Vamos a usar, desde Python, FastAPI (https://fastapi.tiangolo.com/) para poder hacer APIs.</p>
+<p>Un concepto importante dentro de esto es el de asynchronous I/O, que queda fuera del scope de este curso (o al menos de este TP), pero se invita al lector a darle un vistazo: https://docs.python.org/3/library/asyncio-task.html.</p>
+<section id="ejercicios-4" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-4"><strong>Ejercicios</strong></h3>
+<p><strong>1. (★★) Nuestro primer servidor con FastAPI</strong></p>
+<p>Siguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/first-steps/), inicializar un servidor que devuelva números aleatorios en la ruta “/” al hacer get, y que permita obtener un valor al azar al pasar una lista de nombres en la dirección “/” al hacer put.</p>
+<p><strong>2. (★★★) SQL desde FastAPI</strong></p>
+<p>Siguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/sql-databases/), inicializador un servidor con una base de datos local que permita resolver el ejercicio 1 de SQL a través de una API, e implementar la API que permita obtener los promedios anteriormente mencionados a través de los endpoints correctos.</p>
+</section>
+</section>
+<section id="code-quality" class="level2">
+<h2 class="anchored" data-anchor-id="code-quality">Code Quality (★★★)</h2>
+<p>El <strong>testing unitario</strong> es una práctica esencial en el desarrollo de software. Nos permite validar la funcionalidad de cada componente de manera aislada, asegurando que cada parte del código funcione según lo esperado. Esta metodología es clave para identificar y corregir errores tempranamente, facilitando un desarrollo más ágil y eficiente.</p>
+<p>El <strong>code coverage</strong> mide el porcentaje de código que está siendo cubierto por tests automáticos. Esta métrica es importante para asegurarnos de que nuestras pruebas abarcan una amplia extensión del código, lo que reduce la posibilidad de que existan errores no detectados.</p>
+<p>Una buena práctica en el desarrollo de software es mantener un <strong>formato de código</strong> consistente y legible. El formateo de código ayuda a estandarizar el estilo a lo largo del proyecto, haciendo el código más accesible y fácil de entender para todos los miembros del equipo.</p>
+<p>El uso de <strong>tipado (typing)</strong> en Python contribuye a la claridad y robustez del código. Aunque Python es un lenguaje de tipado dinámico, el tipado estático puede ayudar a prevenir ciertos errores y mejorar la mantenibilidad del código.</p>
+<p>El <strong>análisis estático</strong> del código es el proceso de revisar y analizar el código fuente sin ejecutarlo. Esta técnica puede detectar errores, bugs, y problemas de estilo, así como mejorar la calidad y seguridad del código.</p>
+<section id="herramientas-en-python" class="level3">
+<h3 class="anchored" data-anchor-id="herramientas-en-python"><strong>Herramientas en Python</strong></h3>
+<p>Para aplicar estas prácticas en Python, contamos con varias herramientas útiles:</p>
+<ul>
+<li><strong>Pytest:</strong> Facilita la escritura y ejecución de pruebas unitarias.</li>
+<li><strong>Black:</strong> Una herramienta de formateo de código que asegura la consistencia del estilo.</li>
+<li><strong>Coverage:</strong> Mide el code coverage para garantizar la efectividad de las pruebas.</li>
+<li><strong>Flake8:</strong> Proporciona análisis de estilo y errores potenciales en el código.</li>
+<li><strong>Mypy:</strong> Realiza un chequeo de tipos estáticos para detectar problemas de tipado.</li>
+</ul>
+</section>
+<section id="ejercicios-5" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-5"><strong>Ejercicios</strong></h3>
+<p>Partiendo del siguiente script (que está claramente erróneo):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiplicar(b, a):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> a <span class="op">*</span> b</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sumar(a,b):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> a<span class="op">+</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><strong>(★★★) Testing con Pytest:</strong>
+<ul>
+<li>Escribe tests para tus funciones en un archivo <strong><code>test_mi_script.py</code></strong> usando Pytest.</li>
+</ul></li>
+<li><strong>(★★★) Aplicación de Black y Flake8:</strong>
+<ul>
+<li>Ejecuta Black sobre tu script para estandarizar el estilo (<strong><code>black mi_script.py</code></strong>).</li>
+<li>Utiliza Flake8 para identificar posibles problemas de estilo o errores en tu código (<strong><code>flake8 mi_script.py</code></strong>).</li>
+</ul></li>
+<li><strong>(★★★) Medición de Code Coverage:</strong>
+<ul>
+<li>Utiliza Coverage para medir la cobertura de tus tests. Ejecuta los tests con Coverage y verifica que cubran la totalidad de tus funciones.</li>
+</ul></li>
+<li><strong>(★★★) Análisis de Tipos con Mypy:</strong>
+<ul>
+<li>Ejecuta Mypy para asegurarte de que las anotaciones de tipos en tu script sean correctas (<strong><code>mypy mi_script.py</code></strong>).</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="docker" class="level2">
+<h2 class="anchored" data-anchor-id="docker">Docker (★★★)</h2>
+<p>¿Escucharon alguna vez: “en mi computadora funciona, no sé por qué en la tuya no”? El objetivo de docker es erradicar esa problemática. Docker es un sistema que permite, a través de imágenes, enviar sistemas operativos con aplicaciones preinstaladas en “contenedores”, que funcionan directamente sobre una plataforma de docker, como una versión “lightweight” de máquinas virtuales.</p>
+<p>La genialidad de esto no es sólo el hecho de hacer un container con una aplicación, que ponga-donde-se-ponga funciona, sino también la enorme capacidad de <em>componer</em> estos containers. Es decir: podemos hacer una aplicación completa con <em>bloquecitos:</em> una API, un modelo, una cache, una base de datos, etcétera. Básicamente logra que terminemos jugando con legos en vez de escribiendo código. Si bien esto se puede hacer de muchas formas, la más sencilla es <em>docker-compose</em>.</p>
+<section id="ejercicios-6" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-6"><strong>Ejercicios</strong></h3>
+<ol type="1">
+<li><strong>(★★★) Imagen de API:</strong> A partir del ejercicio 1 de FastAPI, escribir un Dockerfile que, a partir de la imagen base de python-3.9, permita correr el servidor propuesto. <em>Tutorial:</em> https://fastapi.tiangolo.com/deployment/docker/.</li>
+<li><strong>(★★★) Imagen de DB:</strong> Resolver el ejercicio 1 de la guía de SQL utilizando una imagen de docker de PostgreSQL.</li>
+</ol>
+</section>
+</section>
+<section id="microservice-application" class="level2">
+<h2 class="anchored" data-anchor-id="microservice-application">Microservice Application (★★★★)</h2>
+<p>A partir de lo visto en <strong>Docker, APIs y SQL,</strong> construyamos una aplicación conteinarizada que tenga una API y una base de datos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/tp_0-container_app.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Arquitectura básica para la aplicación containerizada</figcaption>
+</figure>
+</div>
+<section id="ejercicios-7" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicios-7"><strong>Ejercicios</strong></h3>
+<ol type="1">
+<li><strong>(★★</strong>★<strong>★) Integración:</strong> Reutilizar el ejercicio 1 y 2 de <strong>Docker</strong> en un archivo de <strong>docker-compose</strong> para resolver el ejercicio 2 de APIs.</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
