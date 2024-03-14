@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Fundamentos de Machine Learning"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - clase_0.qmd
+      - tp_0.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

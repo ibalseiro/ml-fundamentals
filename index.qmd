@@ -1,0 +1,12 @@
+---
+---
+
+# Bienvenidos!👋
+
+Bienvenidos a la página de Fundamentos de Machine Learning del Instituto Balseiro. Esta página actúa como repositorio de todos los elementos que pueden llegar a necesitar para el desarrollo de la misma:
+
+1. Clases teóricas.
+2. Trabajos prácticos.
+3. Links de interés.
+
+Lorem Ipsum?
