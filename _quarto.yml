@@ -15,6 +15,7 @@ website:
       - section: "Practicas"
         contents:
           - tps/tp_0.qmd
+          - tps/tp_1.qmd
 
 format:
   html:
