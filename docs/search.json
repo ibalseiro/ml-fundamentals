@@ -98,6 +98,76 @@
     "text": "Microservices (★★★★)\nA partir de lo visto en Docker, APIs y SQL, construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.\n\n\n\nArquitectura básica para la aplicación containerizada\n\n\n\nEjercicios\n\n(★★★★) Integración: Reutilizar el ejercicio 1 y 2 de Docker en un archivo de docker-compose para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de User Interface."
   },
   {
+    "objectID": "tps/tp_1.html",
+    "href": "tps/tp_1.html",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_1.html#resumen",
+    "href": "tps/tp_1.html#resumen",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_1.html#accuracy-and-loss-functions",
+    "href": "tps/tp_1.html#accuracy-and-loss-functions",
+    "title": "TP1: Data/Error",
+    "section": "(★) 1. Accuracy and Loss functions",
+    "text": "(★) 1. Accuracy and Loss functions\nA fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:\ndef read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...\n\ndef precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny escriba un main que ejercite estas implementaciones utilizando el archivo ej1.csv."
+  },
+  {
+    "objectID": "tps/tp_1.html#confusion-matrix",
+    "href": "tps/tp_1.html#confusion-matrix",
+    "title": "TP1: Data/Error",
+    "section": "(★) 2. Confusion Matrix",
+    "text": "(★) 2. Confusion Matrix\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?"
+  },
+  {
+    "objectID": "tps/tp_1.html#numerical-and-categorical-features",
+    "href": "tps/tp_1.html#numerical-and-categorical-features",
+    "title": "TP1: Data/Error",
+    "section": "(★) 3. Numerical and Categorical features",
+    "text": "(★) 3. Numerical and Categorical features\nSe brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:\ndef histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...\n\ndef one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...\nUtilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas."
+  },
+  {
+    "objectID": "tps/tp_1.html#over-and-underfitting",
+    "href": "tps/tp_1.html#over-and-underfitting",
+    "title": "TP1: Data/Error",
+    "section": "(★) 4. Over and Underfitting",
+    "text": "(★) 4. Over and Underfitting\nSe provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:\ndef read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...\n\ndef plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...\ndonde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio."
+  },
+  {
+    "objectID": "tps/tp_1.html#eda-a-entregar",
+    "href": "tps/tp_1.html#eda-a-entregar",
+    "title": "TP1: Data/Error",
+    "section": "(★) 5. EDA [A entregar]",
+    "text": "(★) 5. EDA [A entregar]\nTODO - RELLENAR"
+  },
+  {
+    "objectID": "tps/tp_1.html#etl",
+    "href": "tps/tp_1.html#etl",
+    "title": "TP1: Data/Error",
+    "section": "(★★) 6. ETL",
+    "text": "(★★) 6. ETL\nTODO - RELLENAR"
+  },
+  {
+    "objectID": "tps/tp_1.html#decision-science",
+    "href": "tps/tp_1.html#decision-science",
+    "title": "TP1: Data/Error",
+    "section": "(★★) 7. Decision Science",
+    "text": "(★★) 7. Decision Science\nTODO - RELLENAR"
+  },
+  {
+    "objectID": "tps/tp_1.html#calibration-curves",
+    "href": "tps/tp_1.html#calibration-curves",
+    "title": "TP1: Data/Error",
+    "section": "(★★) 8. Calibration Curves",
+    "text": "(★★) 8. Calibration Curves\nUna herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales \\(y \\in {1, 0}\\) y la probabilidad predicha de que \\(y == 1\\), \\(p_y \\in [0, 1]\\), la curva de calibracion obtiene bines"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Bienvenidos!👋",

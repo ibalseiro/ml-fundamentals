@@ -1,0 +1,84 @@
+---
+title: "TP1: Data/Error"
+---
+
+## Resumen
+
+El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es "EDA", que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.
+
+Encontrará los ejercicios con diferentes marcas:
+
+-   ★: Ejercicio Obligatorio - no tenés opción.
+-   ★★: Ejercicio recomendado - hacelo, que no te gane la timidez.
+-   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
+-   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
+
+## (★) 1. Accuracy and Loss functions
+
+A fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:
+
+```
+def read_from_csv(filename: str) -> Tuple[pd.Series, pd.Series]: ...
+
+def precision(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+
+def recall(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+
+def f1_score(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+
+def mse(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+
+def cross_entropy(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+```
+
+y escriba un main que ejercite estas implementaciones utilizando el archivo `ej1.csv`.
+
+## (★) 2. Confusion Matrix
+
+Implemente la funcion dada por la siguiente firma:
+
+```
+def confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+```
+
+y utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?
+
+## (★) 3. Numerical and Categorical features
+
+Se brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:
+
+```
+def histogram(feature: pd.Series, n_bins: int) -> pd.Series: ...
+
+def one_hot_encoder(feature: pd.Series) -> pd.DataFrame: ...
+```
+
+Utilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas.
+
+## (★) 4. Over and Underfitting
+
+Se provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:
+
+```
+def read_from_csv(filename: str) -> Tuple[Tuple[pd.Series, pd.Series]]: ...
+
+def plot_loss(loss_train: pd.Series, loss_val: pd.Series) -> None: ...
+```
+
+donde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion "write_results" de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio.
+
+## (★) 5. EDA \[A entregar\]
+
+TODO - RELLENAR
+
+## (★★) 6. ETL
+
+TODO - RELLENAR
+
+## (★★) 7. Decision Science
+
+TODO - RELLENAR
+
+## (★★) 8. Calibration Curves
+
+Una herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales $y \in {1, 0}$ y la probabilidad predicha de que $y == 1$, $p_y \in [0, 1]$, la curva de calibracion obtiene bines
