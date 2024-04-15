@@ -71,7 +71,7 @@ donde plot_loss permite graficar la funcion de perdida. Ejercite esta implementa
 
 Complete el archivo `ej5.ipynb` que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos.
 
-## (★★) 8. Calibration Curves
+## (★★) 6. Calibration Curves
 
 Una herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales $y \in \{1, 0\}$ y la probabilidad predicha de que $y == 1$, $p_y \in [0, 1]$, la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:
 
