@@ -1,0 +1,46 @@
+---
+title: "TP2: Linear and Tree models"
+---
+
+## Resumen
+
+El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.
+
+Encontrará los ejercicios con diferentes marcas:
+
+-   ★: Ejercicio Obligatorio - no tenés opción.
+-   ★★: Ejercicio recomendado - hacelo, que no te gane la timidez.
+-   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
+-   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
+
+## (★) 1. Your own Scikit Learn library
+
+Encontrará en la carpeta "ej1" archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.
+
+Dicho esto, resuelva los siguientes incisos:
+
+
+1. Implemente el proceso de entrenamiento de SGD en SGDEstimator.
+2. Implemente LinearRegressor.
+3. Implemente LogisticClassifier.
+4. En la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?
+5. En la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.
+6. En la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.
+7. Implemente la clase TreeStumpRegressor.
+8. Implemente la clase GradientBoostingEstimator.
+9. Intente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?
+10. Reescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?
+
+Este ejercicio es __entregable__!
+
+Además: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load.
+
+## (★) 2. Your first end to end Machine Learning pipeline
+
+Implemente la funcion dada por la siguiente firma:
+
+```
+def confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -> float: ...
+```
+
+y utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?

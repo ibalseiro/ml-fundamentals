@@ -98,6 +98,34 @@
     "text": "Microservices (★★★★)\nA partir de lo visto en Docker, APIs y SQL, construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.\n\n\n\nArquitectura básica para la aplicación containerizada\n\n\n\nEjercicios\n\n(★★★★) Integración: Reutilizar el ejercicio 1 y 2 de Docker en un archivo de docker-compose para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de User Interface."
   },
   {
+    "objectID": "tps/tp_2.html",
+    "href": "tps/tp_2.html",
+    "title": "TP2: Linear and Tree models",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_2.html#resumen",
+    "href": "tps/tp_2.html#resumen",
+    "title": "TP2: Linear and Tree models",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_2.html#your-own-scikit-learn-library",
+    "href": "tps/tp_2.html#your-own-scikit-learn-library",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 1. Your own Scikit Learn library",
+    "text": "(★) 1. Your own Scikit Learn library\nEncontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.\nDicho esto, resuelva los siguientes incisos:\n\nImplemente el proceso de entrenamiento de SGD en SGDEstimator.\nImplemente LinearRegressor.\nImplemente LogisticClassifier.\nEn la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?\nEn la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.\nEn la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.\nImplemente la clase TreeStumpRegressor.\nImplemente la clase GradientBoostingEstimator.\nIntente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?\nReescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?\n\nEste ejercicio es entregable!\nAdemás: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load."
+  },
+  {
+    "objectID": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "href": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 2. Your first end to end Machine Learning pipeline",
+    "text": "(★) 2. Your first end to end Machine Learning pipeline\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?"
+  },
+  {
     "objectID": "tps/tp_1.html",
     "href": "tps/tp_1.html",
     "title": "TP1: Data/Error",
