@@ -237,7 +237,7 @@ def plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...</code>
 <h2 class="anchored" data-anchor-id="calibration-curves">(★★) 6. Calibration Curves</h2>
 <p>Una herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales <span class="math inline">\(y \in \{1, 0\}\)</span> y la probabilidad predicha de que <span class="math inline">\(y == 1\)</span>, <span class="math inline">\(p_y \in [0, 1]\)</span>, la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:</p>
 <pre><code>Calibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).</code></pre>
-<p>Utilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo <code>ej8.csv</code>.</p>
+<p>Utilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo <code>ej6.csv</code>.</p>
 
 
 </section>
