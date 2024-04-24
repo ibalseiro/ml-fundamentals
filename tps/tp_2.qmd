@@ -46,6 +46,6 @@ A partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el p
 5. Graficar y reportar métricas de performance y gráficas de calibración para los datos de test.
 6. Escribir un pipeline de Scikit Learn que resuma los pasos anteriores.
 
-Encontrará un archivo JRC.ipynb donde implementar este ejercicio.
+Encontrará un archivo ej2.ipynb donde implementar este ejercicio.
 
 
