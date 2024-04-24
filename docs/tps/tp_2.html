@@ -212,9 +212,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="your-first-end-to-end-machine-learning-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="your-first-end-to-end-machine-learning-pipeline">(★) 2. Your first end to end Machine Learning pipeline</h2>
-<p>Implemente la funcion dada por la siguiente firma:</p>
-<pre><code>def confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...</code></pre>
-<p>y utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?</p>
+<p>A partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:</p>
+<ol type="1">
+<li>Cargar los datos del dataset provisto anteriormente, splittear en train y test,</li>
+<li>Preprocesar los datos en un formato adecuado para entrenar un modelo,</li>
+<li>Definir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)</li>
+<li>Utilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. <em>Se recomienda LightGBM</em>. Buscar a través de KFold o alguna técnica de validación cruzada.</li>
+<li>Graficar y reportar métricas de performance y gráficas de calibración para los datos de test.</li>
+<li>Escribir un pipeline de Scikit Learn que resuma los pasos anteriores.</li>
+</ol>
+<p>Encontrará un archivo JRC.ipynb donde implementar este ejercicio.</p>
 
 
 </section>

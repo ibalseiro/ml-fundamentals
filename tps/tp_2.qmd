@@ -37,10 +37,15 @@ Además: los datasets provistos están en formato pickle, un tipo de serializaci
 
 ## (★) 2. Your first end to end Machine Learning pipeline
 
-Implemente la funcion dada por la siguiente firma:
+A partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:
 
-```
-def confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -> float: ...
-```
+1. Cargar los datos del dataset provisto anteriormente, splittear en train y test,
+2. Preprocesar los datos en un formato adecuado para entrenar un modelo,
+3. Definir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)
+4. Utilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. _Se recomienda LightGBM_. Buscar a través de KFold o alguna técnica de validación cruzada.
+5. Graficar y reportar métricas de performance y gráficas de calibración para los datos de test.
+6. Escribir un pipeline de Scikit Learn que resuma los pasos anteriores.
 
-y utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?
+Encontrará un archivo JRC.ipynb donde implementar este ejercicio.
+
+
