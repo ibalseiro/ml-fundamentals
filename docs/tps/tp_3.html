@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fundamentos de Machine Learning - TP2: Linear and Tree models</title>
+<title>Fundamentos de Machine Learning - TP3: Unsupervised Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_2.html">TP2: Linear and Tree models</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_3.html">TP3: Unsupervised Learning</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -138,13 +138,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_2.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tps/tp_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP2: Linear and Tree models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP3: Unsupervised Learning</span></a>
   </div>
 </li>
@@ -161,8 +161,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
-  <li><a href="#your-own-scikit-learn-library" id="toc-your-own-scikit-learn-library" class="nav-link" data-scroll-target="#your-own-scikit-learn-library">(★) 1. Your own Scikit Learn library</a></li>
-  <li><a href="#your-first-end-to-end-machine-learning-pipeline" id="toc-your-first-end-to-end-machine-learning-pipeline" class="nav-link" data-scroll-target="#your-first-end-to-end-machine-learning-pipeline">(★) 2. Your first end to end Machine Learning pipeline</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">(★) 1.</a></li>
   </ul>
 </nav>
     </div>
@@ -171,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TP2: Linear and Tree models</h1>
+<h1 class="title">TP3: Unsupervised Learning</h1>
 </div>
 
 
@@ -197,37 +196,8 @@ ul.task-list li input[type="checkbox"] {
 <li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
 </ul>
 </section>
-<section id="your-own-scikit-learn-library" class="level2">
-<h2 class="anchored" data-anchor-id="your-own-scikit-learn-library">(★) 1. Your own Scikit Learn library</h2>
-<p>Encontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.</p>
-<p>Dicho esto, resuelva los siguientes incisos:</p>
-<ol type="1">
-<li>Implemente el proceso de entrenamiento de SGD en SGDEstimator.</li>
-<li>Implemente LinearRegressor.</li>
-<li>Implemente LogisticClassifier.</li>
-<li>En la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?</li>
-<li>En la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.</li>
-<li>En la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.</li>
-<li>Implemente la clase TreeStumpRegressor.</li>
-<li>Implemente la clase GradientBoostingEstimator.</li>
-<li>Intente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?</li>
-<li>Reescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?</li>
-</ol>
-<p>Este ejercicio es <strong>entregable</strong>!</p>
-<p>Además: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load.</p>
-</section>
-<section id="your-first-end-to-end-machine-learning-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="your-first-end-to-end-machine-learning-pipeline">(★) 2. Your first end to end Machine Learning pipeline</h2>
-<p>A partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:</p>
-<ol type="1">
-<li>Cargar los datos del dataset provisto anteriormente, splittear en train y test,</li>
-<li>Preprocesar los datos en un formato adecuado para entrenar un modelo,</li>
-<li>Definir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)</li>
-<li>Utilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. <em>Se recomienda LightGBM</em>. Buscar a través de KFold o alguna técnica de validación cruzada.</li>
-<li>Graficar y reportar métricas de performance y gráficas de calibración para los datos de test.</li>
-<li>Escribir un pipeline de Scikit Learn que resuma los pasos anteriores.</li>
-</ol>
-<p>Encontrará un archivo ej2.ipynb donde implementar este ejercicio.</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">(★) 1.</h2>
 
 
 </section>

@@ -98,6 +98,27 @@
     "text": "Microservices (★★★★)\nA partir de lo visto en Docker, APIs y SQL, construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.\n\n\n\nArquitectura básica para la aplicación containerizada\n\n\n\nEjercicios\n\n(★★★★) Integración: Reutilizar el ejercicio 1 y 2 de Docker en un archivo de docker-compose para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de User Interface."
   },
   {
+    "objectID": "tps/tp_3.html",
+    "href": "tps/tp_3.html",
+    "title": "TP3: Unsupervised Learning",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_3.html#resumen",
+    "href": "tps/tp_3.html#resumen",
+    "title": "TP3: Unsupervised Learning",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_3.html#section",
+    "href": "tps/tp_3.html#section",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★) 1.",
+    "text": "(★) 1."
+  },
+  {
     "objectID": "tps/tp_2.html",
     "href": "tps/tp_2.html",
     "title": "TP2: Linear and Tree models",
