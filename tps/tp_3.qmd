@@ -1,0 +1,18 @@
+---
+title: "TP3: Unsupervised Learning"
+---
+
+## Resumen
+
+El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.
+
+Encontrará los ejercicios con diferentes marcas:
+
+-   ★: Ejercicio Obligatorio - no tenés opción.
+-   ★★: Ejercicio recomendado - hacelo, que no te gane la timidez.
+-   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
+-   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
+
+## (★) 1. 
+
+
