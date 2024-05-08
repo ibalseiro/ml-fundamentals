@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fundamentos de Machine Learning</title>
+<title>Fundamentos de Machine Learning - TP3: Unsupervised Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -80,9 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Fundamentos de Machine Learning
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_3.html">TP3: Unsupervised Learning</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -97,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Fundamentos de Machine Learning</a> 
+      <a href="../">Fundamentos de Machine Learning</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -118,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/clase_0.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/clase_0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">L0: Tooling</span></a>
   </div>
 </li>
@@ -135,25 +133,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tps/tp_0.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_0.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP0: Tooling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tps/tp_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP1: Data/Error</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tps/tp_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP2: Linear and Tree models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tps/tp_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP3: Unsupervised Learning</span></a>
   </div>
 </li>
@@ -169,32 +167,109 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bienvenidos" id="toc-bienvenidos" class="nav-link active" data-scroll-target="#bienvenidos">Bienvenidos!👋</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#clustering-k-means" id="toc-clustering-k-means" class="nav-link" data-scroll-target="#clustering-k-means">(★) 1. Clustering K-means</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">(★) 2. PCA</a></li>
+  <li><a href="#embeddings-y-reducción-de-la-dimensionalidad" id="toc-embeddings-y-reducción-de-la-dimensionalidad" class="nav-link" data-scroll-target="#embeddings-y-reducción-de-la-dimensionalidad">(★★) 3. Embeddings y Reducción de la dimensionalidad</a>
+  <ul class="collapse">
+  <li><a href="#recursos-disponibles" id="toc-recursos-disponibles" class="nav-link" data-scroll-target="#recursos-disponibles">Recursos disponibles:</a></li>
+  <li><a href="#tareas" id="toc-tareas" class="nav-link" data-scroll-target="#tareas">Tareas:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_3.html">TP3: Unsupervised Learning</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">TP3: Unsupervised Learning</h1>
+</div>
 
 
 
-<section id="bienvenidos" class="level1">
-<h1>Bienvenidos!👋</h1>
-<p>Bienvenidos a la página de Fundamentos de Machine Learning del Instituto Balseiro. Esta página actúa como repositorio de todos los elementos que pueden llegar a necesitar para el desarrollo de la misma:</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="resumen" class="level2">
+<h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
+<p>El TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.</p>
+<p>Encontrará los ejercicios con diferentes marcas:</p>
+<ul>
+<li>★: Ejercicio Obligatorio - no tenés opción.</li>
+<li>★★: Ejercicio recomendado - hacelo, que no te gane la timidez.</li>
+<li>★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.</li>
+<li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
+</ul>
+</section>
+<section id="clustering-k-means" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-k-means">(★) 1. Clustering K-means</h2>
 <ol type="1">
-<li>Clases teóricas.</li>
-<li>Trabajos prácticos.</li>
+<li>Implementa el algoritmo KMeans en el script <code>ej1/k_means.py</code></li>
+<li>Emplea el notebook <code>ej1/explore_train.ipynb</code> para explorar el archivo <code>ej1/data/synthetic_dataset_1.csv</code>. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.</li>
+<li>Varía el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).</li>
+<li>Explora el archivo <code>data/synthetic_dataset_2.csv</code> y agrupa en clusters usando KMeans.</li>
+<li>Utiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) de sklearn para agrupar en clusters los datos (en el notebook <code>ej1/ej1_explore_train.ipynb</code>).</li>
 </ol>
-<p>Lorem Ipsum?</p>
-<p>Cronograma?</p>
-<p>Programa?</p>
-<p>Metodología de evaluación?</p>
-<p>Bibliografía?</p>
-<p>Cátedra?</p>
-<p>Si la inflamación se va, el dolor vuelve?</p>
+</section>
+<section id="pca" class="level2">
+<h2 class="anchored" data-anchor-id="pca">(★) 2. PCA</h2>
+<ol start="0" type="1">
+<li>Haz un breve EDA del dataset “Wine” de <code>sklearn</code> en el notebook <code>ej2/ej2_explore_train.ipynb</code>. Grafica la variable <code>target</code>para distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?</li>
+<li>Tu tarea es completar la implementación de la clase PCA en el archivo <code>pca.py</code>.</li>
+<li>Una vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de <code>sklearn</code> en el notebook <code>ej2/ej2_explore_train.ipynb</code>.</li>
+<li>Muestra e interpreta tus resultados.</li>
+<li>Determina de vuelta las componentes principales, pero esta vez usando la librería sklearn.</li>
+<li>Obtener los cargos de las variables en los componentes principales. Hint:use <code>pca.components_</code>, Nos interesa saber los factores más importantes a la hora de elegir un vino!.</li>
+<li>(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?</li>
+</ol>
+</section>
+<section id="embeddings-y-reducción-de-la-dimensionalidad" class="level2">
+<h2 class="anchored" data-anchor-id="embeddings-y-reducción-de-la-dimensionalidad">(★★) 3. Embeddings y Reducción de la dimensionalidad</h2>
+<section id="recursos-disponibles" class="level3">
+<h3 class="anchored" data-anchor-id="recursos-disponibles">Recursos disponibles:</h3>
+<ul>
+<li><strong>Modelo de Vocabulario</strong>: Se proporciona un archivo de vectores FastText pre-entrenado en formato <code>.vec</code>. Puedes descargar el archivo de vectores desde el siguiente enlace:</li>
+</ul>
+<p><a href="https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.es.300.vec.gz">Descargar vectores FastText en español</a>.</p>
+<p>Una vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.</p>
+<ul>
+<li><strong>Función <code>load_vectors</code> en el notebook <code>ej3/ej3.ipynb</code></strong>: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.</li>
+</ul>
+</section>
+<section id="tareas" class="level3">
+<h3 class="anchored" data-anchor-id="tareas">Tareas:</h3>
+<ol type="1">
+<li><strong>Reducción de Dimensionalidad</strong>:
+<ul>
+<li>Aplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.</li>
+<li>Guarda los resultados de la transformación para la visualización posterior.</li>
+</ul></li>
+<li><strong>Visualización en 3D</strong>:
+<ul>
+<li>Utiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.</li>
+<li>Cada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.</li>
+<li>Incluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.</li>
+</ul></li>
+<li><strong>Interpretación</strong>:
+<ul>
+<li>Analiza el gráfico y discute cómo las palabras con significados similares están agrupadas.</li>
+<li>Reflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.</li>
+<li>Identifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.</li>
+</ul></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
