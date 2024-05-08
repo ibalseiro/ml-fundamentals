@@ -20,7 +20,7 @@ Encontrará los ejercicios con diferentes marcas:
 2. Emplea el notebook `ej1/explore_train.ipynb` para explorar el archivo `ej1/data/synthetic_dataset_1.csv`. Posteriormente "entrena/fitea" el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.
 3. Varía el número K para armar "the elbow curve" y elige el K óptimo (agrega tu respuesta en una celda).
 4. Explora el archivo `data/synthetic_dataset_2.csv` y agrupa en clusters usando KMeans.
-5. Utiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) de sklearn para agrupar en clusters los datos (en el notebook `ej1/ej1_explore_train.ipynb`).
+5. Utiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook `ej1/ej1_explore_train.ipynb`).
 
 ## (★) 2. PCA
 
@@ -29,7 +29,7 @@ Encontrará los ejercicios con diferentes marcas:
 2. Una vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos "Wine" de `sklearn` en el notebook `ej2/ej2_explore_train.ipynb`.
 3. Muestra e interpreta tus resultados. 
 4. Determina de vuelta las componentes principales, pero esta vez usando la librería sklearn.
-5. Obtener los cargos de las variables en los componentes principales. Hint:use `pca.components_`, Nos interesa saber los factores más importantes a la hora de elegir un vino!.
+5. Obtener los loadings de las variables en los componentes principales. Hint:use `pca.components_`, Nos interesa saber los factores más importantes a la hora de elegir un vino!.
 6. (Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?
 
 ## (★★) 3. Embeddings y Reducción de la dimensionalidad 
@@ -59,7 +59,3 @@ Una vez que tengas descargado el modelo de vectores, guardalo en la carpeta 'ej3
    - Analiza el gráfico y discute cómo las palabras con significados similares están agrupadas.
    - Reflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.
    - Identifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.
-
-
-
-
