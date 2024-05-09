@@ -167,7 +167,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a>
+  <ul class="collapse">
+  <li><a href="#link-al-repositorio" id="toc-link-al-repositorio" class="nav-link" data-scroll-target="#link-al-repositorio">Link al repositorio</a></li>
+  <li><a href="#importante" id="toc-importante" class="nav-link" data-scroll-target="#importante">Importante:</a></li>
+  </ul></li>
   <li><a href="#clustering-k-means" id="toc-clustering-k-means" class="nav-link" data-scroll-target="#clustering-k-means">(★) 1. Clustering K-means</a></li>
   <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">(★) 2. PCA</a></li>
   <li><a href="#embeddings-y-reducción-de-la-dimensionalidad" id="toc-embeddings-y-reducción-de-la-dimensionalidad" class="nav-link" data-scroll-target="#embeddings-y-reducción-de-la-dimensionalidad">(★★) 3. Embeddings y Reducción de la dimensionalidad</a>
@@ -210,6 +214,13 @@ ul.task-list li input[type="checkbox"] {
 <li>★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.</li>
 <li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
 </ul>
+<section id="link-al-repositorio" class="level3">
+<h3 class="anchored" data-anchor-id="link-al-repositorio"><a href="https://classroom.github.com/a/FOcXgubK">Link al repositorio</a></h3>
+</section>
+<section id="importante" class="level3">
+<h3 class="anchored" data-anchor-id="importante">Importante:</h3>
+<p>Es probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un <code>pull</code> a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con <code>pytest</code> para obtener feedback outomático. Mil disculpas, gracias por tanto.</p>
+</section>
 </section>
 <section id="clustering-k-means" class="level2">
 <h2 class="anchored" data-anchor-id="clustering-k-means">(★) 1. Clustering K-means</h2>

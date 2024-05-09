@@ -13,6 +13,11 @@ Encontrará los ejercicios con diferentes marcas:
 -   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
 -   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
 
+### [Link al repositorio](https://classroom.github.com/a/FOcXgubK)
+### Importante: 
+Es probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo.
+Una vez que lo hayamos solucionado les avisaremos para que hagan un `pull` a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con `pytest` para obtener feedback outomático. Mil disculpas, gracias por tanto.
+
 ## (★) 1. Clustering K-means
 
 1. Implementa el algoritmo KMeans en el script `ej1/k_means.py`
