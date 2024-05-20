@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fundamentos de Machine Learning - TP3: Unsupervised Learning</title>
+<title>Fundamentos de Machine Learning - TP4 (1/2): Deep Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_3.html">TP3: Unsupervised Learning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_4.html">TP4 (1/2): Deep Learning</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,13 +151,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tps/tp_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_4.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP4 (1/2): Deep Learning</span></a>
   </div>
 </li>
@@ -173,18 +173,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#fecha-de-entrega-lunes-20052024" id="toc-fecha-de-entrega-lunes-20052024" class="nav-link active" data-scroll-target="#fecha-de-entrega-lunes-20052024">Fecha de entrega: lunes 20/05/2024</a></li>
+  <li><a href="#fecha-de-entrega-lunes-03062024" id="toc-fecha-de-entrega-lunes-03062024" class="nav-link active" data-scroll-target="#fecha-de-entrega-lunes-03062024">Fecha de entrega: lunes 03/06/2024</a></li>
   <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a>
   <ul class="collapse">
   <li><a href="#link-al-repositorio" id="toc-link-al-repositorio" class="nav-link" data-scroll-target="#link-al-repositorio">Link al repositorio</a></li>
-  <li><a href="#importante" id="toc-importante" class="nav-link" data-scroll-target="#importante">Importante:</a></li>
   </ul></li>
-  <li><a href="#clustering-k-means" id="toc-clustering-k-means" class="nav-link" data-scroll-target="#clustering-k-means">(★) 1. Clustering K-means</a></li>
-  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">(★) 2. PCA</a></li>
-  <li><a href="#embeddings-y-reducción-de-la-dimensionalidad" id="toc-embeddings-y-reducción-de-la-dimensionalidad" class="nav-link" data-scroll-target="#embeddings-y-reducción-de-la-dimensionalidad">(★★) 3. Embeddings y Reducción de la dimensionalidad</a>
+  <li><a href="#red-neuronal-feed-forward-from-scratch" id="toc-red-neuronal-feed-forward-from-scratch" class="nav-link" data-scroll-target="#red-neuronal-feed-forward-from-scratch">(★) 1. Red Neuronal Feed Forward from Scratch</a>
   <ul class="collapse">
-  <li><a href="#recursos-disponibles" id="toc-recursos-disponibles" class="nav-link" data-scroll-target="#recursos-disponibles">Recursos disponibles:</a></li>
-  <li><a href="#tareas" id="toc-tareas" class="nav-link" data-scroll-target="#tareas">Tareas:</a></li>
+  <li><a href="#descripción-del-problema" id="toc-descripción-del-problema" class="nav-link" data-scroll-target="#descripción-del-problema">Descripción del Problema:</a></li>
+  </ul></li>
+  <li><a href="#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes." id="toc-implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes." class="nav-link" data-scroll-target="#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.">(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.</a></li>
+  <li><a href="#micro-keras-from-scratch" id="toc-micro-keras-from-scratch" class="nav-link" data-scroll-target="#micro-keras-from-scratch">(★★★) 3. Micro Keras from scratch</a>
+  <ul class="collapse">
+  <li><a href="#estructura-recomendada-del-código" id="toc-estructura-recomendada-del-código" class="nav-link" data-scroll-target="#estructura-recomendada-del-código">Estructura (recomendada) del Código</a></li>
+  <li><a href="#descripción-de-los-módulos" id="toc-descripción-de-los-módulos" class="nav-link" data-scroll-target="#descripción-de-los-módulos">Descripción de los Módulos</a></li>
+  <li><a href="#caso-de-prueba" id="toc-caso-de-prueba" class="nav-link" data-scroll-target="#caso-de-prueba">Caso de prueba</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -192,9 +195,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_3.html">TP3: Unsupervised Learning</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_4.html">TP4 (1/2): Deep Learning</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TP3: Unsupervised Learning</h1>
+<h1 class="title">TP4 (1/2): Deep Learning</h1>
 </div>
 
 
@@ -211,12 +214,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="fecha-de-entrega-lunes-20052024" class="level2">
-<h2 class="anchored" data-anchor-id="fecha-de-entrega-lunes-20052024">Fecha de entrega: lunes 20/05/2024</h2>
+<section id="fecha-de-entrega-lunes-03062024" class="level2">
+<h2 class="anchored" data-anchor-id="fecha-de-entrega-lunes-03062024">Fecha de entrega: lunes 03/06/2024</h2>
 </section>
 <section id="resumen" class="level2">
 <h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
-<p>El TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.</p>
+<p>El TP4 parte 1 (1/2) apunta a familiarizarse con conceptos introductorios de Redes Neuronales y Deep Learning, tales como backpropagation, redes feed forward (densas) y redes convolucionales (CNN). Esta guía tiene tres ejercicios, de los cuales los primeros dos son entregables.</p>
 <p>Encontrará los ejercicios con diferentes marcas:</p>
 <ul>
 <li>★: Ejercicio Obligatorio - no tenés opción.</li>
@@ -225,69 +228,67 @@ ul.task-list li input[type="checkbox"] {
 <li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
 </ul>
 <section id="link-al-repositorio" class="level3">
-<h3 class="anchored" data-anchor-id="link-al-repositorio"><a href="https://classroom.github.com/a/FOcXgubK">Link al repositorio</a></h3>
-</section>
-<section id="importante" class="level3">
-<h3 class="anchored" data-anchor-id="importante">Importante:</h3>
-<p>Es probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un <code>pull</code> a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con <code>pytest</code>, para obtener feedback automático. Mil disculpas, gracias por tanto.</p>
+<h3 class="anchored" data-anchor-id="link-al-repositorio"><a href="">Link al repositorio</a></h3>
 </section>
 </section>
-<section id="clustering-k-means" class="level2">
-<h2 class="anchored" data-anchor-id="clustering-k-means">(★) 1. Clustering K-means</h2>
+<section id="red-neuronal-feed-forward-from-scratch" class="level2">
+<h2 class="anchored" data-anchor-id="red-neuronal-feed-forward-from-scratch">(★) 1. Red Neuronal Feed Forward from Scratch</h2>
+<p>El objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script <code>ej1.py</code>, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)</p>
+<section id="descripción-del-problema" class="level3">
+<h3 class="anchored" data-anchor-id="descripción-del-problema">Descripción del Problema:</h3>
+<p>CIFAR-10 es un conjunto de datos que contiene 60,000 imágenes (50,000 para train y 10,000 para test) en color (RGB) de 32x32 píxeles, distribuidas en 10 clases diferentes (como aviones, automóviles, aves, etc.). Para este ejercicio, implementarás una red neuronal con la siguiente arquitectura:</p>
+<p>Una capa de entrada que recibe las imágenes aplanadas (tamaño 32x32x3). Una capa oculta con 100 neuronas y función de activación ReLU. Una capa de salida con 10 neuronas y función de activación softmax, una por cada clase.</p>
+</section>
+</section>
+<section id="implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes." class="level2">
+<h2 class="anchored" data-anchor-id="implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.">(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.</h2>
+<p>Resuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales Presenta tus resultados en el notebook <code>ej2.ipynb</code>. Te recomendamos fuertemente usar <code>Google Colab</code>, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías <code>Keras</code> y <code>Pytorch</code> están optimizadas para tareas paralelizables.</p>
+</section>
+<section id="micro-keras-from-scratch" class="level2">
+<h2 class="anchored" data-anchor-id="micro-keras-from-scratch">(★★★) 3. Micro Keras from scratch</h2>
+<p>El objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy.</p>
+<section id="estructura-recomendada-del-código" class="level3">
+<h3 class="anchored" data-anchor-id="estructura-recomendada-del-código">Estructura (recomendada) del Código</h3>
+<p>La biblioteca deberá estar organizada organizada en los siguientes módulos:</p>
 <ol type="1">
-<li>Implementa el algoritmo KMeans en el script <code>ej1/k_means.py</code></li>
-<li>Emplea el notebook <code>ej1/explore_train.ipynb</code> para explorar el archivo <code>ej1/data/synthetic_dataset_1.csv</code>. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.</li>
-<li>Varía el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).</li>
-<li>Explora el archivo <code>data/synthetic_dataset_2.csv</code> y agrupa en clusters usando KMeans.</li>
-<li>Utiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook <code>ej1/ej1_explore_train.ipynb</code>).</li>
+<li>metrics.py</li>
+<li>losses.py</li>
+<li>activations.py</li>
+<li>models.py</li>
+<li>layers.py</li>
+<li>optimizers.py</li>
 </ol>
 </section>
-<section id="pca" class="level2">
-<h2 class="anchored" data-anchor-id="pca">(★) 2. PCA</h2>
-<ol start="0" type="1">
-<li>Haz un breve EDA del dataset “Wine” de <code>sklearn</code> en el notebook <code>ej2/ej2_explore_train.ipynb</code>. Grafica la variable <code>target</code>para distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?</li>
-<li>Tu tarea es completar la implementación de la clase PCA en el archivo <code>pca.py</code>.</li>
-<li>Una vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de <code>sklearn</code> en el notebook <code>ej2/ej2_explore_train.ipynb</code>.</li>
-<li>Muestra e interpreta tus resultados.</li>
-<li>Determina de vuelta las componentes principales, pero esta vez usando la librería sklearn.</li>
-<li>Obtener los loadings de las variables en los componentes principales. Hint:use <code>pca.components_</code>, Nos interesa saber los factores más importantes a la hora de elegir un vino!.</li>
-<li>(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?</li>
-</ol>
+<section id="descripción-de-los-módulos" class="level3">
+<h3 class="anchored" data-anchor-id="descripción-de-los-módulos">Descripción de los Módulos</h3>
+<section id="metrics.py" class="level4">
+<h4 class="anchored" data-anchor-id="metrics.py">1. metrics.py</h4>
+<p>Accuracy: Calcula la precisión de las predicciones. MSE: Calcula el error cuadrático medio (Mean Squared Error).</p>
 </section>
-<section id="embeddings-y-reducción-de-la-dimensionalidad" class="level2">
-<h2 class="anchored" data-anchor-id="embeddings-y-reducción-de-la-dimensionalidad">(★★) 3. Embeddings y Reducción de la dimensionalidad</h2>
-<section id="recursos-disponibles" class="level3">
-<h3 class="anchored" data-anchor-id="recursos-disponibles">Recursos disponibles:</h3>
-<ul>
-<li><strong>Modelo de Vocabulario</strong>: Se proporciona un archivo de vectores FastText pre-entrenado en formato <code>.vec</code>. Puedes descargar el archivo de vectores desde el siguiente enlace:</li>
-</ul>
-<p><a href="https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.es.300.vec.gz">Descargar vectores FastText en español</a>.</p>
-<p>Una vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.</p>
-<ul>
-<li><strong>Función <code>load_vectors</code> en el notebook <code>ej3/ej3.ipynb</code></strong>: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.</li>
-</ul>
+<section id="losses.py" class="level4">
+<h4 class="anchored" data-anchor-id="losses.py">2. losses.py</h4>
+<p>Loss: Interfaz de las funciones de costo que define el método <strong>call</strong> y gradient. MSE: Implementación de la función de costo Mean Squared Error.</p>
 </section>
-<section id="tareas" class="level3">
-<h3 class="anchored" data-anchor-id="tareas">Tareas:</h3>
-<ol type="1">
-<li><strong>Reducción de Dimensionalidad</strong>:
-<ul>
-<li>Aplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.</li>
-<li>Guarda los resultados de la transformación para la visualización posterior.</li>
-</ul></li>
-<li><strong>Visualización en 3D</strong>:
-<ul>
-<li>Utiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.</li>
-<li>Cada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.</li>
-<li>Incluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.</li>
-</ul></li>
-<li><strong>Interpretación</strong>:
-<ul>
-<li>Analiza el gráfico y discute cómo las palabras con significados similares están agrupadas.</li>
-<li>Reflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.</li>
-<li>Identifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.</li>
-</ul></li>
-</ol>
+<section id="activations.py" class="level4">
+<h4 class="anchored" data-anchor-id="activations.py">3. activations.py</h4>
+<p>ReLU: Implementa la función de activación ReLU y su derivada. Tanh: Implementa la función de activación Tanh y su derivada. Sigmoid: Implementa la función de activación Sigmoid y su derivada.</p>
+</section>
+<section id="models.py" class="level4">
+<h4 class="anchored" data-anchor-id="models.py">4. models.py</h4>
+<p>Network: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.</p>
+</section>
+<section id="layers.py" class="level4">
+<h4 class="anchored" data-anchor-id="layers.py">5. layers.py</h4>
+<p>BaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward. Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer. Layer: Clase base para capas con pesos. Hereda de BaseLayer. Dense: Representa una capa densa (fully connected) que hereda de Layer.</p>
+</section>
+<section id="optimizers.py" class="level4">
+<h4 class="anchored" data-anchor-id="optimizers.py">6. optimizers.py</h4>
+<p>Optimizer: Interfaz para optimizadores. Define el método update. SGD: Implementa el optimizador Stochastic Gradient Descent.</p>
+</section>
+</section>
+<section id="caso-de-prueba" class="level3">
+<h3 class="anchored" data-anchor-id="caso-de-prueba">Caso de prueba</h3>
+<p>Para validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas).</p>
 
 
 </section>

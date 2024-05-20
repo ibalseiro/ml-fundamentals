@@ -1,0 +1,84 @@
+---
+title: "TP4 (1/2): Deep Learning"
+---
+## Fecha de entrega: lunes 03/06/2024
+
+## Resumen
+
+El TP4 parte 1 (1/2) apunta a familiarizarse con conceptos introductorios de Redes Neuronales y Deep Learning, tales como backpropagation, redes feed forward (densas) y redes convolucionales (CNN). Esta guía tiene tres ejercicios, de los cuales los primeros dos son entregables.
+
+Encontrará los ejercicios con diferentes marcas:
+
+-   ★: Ejercicio Obligatorio - no tenés opción.
+-   ★★: Ejercicio recomendado - hacelo, que no te gane la timidez.
+-   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
+-   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
+
+### [Link al repositorio](https://classroom.github.com/a/oamKR9wc)
+
+## (★) 1. Red Neuronal Feed Forward from Scratch
+
+El objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script `ej1.py`, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)
+
+### Descripción del Problema:
+CIFAR-10 es un conjunto de datos que contiene 60,000 imágenes (50,000 para train y 10,000 para test) en color (RGB) de 32x32 píxeles, distribuidas en 10 clases diferentes (como aviones, automóviles, aves, etc.). Para este ejercicio, implementarás una red neuronal con la siguiente arquitectura:
+
+Una capa de entrada que recibe las imágenes aplanadas (tamaño 32x32x3).
+Una capa oculta con 100 neuronas y función de activación ReLU.
+Una capa de salida con 10 neuronas y función de activación softmax, una por cada clase.
+
+## (★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.
+
+Resuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales
+Presenta tus resultados en el notebook `ej2.ipynb`.
+Te recomendamos fuertemente usar `Google Colab`, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías `Keras` y `Pytorch` están optimizadas para tareas paralelizables.
+
+## (★★★) 3. Micro Keras from scratch
+
+El objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy. 
+
+### Estructura (recomendada) del Código
+La biblioteca deberá estar organizada organizada en los siguientes módulos:
+
+1. metrics.py
+2. losses.py
+3. activations.py
+4. models.py
+5. layers.py
+6. optimizers.py
+
+### Descripción de los Módulos
+#### 1. metrics.py
+
+Accuracy: Calcula la precisión de las predicciones.
+MSE: Calcula el error cuadrático medio (Mean Squared Error).
+
+#### 2. losses.py
+
+Loss: Interfaz de las funciones de costo que define el método __call__ y gradient.
+MSE: Implementación de la función de costo Mean Squared Error.
+
+#### 3. activations.py
+
+ReLU: Implementa la función de activación ReLU y su derivada.
+Tanh: Implementa la función de activación Tanh y su derivada.
+Sigmoid: Implementa la función de activación Sigmoid y su derivada.
+
+#### 4. models.py
+
+Network: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.
+
+#### 5. layers.py
+
+BaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward.
+Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer.
+Layer: Clase base para capas con pesos. Hereda de BaseLayer.
+Dense: Representa una capa densa (fully connected) que hereda de Layer.
+
+#### 6. optimizers.py
+
+Optimizer: Interfaz para optimizadores. Define el método update.
+SGD: Implementa el optimizador Stochastic Gradient Descent.
+
+### Caso de prueba
+Para validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas).

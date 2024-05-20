@@ -1,153 +1,91 @@
 [
   {
-    "objectID": "tps/tp_3.html#resumen",
-    "href": "tps/tp_3.html#resumen",
-    "title": "TP3: Unsupervised Learning",
+    "objectID": "tps/tp_4.html#resumen",
+    "href": "tps/tp_4.html#resumen",
+    "title": "TP4 (1/2): Deep Learning",
     "section": "Resumen",
-    "text": "Resumen\nEl TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio\n\n\nImportante:\nEs probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un pull a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con pytest, para obtener feedback automático. Mil disculpas, gracias por tanto.",
+    "text": "Resumen\nEl TP4 parte 1 (1/2) apunta a familiarizarse con conceptos introductorios de Redes Neuronales y Deep Learning, tales como backpropagation, redes feed forward (densas) y redes convolucionales (CNN). Esta guía tiene tres ejercicios, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio",
     "crumbs": [
       "Practicas",
-      "TP3: Unsupervised Learning"
+      "TP4 (1/2): Deep Learning"
     ]
   },
   {
-    "objectID": "tps/tp_3.html#clustering-k-means",
-    "href": "tps/tp_3.html#clustering-k-means",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★) 1. Clustering K-means",
-    "text": "(★) 1. Clustering K-means\n\nImplementa el algoritmo KMeans en el script ej1/k_means.py\nEmplea el notebook ej1/explore_train.ipynb para explorar el archivo ej1/data/synthetic_dataset_1.csv. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.\nVaría el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).\nExplora el archivo data/synthetic_dataset_2.csv y agrupa en clusters usando KMeans.\nUtiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook ej1/ej1_explore_train.ipynb).",
+    "objectID": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
+    "href": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★) 1. Red Neuronal Feed Forward from Scratch",
+    "text": "(★) 1. Red Neuronal Feed Forward from Scratch\nEl objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script ej1.py, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)\n\nDescripción del Problema:\nCIFAR-10 es un conjunto de datos que contiene 60,000 imágenes (50,000 para train y 10,000 para test) en color (RGB) de 32x32 píxeles, distribuidas en 10 clases diferentes (como aviones, automóviles, aves, etc.). Para este ejercicio, implementarás una red neuronal con la siguiente arquitectura:\nUna capa de entrada que recibe las imágenes aplanadas (tamaño 32x32x3). Una capa oculta con 100 neuronas y función de activación ReLU. Una capa de salida con 10 neuronas y función de activación softmax, una por cada clase.",
     "crumbs": [
       "Practicas",
-      "TP3: Unsupervised Learning"
+      "TP4 (1/2): Deep Learning"
     ]
   },
   {
-    "objectID": "tps/tp_3.html#pca",
-    "href": "tps/tp_3.html#pca",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★) 2. PCA",
-    "text": "(★) 2. PCA\n\nHaz un breve EDA del dataset “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb. Grafica la variable targetpara distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?\nTu tarea es completar la implementación de la clase PCA en el archivo pca.py.\nUna vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb.\nMuestra e interpreta tus resultados.\nDetermina de vuelta las componentes principales, pero esta vez usando la librería sklearn.\nObtener los loadings de las variables en los componentes principales. Hint:use pca.components_, Nos interesa saber los factores más importantes a la hora de elegir un vino!.\n(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?",
+    "objectID": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
+    "href": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.",
+    "text": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.\nResuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales Presenta tus resultados en el notebook ej2.ipynb. Te recomendamos fuertemente usar Google Colab, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías Keras y Pytorch están optimizadas para tareas paralelizables.",
     "crumbs": [
       "Practicas",
-      "TP3: Unsupervised Learning"
+      "TP4 (1/2): Deep Learning"
     ]
   },
   {
-    "objectID": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
-    "href": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★★) 3. Embeddings y Reducción de la dimensionalidad",
-    "text": "(★★) 3. Embeddings y Reducción de la dimensionalidad\n\nRecursos disponibles:\n\nModelo de Vocabulario: Se proporciona un archivo de vectores FastText pre-entrenado en formato .vec. Puedes descargar el archivo de vectores desde el siguiente enlace:\n\nDescargar vectores FastText en español.\nUna vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.\n\nFunción load_vectors en el notebook ej3/ej3.ipynb: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.\n\n\n\nTareas:\n\nReducción de Dimensionalidad:\n\nAplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.\nGuarda los resultados de la transformación para la visualización posterior.\n\nVisualización en 3D:\n\nUtiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.\nCada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.\nIncluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.\n\nInterpretación:\n\nAnaliza el gráfico y discute cómo las palabras con significados similares están agrupadas.\nReflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.\nIdentifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.",
+    "objectID": "tps/tp_4.html#micro-keras-from-scratch",
+    "href": "tps/tp_4.html#micro-keras-from-scratch",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★★★) 3. Micro Keras from scratch",
+    "text": "(★★★) 3. Micro Keras from scratch\nEl objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy.\n\nEstructura (recomendada) del Código\nLa biblioteca deberá estar organizada organizada en los siguientes módulos:\n\nmetrics.py\nlosses.py\nactivations.py\nmodels.py\nlayers.py\noptimizers.py\n\n\n\nDescripción de los Módulos\n\n1. metrics.py\nAccuracy: Calcula la precisión de las predicciones. MSE: Calcula el error cuadrático medio (Mean Squared Error).\n\n\n2. losses.py\nLoss: Interfaz de las funciones de costo que define el método call y gradient. MSE: Implementación de la función de costo Mean Squared Error.\n\n\n3. activations.py\nReLU: Implementa la función de activación ReLU y su derivada. Tanh: Implementa la función de activación Tanh y su derivada. Sigmoid: Implementa la función de activación Sigmoid y su derivada.\n\n\n4. models.py\nNetwork: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.\n\n\n5. layers.py\nBaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward. Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer. Layer: Clase base para capas con pesos. Hereda de BaseLayer. Dense: Representa una capa densa (fully connected) que hereda de Layer.\n\n\n6. optimizers.py\nOptimizer: Interfaz para optimizadores. Define el método update. SGD: Implementa el optimizador Stochastic Gradient Descent.\n\n\n\nCaso de prueba\nPara validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas).",
     "crumbs": [
       "Practicas",
-      "TP3: Unsupervised Learning"
+      "TP4 (1/2): Deep Learning"
     ]
   },
   {
-    "objectID": "tps/tp_1.html",
-    "href": "tps/tp_1.html",
-    "title": "TP1: Data/Error",
+    "objectID": "tps/tp_2.html",
+    "href": "tps/tp_2.html",
+    "title": "TP2: Linear and Tree models",
     "section": "",
-    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
     "crumbs": [
       "Practicas",
-      "TP1: Data/Error"
+      "TP2: Linear and Tree models"
     ]
   },
   {
-    "objectID": "tps/tp_1.html#resumen",
-    "href": "tps/tp_1.html#resumen",
-    "title": "TP1: Data/Error",
+    "objectID": "tps/tp_2.html#resumen",
+    "href": "tps/tp_2.html#resumen",
+    "title": "TP2: Linear and Tree models",
     "section": "",
-    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
     "crumbs": [
       "Practicas",
-      "TP1: Data/Error"
+      "TP2: Linear and Tree models"
     ]
   },
   {
-    "objectID": "tps/tp_1.html#accuracy-and-loss-functions",
-    "href": "tps/tp_1.html#accuracy-and-loss-functions",
-    "title": "TP1: Data/Error",
-    "section": "(★) 1. Accuracy and Loss functions",
-    "text": "(★) 1. Accuracy and Loss functions\nA fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:\ndef read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...\n\ndef precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny escriba un main que ejercite estas implementaciones utilizando el archivo ej1.csv.",
+    "objectID": "tps/tp_2.html#your-own-scikit-learn-library",
+    "href": "tps/tp_2.html#your-own-scikit-learn-library",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 1. Your own Scikit Learn library",
+    "text": "(★) 1. Your own Scikit Learn library\nEncontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.\nDicho esto, resuelva los siguientes incisos:\n\nImplemente el proceso de entrenamiento de SGD en SGDEstimator.\nImplemente LinearRegressor.\nImplemente LogisticClassifier.\nEn la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?\nEn la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.\nEn la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.\nImplemente la clase TreeStumpRegressor.\nImplemente la clase GradientBoostingEstimator.\nIntente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?\nReescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?\n\nEste ejercicio es entregable!\nAdemás: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load.",
     "crumbs": [
       "Practicas",
-      "TP1: Data/Error"
+      "TP2: Linear and Tree models"
     ]
   },
   {
-    "objectID": "tps/tp_1.html#confusion-matrix",
-    "href": "tps/tp_1.html#confusion-matrix",
-    "title": "TP1: Data/Error",
-    "section": "(★) 2. Confusion Matrix",
-    "text": "(★) 2. Confusion Matrix\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?",
+    "objectID": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "href": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 2. Your first end to end Machine Learning pipeline",
+    "text": "(★) 2. Your first end to end Machine Learning pipeline\nA partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:\n\nCargar los datos del dataset provisto anteriormente, splittear en train y test,\nPreprocesar los datos en un formato adecuado para entrenar un modelo,\nDefinir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)\nUtilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. Se recomienda LightGBM. Buscar a través de KFold o alguna técnica de validación cruzada.\nGraficar y reportar métricas de performance y gráficas de calibración para los datos de test.\nEscribir un pipeline de Scikit Learn que resuma los pasos anteriores.\n\nEncontrará un archivo ej2.ipynb donde implementar este ejercicio.",
     "crumbs": [
       "Practicas",
-      "TP1: Data/Error"
+      "TP2: Linear and Tree models"
     ]
-  },
-  {
-    "objectID": "tps/tp_1.html#numerical-and-categorical-features",
-    "href": "tps/tp_1.html#numerical-and-categorical-features",
-    "title": "TP1: Data/Error",
-    "section": "(★) 3. Numerical and Categorical features",
-    "text": "(★) 3. Numerical and Categorical features\nSe brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:\ndef histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...\n\ndef one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...\nUtilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#over-and-underfitting",
-    "href": "tps/tp_1.html#over-and-underfitting",
-    "title": "TP1: Data/Error",
-    "section": "(★) 4. Over and Underfitting",
-    "text": "(★) 4. Over and Underfitting\nSe provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:\ndef read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...\n\ndef plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...\ndonde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#eda-a-entregar",
-    "href": "tps/tp_1.html#eda-a-entregar",
-    "title": "TP1: Data/Error",
-    "section": "(★) 5. EDA [A entregar]",
-    "text": "(★) 5. EDA [A entregar]\nComplete el archivo ej5.ipynb que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#calibration-curves",
-    "href": "tps/tp_1.html#calibration-curves",
-    "title": "TP1: Data/Error",
-    "section": "(★★) 6. Calibration Curves",
-    "text": "(★★) 6. Calibration Curves\nUna herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales \\(y \\in \\{1, 0\\}\\) y la probabilidad predicha de que \\(y == 1\\), \\(p_y \\in [0, 1]\\), la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:\nCalibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).\nUtilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo ej6.csv.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "lectures/clase_0.html",
-    "href": "lectures/clase_0.html",
-    "title": "L0: Tooling",
-    "section": "",
-    "text": "Completar con lo que demos en la lecture",
-    "crumbs": [
-      "Lectures",
-      "L0: Tooling"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Bienvenidos!👋",
-    "section": "",
-    "text": "Bienvenidos!👋\nBienvenidos a la página de Fundamentos de Machine Learning del Instituto Balseiro. Esta página actúa como repositorio de todos los elementos que pueden llegar a necesitar para el desarrollo de la misma:\n\nClases teóricas.\nTrabajos prácticos.\n\nLorem Ipsum?\nCronograma?\nPrograma?\nMetodología de evaluación?\nBibliografía?\nCátedra?\nSi la inflamación se va, el dolor vuelve?"
   },
   {
     "objectID": "tps/tp_0.html",
@@ -293,47 +231,153 @@
     ]
   },
   {
-    "objectID": "tps/tp_2.html",
-    "href": "tps/tp_2.html",
-    "title": "TP2: Linear and Tree models",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bienvenidos!👋",
     "section": "",
-    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
-    "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
-    ]
+    "text": "Bienvenidos!👋\nBienvenidos a la página de Fundamentos de Machine Learning del Instituto Balseiro. Esta página actúa como repositorio de todos los elementos que pueden llegar a necesitar para el desarrollo de la misma:\n\nClases teóricas.\nTrabajos prácticos.\n\nLorem Ipsum?\nCronograma?\nPrograma?\nMetodología de evaluación?\nBibliografía?\nCátedra?\nSi la inflamación se va, el dolor vuelve?"
   },
   {
-    "objectID": "tps/tp_2.html#resumen",
-    "href": "tps/tp_2.html#resumen",
-    "title": "TP2: Linear and Tree models",
+    "objectID": "lectures/clase_0.html",
+    "href": "lectures/clase_0.html",
+    "title": "L0: Tooling",
     "section": "",
-    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
+    "text": "Completar con lo que demos en la lecture",
     "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
+      "Lectures",
+      "L0: Tooling"
     ]
   },
   {
-    "objectID": "tps/tp_2.html#your-own-scikit-learn-library",
-    "href": "tps/tp_2.html#your-own-scikit-learn-library",
-    "title": "TP2: Linear and Tree models",
-    "section": "(★) 1. Your own Scikit Learn library",
-    "text": "(★) 1. Your own Scikit Learn library\nEncontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.\nDicho esto, resuelva los siguientes incisos:\n\nImplemente el proceso de entrenamiento de SGD en SGDEstimator.\nImplemente LinearRegressor.\nImplemente LogisticClassifier.\nEn la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?\nEn la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.\nEn la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.\nImplemente la clase TreeStumpRegressor.\nImplemente la clase GradientBoostingEstimator.\nIntente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?\nReescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?\n\nEste ejercicio es entregable!\nAdemás: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load.",
+    "objectID": "tps/tp_1.html",
+    "href": "tps/tp_1.html",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
     "crumbs": [
       "Practicas",
-      "TP2: Linear and Tree models"
+      "TP1: Data/Error"
     ]
   },
   {
-    "objectID": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
-    "href": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
-    "title": "TP2: Linear and Tree models",
-    "section": "(★) 2. Your first end to end Machine Learning pipeline",
-    "text": "(★) 2. Your first end to end Machine Learning pipeline\nA partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:\n\nCargar los datos del dataset provisto anteriormente, splittear en train y test,\nPreprocesar los datos en un formato adecuado para entrenar un modelo,\nDefinir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)\nUtilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. Se recomienda LightGBM. Buscar a través de KFold o alguna técnica de validación cruzada.\nGraficar y reportar métricas de performance y gráficas de calibración para los datos de test.\nEscribir un pipeline de Scikit Learn que resuma los pasos anteriores.\n\nEncontrará un archivo ej2.ipynb donde implementar este ejercicio.",
+    "objectID": "tps/tp_1.html#resumen",
+    "href": "tps/tp_1.html#resumen",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
     "crumbs": [
       "Practicas",
-      "TP2: Linear and Tree models"
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#accuracy-and-loss-functions",
+    "href": "tps/tp_1.html#accuracy-and-loss-functions",
+    "title": "TP1: Data/Error",
+    "section": "(★) 1. Accuracy and Loss functions",
+    "text": "(★) 1. Accuracy and Loss functions\nA fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:\ndef read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...\n\ndef precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny escriba un main que ejercite estas implementaciones utilizando el archivo ej1.csv.",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#confusion-matrix",
+    "href": "tps/tp_1.html#confusion-matrix",
+    "title": "TP1: Data/Error",
+    "section": "(★) 2. Confusion Matrix",
+    "text": "(★) 2. Confusion Matrix\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#numerical-and-categorical-features",
+    "href": "tps/tp_1.html#numerical-and-categorical-features",
+    "title": "TP1: Data/Error",
+    "section": "(★) 3. Numerical and Categorical features",
+    "text": "(★) 3. Numerical and Categorical features\nSe brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:\ndef histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...\n\ndef one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...\nUtilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas.",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#over-and-underfitting",
+    "href": "tps/tp_1.html#over-and-underfitting",
+    "title": "TP1: Data/Error",
+    "section": "(★) 4. Over and Underfitting",
+    "text": "(★) 4. Over and Underfitting\nSe provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:\ndef read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...\n\ndef plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...\ndonde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio.",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#eda-a-entregar",
+    "href": "tps/tp_1.html#eda-a-entregar",
+    "title": "TP1: Data/Error",
+    "section": "(★) 5. EDA [A entregar]",
+    "text": "(★) 5. EDA [A entregar]\nComplete el archivo ej5.ipynb que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos.",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_1.html#calibration-curves",
+    "href": "tps/tp_1.html#calibration-curves",
+    "title": "TP1: Data/Error",
+    "section": "(★★) 6. Calibration Curves",
+    "text": "(★★) 6. Calibration Curves\nUna herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales \\(y \\in \\{1, 0\\}\\) y la probabilidad predicha de que \\(y == 1\\), \\(p_y \\in [0, 1]\\), la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:\nCalibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).\nUtilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo ej6.csv.",
+    "crumbs": [
+      "Practicas",
+      "TP1: Data/Error"
+    ]
+  },
+  {
+    "objectID": "tps/tp_3.html#resumen",
+    "href": "tps/tp_3.html#resumen",
+    "title": "TP3: Unsupervised Learning",
+    "section": "Resumen",
+    "text": "Resumen\nEl TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio\n\n\nImportante:\nEs probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un pull a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con pytest, para obtener feedback automático. Mil disculpas, gracias por tanto.",
+    "crumbs": [
+      "Practicas",
+      "TP3: Unsupervised Learning"
+    ]
+  },
+  {
+    "objectID": "tps/tp_3.html#clustering-k-means",
+    "href": "tps/tp_3.html#clustering-k-means",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★) 1. Clustering K-means",
+    "text": "(★) 1. Clustering K-means\n\nImplementa el algoritmo KMeans en el script ej1/k_means.py\nEmplea el notebook ej1/explore_train.ipynb para explorar el archivo ej1/data/synthetic_dataset_1.csv. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.\nVaría el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).\nExplora el archivo data/synthetic_dataset_2.csv y agrupa en clusters usando KMeans.\nUtiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook ej1/ej1_explore_train.ipynb).",
+    "crumbs": [
+      "Practicas",
+      "TP3: Unsupervised Learning"
+    ]
+  },
+  {
+    "objectID": "tps/tp_3.html#pca",
+    "href": "tps/tp_3.html#pca",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★) 2. PCA",
+    "text": "(★) 2. PCA\n\nHaz un breve EDA del dataset “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb. Grafica la variable targetpara distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?\nTu tarea es completar la implementación de la clase PCA en el archivo pca.py.\nUna vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb.\nMuestra e interpreta tus resultados.\nDetermina de vuelta las componentes principales, pero esta vez usando la librería sklearn.\nObtener los loadings de las variables en los componentes principales. Hint:use pca.components_, Nos interesa saber los factores más importantes a la hora de elegir un vino!.\n(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?",
+    "crumbs": [
+      "Practicas",
+      "TP3: Unsupervised Learning"
+    ]
+  },
+  {
+    "objectID": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
+    "href": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★★) 3. Embeddings y Reducción de la dimensionalidad",
+    "text": "(★★) 3. Embeddings y Reducción de la dimensionalidad\n\nRecursos disponibles:\n\nModelo de Vocabulario: Se proporciona un archivo de vectores FastText pre-entrenado en formato .vec. Puedes descargar el archivo de vectores desde el siguiente enlace:\n\nDescargar vectores FastText en español.\nUna vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.\n\nFunción load_vectors en el notebook ej3/ej3.ipynb: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.\n\n\n\nTareas:\n\nReducción de Dimensionalidad:\n\nAplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.\nGuarda los resultados de la transformación para la visualización posterior.\n\nVisualización en 3D:\n\nUtiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.\nCada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.\nIncluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.\n\nInterpretación:\n\nAnaliza el gráfico y discute cómo las palabras con significados similares están agrupadas.\nReflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.\nIdentifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.",
+    "crumbs": [
+      "Practicas",
+      "TP3: Unsupervised Learning"
     ]
   }
 ]
