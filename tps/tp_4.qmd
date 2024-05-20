@@ -16,7 +16,8 @@ Encontrará los ejercicios con diferentes marcas:
 
 ### [Link al repositorio](https://classroom.github.com/a/oamKR9wc)
 
-## (★) 1. Red Neuronal Feed Forward from Scratch
+
+## (★) 1. Red Neuronal Feed Forward (from Scratch)
 
 El objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script `ej1.py`, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)
 
