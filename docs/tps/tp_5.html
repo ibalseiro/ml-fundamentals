@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fundamentos de Machine Learning - TP1: Data/Error</title>
+<title>Fundamentos de Machine Learning - TP5: Transformers y LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -61,8 +95,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -75,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_1.html">TP1: Data/Error</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tps/tp_0.html">Practicas</a></li><li class="breadcrumb-item"><a href="../tps/tp_5.html">TP5: Transformers y LLMs</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -134,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_1.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tps/tp_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TP1: Data/Error</span></a>
   </div>
 </li>
@@ -158,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tps/tp_5.html" class="sidebar-item-text sidebar-link">
+  <a href="../tps/tp_5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">TP5: Transformers y LLMs</span></a>
   </div>
 </li>
@@ -174,13 +206,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
-  <li><a href="#accuracy-and-loss-functions" id="toc-accuracy-and-loss-functions" class="nav-link" data-scroll-target="#accuracy-and-loss-functions">(★) 1. Accuracy and Loss functions</a></li>
-  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">(★) 2. Confusion Matrix</a></li>
-  <li><a href="#numerical-and-categorical-features" id="toc-numerical-and-categorical-features" class="nav-link" data-scroll-target="#numerical-and-categorical-features">(★) 3. Numerical and Categorical features</a></li>
-  <li><a href="#over-and-underfitting" id="toc-over-and-underfitting" class="nav-link" data-scroll-target="#over-and-underfitting">(★) 4. Over and Underfitting</a></li>
-  <li><a href="#eda-a-entregar" id="toc-eda-a-entregar" class="nav-link" data-scroll-target="#eda-a-entregar">(★) 5. EDA [A entregar]</a></li>
-  <li><a href="#calibration-curves" id="toc-calibration-curves" class="nav-link" data-scroll-target="#calibration-curves">(★★) 6. Calibration Curves</a></li>
+  <li><a href="#fecha-de-entrega-miércoles-12062024" id="toc-fecha-de-entrega-miércoles-12062024" class="nav-link active" data-scroll-target="#fecha-de-entrega-miércoles-12062024">Fecha de entrega: miércoles 12/06/2024</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#you-only-look-once---image-processing" id="toc-you-only-look-once---image-processing" class="nav-link" data-scroll-target="#you-only-look-once---image-processing">(★) 1. You Only Look Once - Image Processing</a></li>
+  <li><a href="#nuestro-primer-llm-local" id="toc-nuestro-primer-llm-local" class="nav-link" data-scroll-target="#nuestro-primer-llm-local">(★) 2. Nuestro primer LLM local</a></li>
+  <li><a href="#retrieval-augmented-generation-llamaindex" id="toc-retrieval-augmented-generation-llamaindex" class="nav-link" data-scroll-target="#retrieval-augmented-generation-llamaindex">(★★) 3. Retrieval Augmented Generation &amp; LlamaIndex</a></li>
+  <li><a href="#api-callingtool-usage-langchain" id="toc-api-callingtool-usage-langchain" class="nav-link" data-scroll-target="#api-callingtool-usage-langchain">(★★) 4. API Calling/Tool usage &amp; LangChain</a></li>
+  <li><a href="#sam-segment-anything-model" id="toc-sam-segment-anything-model" class="nav-link" data-scroll-target="#sam-segment-anything-model">(★★★) 5. SAM (Segment Anything Model)</a></li>
   </ul>
 </nav>
     </div>
@@ -189,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TP1: Data/Error</h1>
+<h1 class="title">TP5: Transformers y LLMs</h1>
 </div>
 
 
@@ -204,9 +236,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="fecha-de-entrega-miércoles-12062024" class="level2">
+<h2 class="anchored" data-anchor-id="fecha-de-entrega-miércoles-12062024">Fecha de entrega: miércoles 12/06/2024</h2>
+</section>
 <section id="resumen" class="level2">
 <h2 class="anchored" data-anchor-id="resumen">Resumen</h2>
-<p>El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.</p>
+<p>En el TP5 vamos a trabajar mayoritariamente con modelos que están basados en la arquitectura de Transformers. En particular, en los campos de audio, texto e imágenes. Vamos a usar para casi todo <a href="https://huggingface.co/">HuggingFace</a> y <a href="https://ollama.com/">Ollama</a>, una librería que contiene en su interior una <em>gran</em> cantidad de modelos OpenSource. Como disclaimer, se pueden utilizar APIs en vez de modelos si se quisiera evitar correr modelos localmente, pero debido a que no es gratis, vamos por el Open Source. <em>By the way, long live open source.</em></p>
 <p>Encontrará los ejercicios con diferentes marcas:</p>
 <ul>
 <li>★: Ejercicio Obligatorio - no tenés opción.</li>
@@ -215,53 +250,78 @@ ul.task-list li input[type="checkbox"] {
 <li>★★★★: Ejercicio de integración - <strong><em>if you gaze long into an abyss, the abyss also gazes into you.</em></strong></li>
 </ul>
 </section>
-<section id="accuracy-and-loss-functions" class="level2">
-<h2 class="anchored" data-anchor-id="accuracy-and-loss-functions">(★) 1. Accuracy and Loss functions</h2>
-<p>A fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:</p>
-<pre><code>def read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...
-
-def precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...
-
-def recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...
-
-def f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...
-
-def mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...
-
-def cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...</code></pre>
-<p>y escriba un main que ejercite estas implementaciones utilizando el archivo <code>ej1.csv</code>.</p>
+<section id="you-only-look-once---image-processing" class="level2">
+<h2 class="anchored" data-anchor-id="you-only-look-once---image-processing">(★) 1. You Only Look Once - Image Processing</h2>
+<p>El primer ejercicio consiste en correr una red liviana que permite detectar objetos en imágenes, segmentar, o estimar poses. Para eso usaremos YOLOv8. YOLO es “You Only Look Once”.</p>
+<p>Sigamos el siguiente ejemplo de Ultralytics (luego de instalar el paquete con <code>pip install ultralytics</code>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ultralytics <span class="im">import</span> YOLO</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a model</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>detection_model <span class="op">=</span> YOLO(<span class="st">"yolov8n.pt"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>seg_model <span class="op">=</span> YOLO(<span class="st">"yolov8n-seg.pt"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pose_model <span class="op">=</span> YOLO(<span class="st">"yolov8n-pose.pt"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the model</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>detection_results <span class="op">=</span> detection_model(<span class="st">"https://ultralytics.com/images/bus.jpg"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>seg_results <span class="op">=</span> seg_model(<span class="st">"https://ultralytics.com/images/bus.jpg"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pose_results <span class="op">=</span> pose_model(<span class="st">"https://ultralytics.com/images/bus.jpg"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> detection_results <span class="op">+</span> seg_results <span class="op">+</span> pose_results:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    image_array <span class="op">=</span> r.plot()  <span class="co"># plot a BGR numpy array of predictions</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> Image.fromarray(image_array[..., ::<span class="op">-</span><span class="dv">1</span>])  <span class="co"># RGB PIL image</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    display(image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para la consigna de este ejercicio, escriba una notebook que permita hacer detección de objetos en alguna imagen de su elección. Tambien segmentarlos y por ultimo, estimar poses.</p>
 </section>
-<section id="confusion-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="confusion-matrix">(★) 2. Confusion Matrix</h2>
-<p>Implemente la funcion dada por la siguiente firma:</p>
-<pre><code>def confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...</code></pre>
-<p>y utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?</p>
+<section id="nuestro-primer-llm-local" class="level2">
+<h2 class="anchored" data-anchor-id="nuestro-primer-llm-local">(★) 2. Nuestro primer LLM local</h2>
+<p>Este ejercicio es clave puesto que todos los subsiguientes que utilizen LLMs se montan sobre el mismo, en especial en caso de que</p>
+<p>Vamos a instalar <a href="https://ollama.com/"><code>Ollama</code></a> -si estan en una maquina con GNU, alcanza con correr <code>curl -fsSL https://ollama.com/install.sh | sh</code>. Ollama genera un servidor local que luego correrá algún LLM open source. En este momento están disponibles Llama 3, Phi 3, Mistral y Gemma. Debido al tamaño del modelo, se recomienda o Gemma2B o Phi3 3.8B, que correrán en un tiempo razonable en cualquier PC con CPU (obviamente, teniendo GPU es mucho mejor). Una vez descargado Ollama y con el comando corriendo en la terminal (es decir, pudiendo hacer <code>ollama</code> y obteniendo algo de vuelta), debemos inicializar el servidor:</p>
+<p>En una terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> serve</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y en otra:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># $MODEL es uno de los siguientes:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gemma:2b, gemma:7b, llama3, o phi3</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># llama3 es excelente</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull <span class="va">$MODEL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Una vez que eso esté corriendo, se puede utilizar el servidor de Ollama como una API local y con ello hacerle requests para obtener respuestas:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://localhost:11434/api/generate <span class="at">-d</span> <span class="st">'{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">  "model": "$MODEL",</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">  "prompt":"Why is the sky blue?"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>¿Qué observa en esta API local?</p>
+<p>Utilicemosla desde python con el siguiente texto:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> <span class="st">"http://localhost:11434/api/generate"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>PROMPT <span class="op">=</span> <span class="st">"tell me your favorite joke!"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>MODEL <span class="op">=</span> <span class="st">"phi3"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.post(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    URL,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    json<span class="op">=</span>{</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"model"</span>: MODEL, </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"stream"</span>: <span class="va">False</span>, </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"prompt"</span>: PROMPT</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json()[<span class="st">"response"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>¿Cuál es la broma favorita de Phi3?</p>
 </section>
-<section id="numerical-and-categorical-features" class="level2">
-<h2 class="anchored" data-anchor-id="numerical-and-categorical-features">(★) 3. Numerical and Categorical features</h2>
-<p>Se brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:</p>
-<pre><code>def histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...
-
-def one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...</code></pre>
-<p>Utilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas.</p>
+<section id="retrieval-augmented-generation-llamaindex" class="level2">
+<h2 class="anchored" data-anchor-id="retrieval-augmented-generation-llamaindex">(★★) 3. Retrieval Augmented Generation &amp; LlamaIndex</h2>
+<p>Retrieval Augmented Generation (o RAG) es un patrón de diseño de aplicaciones de LLM que busca mitigar uno de los problemas más prevalentes de las mismas: las alucinaciones. En general tienen dos pasos: primero buscamos información relevante en una base de datos (en general, a través de similaridad semántica) y luego con esa información aumenta el prompt original para generar respuestas.</p>
+<p><a href="https://docs.llamaindex.ai/en/stable/getting_started/starter_example_local/">Resuelva este tutorial</a>. Está integrado con Ollama y HuggingFace. No se arrepentirá.</p>
 </section>
-<section id="over-and-underfitting" class="level2">
-<h2 class="anchored" data-anchor-id="over-and-underfitting">(★) 4. Over and Underfitting</h2>
-<p>Se provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:</p>
-<pre><code>def read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...
-
-def plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...</code></pre>
-<p>donde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio.</p>
+<section id="api-callingtool-usage-langchain" class="level2">
+<h2 class="anchored" data-anchor-id="api-callingtool-usage-langchain">(★★) 4. API Calling/Tool usage &amp; LangChain</h2>
+<p>API calling es otro patrón sumamente importante, y resalta la capacidad que tienen las LLMs de usar herramientas programáticas.</p>
+<p>LangChain es una librería que encapsula los conceptos de ReAct/Chain of thought en (a) cadenas, con pasos predefinidos que utilizan LLMs, y (b) agentes, que pueden utilizar diversas herramientas para llevar a cabo tareas.</p>
+<p>Les recomendamos que observen <a href="https://python.langchain.com/v0.2/docs/introduction/#tutorials">uno de estos tutoriales (llm app, chatbot, o agent)</a> y que lean la documentación. Es buen framework para empezar a resolver problemas LLM based. Además, se puede jugar bastante con el uso de “herramientas” (a.k.a. “API Calling”).</p>
 </section>
-<section id="eda-a-entregar" class="level2">
-<h2 class="anchored" data-anchor-id="eda-a-entregar">(★) 5. EDA [A entregar]</h2>
-<p>Complete el archivo <code>ej5.ipynb</code> que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos.</p>
-</section>
-<section id="calibration-curves" class="level2">
-<h2 class="anchored" data-anchor-id="calibration-curves">(★★) 6. Calibration Curves</h2>
-<p>Una herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales <span class="math inline">\(y \in \{1, 0\}\)</span> y la probabilidad predicha de que <span class="math inline">\(y == 1\)</span>, <span class="math inline">\(p_y \in [0, 1]\)</span>, la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:</p>
-<pre><code>Calibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).</code></pre>
-<p>Utilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo <code>ej6.csv</code>.</p>
+<section id="sam-segment-anything-model" class="level2">
+<h2 class="anchored" data-anchor-id="sam-segment-anything-model">(★★★) 5. SAM (Segment Anything Model)</h2>
+<p>Corra el <a href="https://github.com/facebookresearch/segment-anything">siguiente tutorial</a> para utilizar Segment Anything Model.</p>
+<p>¿Qué diferencias encuentra con YOLO? ¿Cómo se compara el comportamiento de ambos modelos frente a una misma imagen?</p>
 
 
 </section>

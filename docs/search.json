@@ -1,234 +1,283 @@
 [
   {
-    "objectID": "tps/tp_4.html#resumen",
-    "href": "tps/tp_4.html#resumen",
-    "title": "TP4 (1/2): Deep Learning",
-    "section": "Resumen",
-    "text": "Resumen\nEl TP4 parte 1 (1/2) apunta a familiarizarse con conceptos introductorios de Redes Neuronales y Deep Learning, tales como backpropagation, redes feed forward (densas) y redes convolucionales (CNN). Esta guía tiene tres ejercicios, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio",
-    "crumbs": [
-      "Practicas",
-      "TP4 (1/2): Deep Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
-    "href": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
-    "title": "TP4 (1/2): Deep Learning",
-    "section": "(★) 1. Red Neuronal Feed Forward (from Scratch)",
-    "text": "(★) 1. Red Neuronal Feed Forward (from Scratch)\nEl objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script ej1.py, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)\n\nDescripción del Problema:\nCIFAR-10 es un conjunto de datos que contiene 60,000 imágenes (50,000 para train y 10,000 para test) en color (RGB) de 32x32 píxeles, distribuidas en 10 clases diferentes (como aviones, automóviles, aves, etc.). Para este ejercicio, implementarás una red neuronal con la siguiente arquitectura:\nUna capa de entrada que recibe las imágenes aplanadas (tamaño 32x32x3). Una capa oculta con 100 neuronas y función de activación ReLU. Una capa de salida con 10 neuronas y función de activación softmax, una por cada clase.",
-    "crumbs": [
-      "Practicas",
-      "TP4 (1/2): Deep Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
-    "href": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
-    "title": "TP4 (1/2): Deep Learning",
-    "section": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.",
-    "text": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.\nResuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales Presenta tus resultados en el notebook ej2.ipynb. Te recomendamos fuertemente usar Google Colab, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías Keras y Pytorch están optimizadas para tareas paralelizables.",
-    "crumbs": [
-      "Practicas",
-      "TP4 (1/2): Deep Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_4.html#micro-keras-from-scratch",
-    "href": "tps/tp_4.html#micro-keras-from-scratch",
-    "title": "TP4 (1/2): Deep Learning",
-    "section": "(★★★) 3. Micro Keras from scratch",
-    "text": "(★★★) 3. Micro Keras from scratch\nEl objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy.\n\nEstructura (recomendada) del Código\nLa biblioteca deberá estar organizada organizada en los siguientes módulos:\n\nmetrics.py\nlosses.py\nactivations.py\nmodels.py\nlayers.py\noptimizers.py\n\n\n\nDescripción de los Módulos\n\n1. metrics.py\nAccuracy: Calcula la precisión de las predicciones. MSE: Calcula el error cuadrático medio (Mean Squared Error).\n\n\n2. losses.py\nLoss: Interfaz de las funciones de costo que define el método call y gradient. MSE: Implementación de la función de costo Mean Squared Error.\n\n\n3. activations.py\nReLU: Implementa la función de activación ReLU y su derivada. Tanh: Implementa la función de activación Tanh y su derivada. Sigmoid: Implementa la función de activación Sigmoid y su derivada.\n\n\n4. models.py\nNetwork: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.\n\n\n5. layers.py\nBaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward. Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer. Layer: Clase base para capas con pesos. Hereda de BaseLayer. Dense: Representa una capa densa (fully connected) que hereda de Layer.\n\n\n6. optimizers.py\nOptimizer: Interfaz para optimizadores. Define el método update. SGD: Implementa el optimizador Stochastic Gradient Descent.\n\n\n\nCaso de prueba\nPara validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas).",
-    "crumbs": [
-      "Practicas",
-      "TP4 (1/2): Deep Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_2.html",
-    "href": "tps/tp_2.html",
-    "title": "TP2: Linear and Tree models",
+    "objectID": "lectures/clase_0.html",
+    "href": "lectures/clase_0.html",
+    "title": "L0: Tooling",
     "section": "",
-    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
-    "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
-    ]
-  },
-  {
-    "objectID": "tps/tp_2.html#resumen",
-    "href": "tps/tp_2.html#resumen",
-    "title": "TP2: Linear and Tree models",
-    "section": "",
-    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
-    "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
-    ]
-  },
-  {
-    "objectID": "tps/tp_2.html#your-own-scikit-learn-library",
-    "href": "tps/tp_2.html#your-own-scikit-learn-library",
-    "title": "TP2: Linear and Tree models",
-    "section": "(★) 1. Your own Scikit Learn library",
-    "text": "(★) 1. Your own Scikit Learn library\nEncontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.\nDicho esto, resuelva los siguientes incisos:\n\nImplemente el proceso de entrenamiento de SGD en SGDEstimator.\nImplemente LinearRegressor.\nImplemente LogisticClassifier.\nEn la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?\nEn la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.\nEn la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.\nImplemente la clase TreeStumpRegressor.\nImplemente la clase GradientBoostingEstimator.\nIntente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?\nReescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?\n\nEste ejercicio es entregable!\nAdemás: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load.",
-    "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
-    ]
-  },
-  {
-    "objectID": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
-    "href": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
-    "title": "TP2: Linear and Tree models",
-    "section": "(★) 2. Your first end to end Machine Learning pipeline",
-    "text": "(★) 2. Your first end to end Machine Learning pipeline\nA partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:\n\nCargar los datos del dataset provisto anteriormente, splittear en train y test,\nPreprocesar los datos en un formato adecuado para entrenar un modelo,\nDefinir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)\nUtilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. Se recomienda LightGBM. Buscar a través de KFold o alguna técnica de validación cruzada.\nGraficar y reportar métricas de performance y gráficas de calibración para los datos de test.\nEscribir un pipeline de Scikit Learn que resuma los pasos anteriores.\n\nEncontrará un archivo ej2.ipynb donde implementar este ejercicio.",
-    "crumbs": [
-      "Practicas",
-      "TP2: Linear and Tree models"
-    ]
+    "text": "Completar con lo que demos en la lecture"
   },
   {
     "objectID": "tps/tp_0.html",
     "href": "tps/tp_0.html",
     "title": "TP0: Tooling",
     "section": "",
-    "text": "El TP0 apunta a familiarizarse con herramientas que utilizaremos durante el curso y, si bien no son precisamente de aprendizaje profundo, si son prácticas usuales del campo del desarrollo de software y permiten aspectos como el versionado, la comunicación, en encapsulamiento, entre otros.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\nCompletar este TP en su totalidad es una tarea sumamente extensa, por lo que se recomienda al lector tratar al mismo como un “repositorio de ideas”—a excepción de los ejercicios obligatorios—es decir, un lugar a dónde haya una referencia de un seleccionado de cosas que le pueden ser de utilidad para construir sistemas de información.\nNota: Parte de esta práctica fue escrita con auxilio de algún LLM - so you may find some weird wording here and there.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "El TP0 apunta a familiarizarse con herramientas que utilizaremos durante el curso y, si bien no son precisamente de aprendizaje profundo, si son prácticas usuales del campo del desarrollo de software y permiten aspectos como el versionado, la comunicación, en encapsulamiento, entre otros.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\nCompletar este TP en su totalidad es una tarea sumamente extensa, por lo que se recomienda al lector tratar al mismo como un “repositorio de ideas”—a excepción de los ejercicios obligatorios—es decir, un lugar a dónde haya una referencia de un seleccionado de cosas que le pueden ser de utilidad para construir sistemas de información.\nNota: Parte de esta práctica fue escrita con auxilio de algún LLM - so you may find some weird wording here and there."
   },
   {
     "objectID": "tps/tp_0.html#resumen",
     "href": "tps/tp_0.html#resumen",
     "title": "TP0: Tooling",
     "section": "",
-    "text": "El TP0 apunta a familiarizarse con herramientas que utilizaremos durante el curso y, si bien no son precisamente de aprendizaje profundo, si son prácticas usuales del campo del desarrollo de software y permiten aspectos como el versionado, la comunicación, en encapsulamiento, entre otros.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\nCompletar este TP en su totalidad es una tarea sumamente extensa, por lo que se recomienda al lector tratar al mismo como un “repositorio de ideas”—a excepción de los ejercicios obligatorios—es decir, un lugar a dónde haya una referencia de un seleccionado de cosas que le pueden ser de utilidad para construir sistemas de información.\nNota: Parte de esta práctica fue escrita con auxilio de algún LLM - so you may find some weird wording here and there.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "El TP0 apunta a familiarizarse con herramientas que utilizaremos durante el curso y, si bien no son precisamente de aprendizaje profundo, si son prácticas usuales del campo del desarrollo de software y permiten aspectos como el versionado, la comunicación, en encapsulamiento, entre otros.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\nCompletar este TP en su totalidad es una tarea sumamente extensa, por lo que se recomienda al lector tratar al mismo como un “repositorio de ideas”—a excepción de los ejercicios obligatorios—es decir, un lugar a dónde haya una referencia de un seleccionado de cosas que le pueden ser de utilidad para construir sistemas de información.\nNota: Parte de esta práctica fue escrita con auxilio de algún LLM - so you may find some weird wording here and there."
   },
   {
     "objectID": "tps/tp_0.html#ide",
     "href": "tps/tp_0.html#ide",
     "title": "TP0: Tooling",
     "section": "IDE ★",
-    "text": "IDE ★\n\nVisual Studio Code (VSCode)\nUn Entorno de Desarrollo Integrado (IDE) es una herramienta esencial para cualquier programador. Facilita la tarea de escribir y depurar código, ofreciendo funcionalidades como resaltado de sintaxis, autocompletado, gestión de versiones, entre otras. En este curso, recomendamos en Visual Studio Code (VSCode), uno de los IDEs más populares y versátiles.\nInstrucciones:\n\nDescarga e Instalación:\n\nVisita la página oficial de Visual Studio Code: https://code.visualstudio.com/\nSelecciona la versión adecuada para tu sistema operativo (Windows, MacOS, Linux) y descárgala.\nSigue las instrucciones de instalación proporcionadas en la página o por el instalador.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "IDE ★\n\nVisual Studio Code (VSCode)\nUn Entorno de Desarrollo Integrado (IDE) es una herramienta esencial para cualquier programador. Facilita la tarea de escribir y depurar código, ofreciendo funcionalidades como resaltado de sintaxis, autocompletado, gestión de versiones, entre otras. En este curso, recomendamos en Visual Studio Code (VSCode), uno de los IDEs más populares y versátiles.\nInstrucciones:\n\nDescarga e Instalación:\n\nVisita la página oficial de Visual Studio Code: https://code.visualstudio.com/\nSelecciona la versión adecuada para tu sistema operativo (Windows, MacOS, Linux) y descárgala.\nSigue las instrucciones de instalación proporcionadas en la página o por el instalador."
   },
   {
     "objectID": "tps/tp_0.html#git",
     "href": "tps/tp_0.html#git",
     "title": "TP0: Tooling",
     "section": "Git ★",
-    "text": "Git ★\nGit es una herramienta de control de versiones esencial para cualquier desarrollador. ¿Por qué? Porque te permite tener un registro detallado y organizado de todos los cambios que hacés en tu código. Imaginate que es como un gran libro de historia, donde cada cambio que hacés en tu proyecto queda anotado, y podés volver atrás en el tiempo si algo no anda bien.\nPero Git no es solo un guardián del pasado; también es fundamental para trabajar en equipo. Permite que varias personas colaboren en el mismo proyecto sin pisarse los talones. Cada uno puede trabajar en su rama, hacer cambios, y después juntar todo sin tantos dramas.\nDurante el curso, vamos a meterle mano a Git de a poco. Vamos a empezar con lo básico: crear repositorios, hacer commits, manejar branches, y entender cómo funciona el asunto de los merge. Después, vamos a explorar características más avanzadas y aprender a resolver conflictos, que siempre aparecen cuando menos los esperás.\nAdemás, vamos a usar GitHub, que es como el barrio de Git en internet. Ahí vamos a compartir nuestros códigos, colaborar en proyectos y, sobre todo, aprender a mover el ambo en este mundo del desarrollo colaborativo.\nPor último, a lo largo del curso vamos a usar una herramienta que se llama GitHub Classroom. Ahí mismo vamos a poder hacer correcciones (con la metodología usual de correcciones de Git - Pull Requests) y, además de eso, se van a correr automágicamente suites de tests que les van a servir de feedback instantáneo para saber si el código que están haciendo está correcto (da lo que debería dar) o no.\n\nEjercicios\n\n(★) GitHub Account:\n\nCrear un Repositorio en GitHub:\n\n(Crea y) Inicia sesión en tu cuenta de GitHub.\nSi no lo tenés, instala git en tu computadora.\nCrea un nuevo repositorio en tu cuenta de GitHub. Dale un nombre como tp0-test .\nMarca la opción de inicializar el repositorio con un archivo README.\n\nClonar el Repositorio:\n\nUtiliza el comando git clone seguido de la URL de tu repositorio para clonarlo en tu equipo local.\n\nCrear y Usar una Branch:\n\nCrea una nueva branch en tu repositorio local, por ejemplo, feature-branch.\nCambia a esta branch con git checkout feature-branch. Se pueden hacer ambos pasos al mismo tiempo con git checkout -b feature-branch\nEscribe un archivo README.md con tu nombre, tu carrera y un fun fact tuyo. Guarda este archivo en tu repositorio local.\n\nPushear Cambios y Crear un Pull Request (PR):\n\nPushea tus cambios a GitHub con git push.\nVe a tu repositorio en GitHub y crea un PR desde tu nueva branch hacia la branch principal (main o master).\n\nMergear el Pull Request:\n\nCompleta el proceso de revisión de código (si es aplicable) y mergea el PR.\n\n\n(★) GitHub Classroom\n\nAcceso a GitHub Classroom:\n\nUtiliza el enlace proporcionado por la cátedra para acceder al GitHub Classroom de tu curso (https://classroom.github.com/a/KpD5PDYo). Esto va a generar un nuevo repositorio para tu cuenta.\nEn el nuevo repositorio creado en tu cuenta encontrarás en su interior algunas carpetas asociadas a este trabajo práctico.\n\nCompletar el Assignment:\n\nCreá un archivo que se llame “fun_fact.txt”, con algún fun fact tuyo en su interior.\nPusheá los cambios al repositorio.\nEsto va a crear automágicamente un PR que se llama “Feedback”, a donde vamos a poder interactuar para chequear que el código escrito esté correcto.\n\nUso del Autograding:\n\nRevisá el Autograding (ver aquí como) para ver que el test (Ejercicio 2) pase correctamente.\n\n\n(★★) GitFlow\n\nCrear y Usar Branches de Desarrollo y Features:\n\nCrea una branch mainy haz algunos cambios en ella.\nLuego, crea dos branches de características, F1 y F2, basándote en main. Hacé cambios en archivos similares en ambas branches - por ejemplo, en el fun_fact.txt que mencionamos anteriormente. Intentá cambiar un fun fact por un unfun-fact en una branch, y por otro weird_fact en la otra.\n\nMergear Branches y Resolver Conflictos:\n\nMergear F1 con main.\nIntentá mergear F2 con mainy maneja los conflictos que surjan.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Git ★\nGit es una herramienta de control de versiones esencial para cualquier desarrollador. ¿Por qué? Porque te permite tener un registro detallado y organizado de todos los cambios que hacés en tu código. Imaginate que es como un gran libro de historia, donde cada cambio que hacés en tu proyecto queda anotado, y podés volver atrás en el tiempo si algo no anda bien.\nPero Git no es solo un guardián del pasado; también es fundamental para trabajar en equipo. Permite que varias personas colaboren en el mismo proyecto sin pisarse los talones. Cada uno puede trabajar en su rama, hacer cambios, y después juntar todo sin tantos dramas.\nDurante el curso, vamos a meterle mano a Git de a poco. Vamos a empezar con lo básico: crear repositorios, hacer commits, manejar branches, y entender cómo funciona el asunto de los merge. Después, vamos a explorar características más avanzadas y aprender a resolver conflictos, que siempre aparecen cuando menos los esperás.\nAdemás, vamos a usar GitHub, que es como el barrio de Git en internet. Ahí vamos a compartir nuestros códigos, colaborar en proyectos y, sobre todo, aprender a mover el ambo en este mundo del desarrollo colaborativo.\nPor último, a lo largo del curso vamos a usar una herramienta que se llama GitHub Classroom. Ahí mismo vamos a poder hacer correcciones (con la metodología usual de correcciones de Git - Pull Requests) y, además de eso, se van a correr automágicamente suites de tests que les van a servir de feedback instantáneo para saber si el código que están haciendo está correcto (da lo que debería dar) o no.\n\nEjercicios\n\n(★) GitHub Account:\n\nCrear un Repositorio en GitHub:\n\n(Crea y) Inicia sesión en tu cuenta de GitHub.\nSi no lo tenés, instala git en tu computadora.\nCrea un nuevo repositorio en tu cuenta de GitHub. Dale un nombre como tp0-test .\nMarca la opción de inicializar el repositorio con un archivo README.\n\nClonar el Repositorio:\n\nUtiliza el comando git clone seguido de la URL de tu repositorio para clonarlo en tu equipo local.\n\nCrear y Usar una Branch:\n\nCrea una nueva branch en tu repositorio local, por ejemplo, feature-branch.\nCambia a esta branch con git checkout feature-branch. Se pueden hacer ambos pasos al mismo tiempo con git checkout -b feature-branch\nEscribe un archivo README.md con tu nombre, tu carrera y un fun fact tuyo. Guarda este archivo en tu repositorio local.\n\nPushear Cambios y Crear un Pull Request (PR):\n\nPushea tus cambios a GitHub con git push.\nVe a tu repositorio en GitHub y crea un PR desde tu nueva branch hacia la branch principal (main o master).\n\nMergear el Pull Request:\n\nCompleta el proceso de revisión de código (si es aplicable) y mergea el PR.\n\n\n(★) GitHub Classroom\n\nAcceso a GitHub Classroom:\n\nUtiliza el enlace proporcionado por la cátedra para acceder al GitHub Classroom de tu curso (https://classroom.github.com/a/KpD5PDYo). Esto va a generar un nuevo repositorio para tu cuenta.\nEn el nuevo repositorio creado en tu cuenta encontrarás en su interior algunas carpetas asociadas a este trabajo práctico.\n\nCompletar el Assignment:\n\nCreá un archivo que se llame “fun_fact.txt”, con algún fun fact tuyo en su interior.\nPusheá los cambios al repositorio.\nEsto va a crear automágicamente un PR que se llama “Feedback”, a donde vamos a poder interactuar para chequear que el código escrito esté correcto.\n\nUso del Autograding:\n\nRevisá el Autograding (ver aquí como) para ver que el test (Ejercicio 2) pase correctamente.\n\n\n(★★) GitFlow\n\nCrear y Usar Branches de Desarrollo y Features:\n\nCrea una branch mainy haz algunos cambios en ella.\nLuego, crea dos branches de características, F1 y F2, basándote en main. Hacé cambios en archivos similares en ambas branches - por ejemplo, en el fun_fact.txt que mencionamos anteriormente. Intentá cambiar un fun fact por un unfun-fact en una branch, y por otro weird_fact en la otra.\n\nMergear Branches y Resolver Conflictos:\n\nMergear F1 con main.\nIntentá mergear F2 con mainy maneja los conflictos que surjan."
   },
   {
     "objectID": "tps/tp_0.html#python",
     "href": "tps/tp_0.html#python",
     "title": "TP0: Tooling",
     "section": "Python ★",
-    "text": "Python ★\nPython es un lenguaje de programación de alto nivel. Se ha convertido en uno de los lenguajes más populares en el campo de la inteligencia artificial y el aprendizaje automático (AI/ML) debido a su simplicidad y a la amplia gama de bibliotecas disponibles.\nEn este curso, vamos a explorar las características básicas de Python, incluyendo su sintaxis, estructuras de datos, funciones y clases. Además, nos sumergiremos en bibliotecas específicas como Numpy, Pandas y Matplotlib, las cuales son fundamentales en el análisis de datos y visualización. Más adelante, también utilizaremos librerías especializadas de aprendizaje automático, como Torch, HuggingFace, o Xgboost.\n\nDescarga e instala Python desde python.org.\nVerifica la instalación ejecutando python --version en tu terminal.\n\nConda es un gestor de paquetes que nos permite tener distintos ambientes en nuestra computadora, con distintos ejecutables de python instalados y además con varias versiones de librerías por ambiente. Para instalar conda:\n\nInstala miniconda siguiendo las instrucciones en el sitio de Conda.\nCreá un ambiente en conda llamado “tp0” con el siguiente comando: conda create -n tp0 python=3.9.\nActivalo con conda activate tp0.\nInstalá las siguientes librerías: conda install pytest numpy pandas matplotlib.\n\nPor último, los siguientes son ejercicios para recorrer el lenguaje de forma amena. Para que los tests automáticos funcionen, cada uno de los ejercicios debe vivir en la carpeta python/src/ejericico_N.py , donde N es el número de ejercicio correspondiente.\n\nEjercicios\n\n(★) Hola Mundo:\n\nHola mundo: Escribe un script en Python que guarde el string “Hola mundo!” en una variable llamada hola_mundo y que luego la imprima usando print .\n\n(★) Funciones:\n\nSuma de Números: Crea una función en Python llamada sumar(a, b) que reciba dos números como argumentos y devuelva su suma.\nPitágoras: Crea una función en Python llamada pitagoras(a, b, tipo=\"hipotenusa\") que reciba dos números como argumentos (a) la hipotenusa si el tipo es “hipotenusa” o (b) el cateto si el tipo es “cateto”. Pensar cómo se puede hacer para tomar el lado más grande (a o b) para el segundo caso.\n\n(★) Clases:\n\nRectángulo: Define una clase Rectangulo en Python que se inicialice con longitud y ancho. La clase debe tener dos métodos, area y perimetro, que devuelvan respectivamente el área y el perímetro del rectángulo.\nCuadrado: Define una clase Cuadrado que herede de rectángulo y que sólo se inicialice con lado.\n\n(★) NumPy:\n\nEstadísticas de un arreglo: Crea una función stats(a) que tome un array de floats python, y que calcule y devuelve la media y la desviación estándar de esos números usando Numpy para crear un array de números.\nProducto matricial: Crea una función matmul(a, b) que tome dos matrices a y b y devuelva el producto entre ellas, si son compatibles, y que retorne un ValueError si no.\nAutovectores y autovalores: Cree una función eigen(a) que devuelva los autovectores y autovalores de una matriz si es cuadrada, y retorne ValueError sino.\n\n(★) Pandas:\n\nLectura de CSV: Cree una función read_data que lea el archivo data/python/ej5.csv que se encuentra en el repositorio dentro de un DataFrame y retorne una lista con las columnas, y un entero con la cantidad de filas que el archivo posee.\nModificación de datos: Cree función que modify_data tome los datos anteriormente mencionados, cree una nueva columna, mes, a partir de fecha (recomendado: usar datetime) y devuelva el DataFrame modificado. Pista: puede usar apply.\nAgrupación: Cree función group_data que tome los datos anteriormente mencionados, cree una nueva y retorne el valor total de las ventas y de los costos (sumando la columna valor, agrupando por tipo).",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Python ★\nPython es un lenguaje de programación de alto nivel. Se ha convertido en uno de los lenguajes más populares en el campo de la inteligencia artificial y el aprendizaje automático (AI/ML) debido a su simplicidad y a la amplia gama de bibliotecas disponibles.\nEn este curso, vamos a explorar las características básicas de Python, incluyendo su sintaxis, estructuras de datos, funciones y clases. Además, nos sumergiremos en bibliotecas específicas como Numpy, Pandas y Matplotlib, las cuales son fundamentales en el análisis de datos y visualización. Más adelante, también utilizaremos librerías especializadas de aprendizaje automático, como Torch, HuggingFace, o Xgboost.\n\nDescarga e instala Python desde python.org.\nVerifica la instalación ejecutando python --version en tu terminal.\n\nConda es un gestor de paquetes que nos permite tener distintos ambientes en nuestra computadora, con distintos ejecutables de python instalados y además con varias versiones de librerías por ambiente. Para instalar conda:\n\nInstala miniconda siguiendo las instrucciones en el sitio de Conda.\nCreá un ambiente en conda llamado “tp0” con el siguiente comando: conda create -n tp0 python=3.9.\nActivalo con conda activate tp0.\nInstalá las siguientes librerías: conda install pytest numpy pandas matplotlib.\n\nPor último, los siguientes son ejercicios para recorrer el lenguaje de forma amena. Para que los tests automáticos funcionen, cada uno de los ejercicios debe vivir en la carpeta python/src/ejericico_N.py , donde N es el número de ejercicio correspondiente.\n\nEjercicios\n\n(★) Hola Mundo:\n\nHola mundo: Escribe un script en Python que guarde el string “Hola mundo!” en una variable llamada hola_mundo y que luego la imprima usando print .\n\n(★) Funciones:\n\nSuma de Números: Crea una función en Python llamada sumar(a, b) que reciba dos números como argumentos y devuelva su suma.\nPitágoras: Crea una función en Python llamada pitagoras(a, b, tipo=\"hipotenusa\") que reciba dos números como argumentos (a) la hipotenusa si el tipo es “hipotenusa” o (b) el cateto si el tipo es “cateto”. Pensar cómo se puede hacer para tomar el lado más grande (a o b) para el segundo caso.\n\n(★) Clases:\n\nRectángulo: Define una clase Rectangulo en Python que se inicialice con longitud y ancho. La clase debe tener dos métodos, area y perimetro, que devuelvan respectivamente el área y el perímetro del rectángulo.\nCuadrado: Define una clase Cuadrado que herede de rectángulo y que sólo se inicialice con lado.\n\n(★) NumPy:\n\nEstadísticas de un arreglo: Crea una función stats(a) que tome un array de floats python, y que calcule y devuelve la media y la desviación estándar de esos números usando Numpy para crear un array de números.\nProducto matricial: Crea una función matmul(a, b) que tome dos matrices a y b y devuelva el producto entre ellas, si son compatibles, y que retorne un ValueError si no.\nAutovectores y autovalores: Cree una función eigen(a) que devuelva los autovectores y autovalores de una matriz si es cuadrada, y retorne ValueError sino.\n\n(★) Pandas:\n\nLectura de CSV: Cree una función read_data que lea el archivo data/python/ej5.csv que se encuentra en el repositorio dentro de un DataFrame y retorne una lista con las columnas, y un entero con la cantidad de filas que el archivo posee.\nModificación de datos: Cree función que modify_data tome los datos anteriormente mencionados, cree una nueva columna, mes, a partir de fecha (recomendado: usar datetime) y devuelva el DataFrame modificado. Pista: puede usar apply.\nAgrupación: Cree función group_data que tome los datos anteriormente mencionados, cree una nueva y retorne el valor total de las ventas y de los costos (sumando la columna valor, agrupando por tipo)."
   },
   {
     "objectID": "tps/tp_0.html#sistema-operativo",
     "href": "tps/tp_0.html#sistema-operativo",
     "title": "TP0: Tooling",
     "section": "Sistema Operativo (★★)",
-    "text": "Sistema Operativo (★★)\nEn el amplio mundo del desarrollo de software y, específicamente en áreas como el aprendizaje automático y la ciencia de datos, es fundamental tener una base sólida en el manejo de sistemas operativos. Para nuestro curso, sería ideal para no sufrir innecesariamente tener algún sistema operativo que brinde acceso a una terminal tipo GNU, como lo son las distintas distribuciones de Linux. Esto se debe a que Linux ofrece una gran versatilidad, una comunidad de soporte activa, y es ampliamente adoptado en entornos de investigación y producción.\nAhora, si estás utilizando Windows, no te preocupes. Hay una solución práctica llamada Subsistema de Windows para Linux (WSL), que te permite ejecutar un entorno de Linux directamente en Windows. Esto es ideal para quienes prefieren o necesitan mantener Windows como su sistema operativo principal, pero igual quieren disfrutar de las ventajas de Linux.\nInstalar WSL te permitirá trabajar en un ambiente similar al que encontrarías en un sistema operativo basado en Unix, lo cual es una habilidad valiosa en el campo de la informática. A lo largo del curso, veremos cómo aprovechar estas herramientas para maximizar tu aprendizaje y eficiencia en la programación y gestión de proyectos de software.\n\nInstrucciones para Instalar WSL en Windows\n\nHabilita el Subsistema de Windows para Linux:\n\nAbre PowerShell como administrador y ejecuta:\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart\n\nHabilita la Plataforma de Máquina Virtual:\n\nEn el mismo PowerShell ejecuta:\ndism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart\nReinicia tu computadora para completar la instalación.\n\nDescarga el Paquete de Actualización del Kernel de Linux para WSL 2:\n\nDescarga el paquete de actualización desde el sitio oficial de Microsoft. Busca “WSL2 Linux kernel update package for x64 machines” en la página de Microsoft.\n\nEstablece WSL 2 como Versión Predeterminada:\n\nAbre nuevamente PowerShell y ejecuta:\nwsl --set-default-version 2\n\nInstala tu Distribución de Linux Favorita:\n\nAbre Microsoft Store y busca la distribución de Linux que prefieras (Ubuntu, Debian, etc.).\nSelecciona la distribución y haz clic en “Obtener” para instalarla.\n\nConfigura tu Distribución de Linux:\n\nUna vez instalada la distribución, ábrela desde el menú de inicio.\nLa primera vez que la abras, tendrás que configurar tu cuenta de usuario y contraseña.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Sistema Operativo (★★)\nEn el amplio mundo del desarrollo de software y, específicamente en áreas como el aprendizaje automático y la ciencia de datos, es fundamental tener una base sólida en el manejo de sistemas operativos. Para nuestro curso, sería ideal para no sufrir innecesariamente tener algún sistema operativo que brinde acceso a una terminal tipo GNU, como lo son las distintas distribuciones de Linux. Esto se debe a que Linux ofrece una gran versatilidad, una comunidad de soporte activa, y es ampliamente adoptado en entornos de investigación y producción.\nAhora, si estás utilizando Windows, no te preocupes. Hay una solución práctica llamada Subsistema de Windows para Linux (WSL), que te permite ejecutar un entorno de Linux directamente en Windows. Esto es ideal para quienes prefieren o necesitan mantener Windows como su sistema operativo principal, pero igual quieren disfrutar de las ventajas de Linux.\nInstalar WSL te permitirá trabajar en un ambiente similar al que encontrarías en un sistema operativo basado en Unix, lo cual es una habilidad valiosa en el campo de la informática. A lo largo del curso, veremos cómo aprovechar estas herramientas para maximizar tu aprendizaje y eficiencia en la programación y gestión de proyectos de software.\n\nInstrucciones para Instalar WSL en Windows\n\nHabilita el Subsistema de Windows para Linux:\n\nAbre PowerShell como administrador y ejecuta:\ndism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart\n\nHabilita la Plataforma de Máquina Virtual:\n\nEn el mismo PowerShell ejecuta:\ndism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart\nReinicia tu computadora para completar la instalación.\n\nDescarga el Paquete de Actualización del Kernel de Linux para WSL 2:\n\nDescarga el paquete de actualización desde el sitio oficial de Microsoft. Busca “WSL2 Linux kernel update package for x64 machines” en la página de Microsoft.\n\nEstablece WSL 2 como Versión Predeterminada:\n\nAbre nuevamente PowerShell y ejecuta:\nwsl --set-default-version 2\n\nInstala tu Distribución de Linux Favorita:\n\nAbre Microsoft Store y busca la distribución de Linux que prefieras (Ubuntu, Debian, etc.).\nSelecciona la distribución y haz clic en “Obtener” para instalarla.\n\nConfigura tu Distribución de Linux:\n\nUna vez instalada la distribución, ábrela desde el menú de inicio.\nLa primera vez que la abras, tendrás que configurar tu cuenta de usuario y contraseña."
   },
   {
     "objectID": "tps/tp_0.html#jupyter",
     "href": "tps/tp_0.html#jupyter",
     "title": "TP0: Tooling",
     "section": "Jupyter (★★)",
-    "text": "Jupyter (★★)\nEn el ámbito de la ciencia de datos y el aprendizaje automático, Jupyter Notebook se ha establecido como una herramienta esencial. Permite combinar código, texto enriquecido, visualizaciones y otros elementos multimedia en un solo documento interactivo.\nPara quienes usan Python y otras herramientas de análisis de datos, Jupyter ofrece una forma práctica de experimentar con el código y visualizar los resultados al instante. En este curso, aprenderemos a utilizar Jupyter Notebook de manera local y también exploraremos Google Colab, una versión basada en la nube que se integra perfectamente con Google Drive, proporcionando un entorno poderoso y colaborativo para el desarrollo de proyectos de ciencia de datos.\n\nEjercicios\n1. (★★) Uso de Jupyter Notebook Local\n\nInstalación y Ejecución:\n\nInstala Jupyter Notebook en tu máquina local. Puedes hacerlo instalando Anaconda, que incluye Jupyter, o instalándolo mediante pip con pip install notebook.\nInicia Jupyter Notebook ejecutando jupyter notebook en tu terminal. Esto abrirá una nueva ventana o pestaña en tu navegador predeterminado.\n\nCrea una nueva notebook, escribe un código simple en Python (por ejemplo, imprimir “Hola, mundo!”) y ejecuta la celda.\nEn una celda siguiente creemos una función con numpy, para dibujar algunas funciones con matplotlib como ejemplo:\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Genera un rango de valores\nx = np.linspace(-10, 10, 400)\n\n# Calcula valores para diferentes funciones\ny_sin = np.sin(x)\ny_cos = np.cos(x)\ny_tan = np.tan(x)\n\n# Configura el gráfico\nplt.figure(figsize=(12, 6))\n\n# Dibuja cada función\nplt.plot(x, y_sin, label='seno')\nplt.plot(x, y_cos, label='coseno')\nplt.plot(x, y_tan, label='tangente')\n\n# Añade una leyenda\nplt.legend()\n\n# Muestra el gráfico\nplt.show()\n\nAlgunas opciones de IPython nos permiten interactuar con la terminal directamente desde una celda de Jupyter, y también permiten configurar el comportamiento de la notebook en sí (autoreload de imports, matplotlib interactivo, etc). Juegue con la siguiente celda, que ejemplifica el concepto:\n\n# Muestra la lista de archivos en el directorio actual\n%ls\n\n# Autoreload de módulos importados (útil para desarrollo)\n%load_ext autoreload\n%autoreload 2\n\n# Permite que los gráficos de matplotlib se muestren interactivamente\n%matplotlib inline\n\n# Ejemplo de ejecución de comandos de shell\n!echo \"Hola desde el shell\"\n2. (★★) Uso de Google Colab con Información de Google Drive\n\nConfiguración y Uso:\n\nAccede a Google Colab.\nInicia sesión con tu cuenta de Google si aún no lo has hecho.\nCrea una nueva notebook.\nEn una celda, escribe y ejecuta el siguiente código para montar tu Google Drive:\nfrom google.colab import drive\ndrive.mount('/content/drive')\nNavega a través de tus archivos de Google Drive desde la barra lateral de Colab.\n\nCarga un archivo de datos desde tu Google Drive en la notebook de Google Colab, realiza una operación simple (como leer el archivo si es un CSV) y muestra los resultados.\n\n3. (★★★) Creación y Publicación de un Documento con Quarto\nQuarto es una herramienta poderosa que extiende las capacidades de Jupyter Notebooks, permitiendo una mayor flexibilidad en la creación de documentos y presentaciones atractivas. Es ideal para preparar informes profesionales y científicos, así como presentaciones interactivas.\n\nInstalación y Configuración:\n\nPara instalar Quarto, visita su página web oficial y sigue las instrucciones de instalación.\nUna vez instalado, crea un nuevo proyecto de Quarto en un directorio de tu elección.\nDentro de tu proyecto Quarto, crea un documento que combine texto enriquecido, código en Python y sus respectivas salidas.\nAñade elementos avanzados como gráficos interactivos o widgets.\nUtiliza las herramientas de formato de Quarto para darle un diseño profesional a tu documento.\nGenera una salida en el formato de tu elección (HTML, PDF, etc.) y renderizalo. Eso te va a dar algo en HTML que podrías subir a una página, o un PDF para presentar.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Jupyter (★★)\nEn el ámbito de la ciencia de datos y el aprendizaje automático, Jupyter Notebook se ha establecido como una herramienta esencial. Permite combinar código, texto enriquecido, visualizaciones y otros elementos multimedia en un solo documento interactivo.\nPara quienes usan Python y otras herramientas de análisis de datos, Jupyter ofrece una forma práctica de experimentar con el código y visualizar los resultados al instante. En este curso, aprenderemos a utilizar Jupyter Notebook de manera local y también exploraremos Google Colab, una versión basada en la nube que se integra perfectamente con Google Drive, proporcionando un entorno poderoso y colaborativo para el desarrollo de proyectos de ciencia de datos.\n\nEjercicios\n1. (★★) Uso de Jupyter Notebook Local\n\nInstalación y Ejecución:\n\nInstala Jupyter Notebook en tu máquina local. Puedes hacerlo instalando Anaconda, que incluye Jupyter, o instalándolo mediante pip con pip install notebook.\nInicia Jupyter Notebook ejecutando jupyter notebook en tu terminal. Esto abrirá una nueva ventana o pestaña en tu navegador predeterminado.\n\nCrea una nueva notebook, escribe un código simple en Python (por ejemplo, imprimir “Hola, mundo!”) y ejecuta la celda.\nEn una celda siguiente creemos una función con numpy, para dibujar algunas funciones con matplotlib como ejemplo:\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Genera un rango de valores\nx = np.linspace(-10, 10, 400)\n\n# Calcula valores para diferentes funciones\ny_sin = np.sin(x)\ny_cos = np.cos(x)\ny_tan = np.tan(x)\n\n# Configura el gráfico\nplt.figure(figsize=(12, 6))\n\n# Dibuja cada función\nplt.plot(x, y_sin, label='seno')\nplt.plot(x, y_cos, label='coseno')\nplt.plot(x, y_tan, label='tangente')\n\n# Añade una leyenda\nplt.legend()\n\n# Muestra el gráfico\nplt.show()\n\nAlgunas opciones de IPython nos permiten interactuar con la terminal directamente desde una celda de Jupyter, y también permiten configurar el comportamiento de la notebook en sí (autoreload de imports, matplotlib interactivo, etc). Juegue con la siguiente celda, que ejemplifica el concepto:\n\n# Muestra la lista de archivos en el directorio actual\n%ls\n\n# Autoreload de módulos importados (útil para desarrollo)\n%load_ext autoreload\n%autoreload 2\n\n# Permite que los gráficos de matplotlib se muestren interactivamente\n%matplotlib inline\n\n# Ejemplo de ejecución de comandos de shell\n!echo \"Hola desde el shell\"\n2. (★★) Uso de Google Colab con Información de Google Drive\n\nConfiguración y Uso:\n\nAccede a Google Colab.\nInicia sesión con tu cuenta de Google si aún no lo has hecho.\nCrea una nueva notebook.\nEn una celda, escribe y ejecuta el siguiente código para montar tu Google Drive:\nfrom google.colab import drive\ndrive.mount('/content/drive')\nNavega a través de tus archivos de Google Drive desde la barra lateral de Colab.\n\nCarga un archivo de datos desde tu Google Drive en la notebook de Google Colab, realiza una operación simple (como leer el archivo si es un CSV) y muestra los resultados.\n\n3. (★★★) Creación y Publicación de un Documento con Quarto\nQuarto es una herramienta poderosa que extiende las capacidades de Jupyter Notebooks, permitiendo una mayor flexibilidad en la creación de documentos y presentaciones atractivas. Es ideal para preparar informes profesionales y científicos, así como presentaciones interactivas.\n\nInstalación y Configuración:\n\nPara instalar Quarto, visita su página web oficial y sigue las instrucciones de instalación.\nUna vez instalado, crea un nuevo proyecto de Quarto en un directorio de tu elección.\nDentro de tu proyecto Quarto, crea un documento que combine texto enriquecido, código en Python y sus respectivas salidas.\nAñade elementos avanzados como gráficos interactivos o widgets.\nUtiliza las herramientas de formato de Quarto para darle un diseño profesional a tu documento.\nGenera una salida en el formato de tu elección (HTML, PDF, etc.) y renderizalo. Eso te va a dar algo en HTML que podrías subir a una página, o un PDF para presentar."
   },
   {
     "objectID": "tps/tp_0.html#bases-de-datos",
     "href": "tps/tp_0.html#bases-de-datos",
     "title": "TP0: Tooling",
     "section": "Bases de Datos (★★)",
-    "text": "Bases de Datos (★★)\nLas bases de datos son un componente crucial en el mundo del machine learning y el análisis de datos. Nos permiten almacenar, organizar y acceder a grandes volúmenes de información de manera eficiente, lo que es esencial para entrenar modelos de machine learning con datos precisos y variados. Existen dos tipos principales de bases de datos: relacionales y no relacionales. Las bases de datos relacionales, como MySQL o PostgreSQL, utilizan una estructura de tablas y son excelentes para datos estructurados y consultas complejas. Por otro lado, las bases de datos no relacionales, como MongoDB o Cassandra, ofrecen mayor flexibilidad para almacenar datos no estructurados.\nNos vamos a concentrar en usar solo una base de datos muy sencilla para ilustrar esto: SQLite. Esto es algo que no necesita setupear ni instalar nada, y desde python es, de hecho, muy sencillo de usar. En el futuro utilizaremos PostgreSQL para alguno de los proyectos que puedan llegar a surgir.\nNota: Si quieren practicar SQL, les recomiendo resolver el robo del patito de hule de Harvard: https://cs50.harvard.edu/summer/2022/psets/7/fiftyville/.\n\nEjercicios\n1. (★★) Nuestra primera base de datos con SQLite\nVamos a armar el siguiente modelito de datos, super sencillo, en una base de datos: vamos a introducir algunos datos y luego responder algunas preguntas.\n\n\n\nUntitled\n\n\nA partir del siguiente snippet de código, cree una base de datos en el archivo db_file.db :\nimport sqlite3\n\n# Conectar a la base de datos SQLite:\n\nconexion = sqlite3.connect('db_file.db')\ncursor = conexion.cursor()\n\n# Crear las tablas (TODO)\ncursor.execute('''\nCREATE TABLE alumnos (FILL_ME)\nCREATE TABLE materias (FILL_ME)\nCREATE TABLE notas (FILL_ME)\n''')\n\n# Insertar datos (TODO)\n\nalumnos = [(1, \"Agustin\", \"Bernardo\", 1234567, \"28/04/1995\"), ...]\nmaterias = [(1, \"MLF\", [\"fisica\", \"teleco\", \"doctorado\"]), ...]\n\n# Insertar datos\ncursor.executemany('INSERT INTO alumnos VALUES (?,?,?,?,?)', alumnos)\ncursor.executemany('INSERT INTO materias VALUES (?,?,?)', materias)\n\n# Guardar (commit) los cambios\nconexion.commit()\n\nEscriba una query que dado un nombre de un alumno y una materia, guarde su nota.\nEscriba queries que permitan calcular:\n\nPromedio histórico de un alumno.\nPromedio de la carrera.\nPromedio por carrera para cada materia.\nCertificado analítico de un alumno.\n\nCorra esta queries en python y muestre los resultados.\n\nNota: Para correr los tests automáticos en autograding, respete el formato de las tablas y suba el archivo “.db” en conjunto con el código. Esto es un antipattern, es solo por motivos didácticos. Jamás committee una base de datos a un repositorio.\n2. (★★★) ORMs y SQLAlchemy\nResuelva el ejercicio (1) utilizando SQLAlchemy en vez de el conector por defecto de SQLite. ¿Por qué es común utilizar ORMs en sistemas de software productivos? Nota: “Porque es más fachero” casi que puede ser una respuesta adecuada.\n3. (★★★) Migraciones (Alembic)\nResuelva el ejercicio (1) utilizando Alembic para manejar el versionado de la base de datos en vez de crearla a través del script propuesto. ¿Por qué es importante mantener un versionado de bases de datos? ¿Qué rol cubren las migraciones?",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Bases de Datos (★★)\nLas bases de datos son un componente crucial en el mundo del machine learning y el análisis de datos. Nos permiten almacenar, organizar y acceder a grandes volúmenes de información de manera eficiente, lo que es esencial para entrenar modelos de machine learning con datos precisos y variados. Existen dos tipos principales de bases de datos: relacionales y no relacionales. Las bases de datos relacionales, como MySQL o PostgreSQL, utilizan una estructura de tablas y son excelentes para datos estructurados y consultas complejas. Por otro lado, las bases de datos no relacionales, como MongoDB o Cassandra, ofrecen mayor flexibilidad para almacenar datos no estructurados.\nNos vamos a concentrar en usar solo una base de datos muy sencilla para ilustrar esto: SQLite. Esto es algo que no necesita setupear ni instalar nada, y desde python es, de hecho, muy sencillo de usar. En el futuro utilizaremos PostgreSQL para alguno de los proyectos que puedan llegar a surgir.\nNota: Si quieren practicar SQL, les recomiendo resolver el robo del patito de hule de Harvard: https://cs50.harvard.edu/summer/2022/psets/7/fiftyville/.\n\nEjercicios\n1. (★★) Nuestra primera base de datos con SQLite\nVamos a armar el siguiente modelito de datos, super sencillo, en una base de datos: vamos a introducir algunos datos y luego responder algunas preguntas.\n\n\n\nUntitled\n\n\nA partir del siguiente snippet de código, cree una base de datos en el archivo db_file.db :\nimport sqlite3\n\n# Conectar a la base de datos SQLite:\n\nconexion = sqlite3.connect('db_file.db')\ncursor = conexion.cursor()\n\n# Crear las tablas (TODO)\ncursor.execute('''\nCREATE TABLE alumnos (FILL_ME)\nCREATE TABLE materias (FILL_ME)\nCREATE TABLE notas (FILL_ME)\n''')\n\n# Insertar datos (TODO)\n\nalumnos = [(1, \"Agustin\", \"Bernardo\", 1234567, \"28/04/1995\"), ...]\nmaterias = [(1, \"MLF\", [\"fisica\", \"teleco\", \"doctorado\"]), ...]\n\n# Insertar datos\ncursor.executemany('INSERT INTO alumnos VALUES (?,?,?,?,?)', alumnos)\ncursor.executemany('INSERT INTO materias VALUES (?,?,?)', materias)\n\n# Guardar (commit) los cambios\nconexion.commit()\n\nEscriba una query que dado un nombre de un alumno y una materia, guarde su nota.\nEscriba queries que permitan calcular:\n\nPromedio histórico de un alumno.\nPromedio de la carrera.\nPromedio por carrera para cada materia.\nCertificado analítico de un alumno.\n\nCorra esta queries en python y muestre los resultados.\n\nNota: Para correr los tests automáticos en autograding, respete el formato de las tablas y suba el archivo “.db” en conjunto con el código. Esto es un antipattern, es solo por motivos didácticos. Jamás committee una base de datos a un repositorio.\n2. (★★★) ORMs y SQLAlchemy\nResuelva el ejercicio (1) utilizando SQLAlchemy en vez de el conector por defecto de SQLite. ¿Por qué es común utilizar ORMs en sistemas de software productivos? Nota: “Porque es más fachero” casi que puede ser una respuesta adecuada.\n3. (★★★) Migraciones (Alembic)\nResuelva el ejercicio (1) utilizando Alembic para manejar el versionado de la base de datos en vez de crearla a través del script propuesto. ¿Por qué es importante mantener un versionado de bases de datos? ¿Qué rol cubren las migraciones?"
   },
   {
     "objectID": "tps/tp_0.html#apis",
     "href": "tps/tp_0.html#apis",
     "title": "TP0: Tooling",
     "section": "APIs (★★)",
-    "text": "APIs (★★)\nAPI es un acrónimo para “Application Programming Interface”. Para poder conectar una aplicación con otra, es común utilizar este concepto. Por ejemplo, si queremos que nuestra aplicación sea capaz de utilizar alguna aplicación que se provee en internet, o si queremos que nuestra aplicación pueda ser usada a través de internet.\nExisten centenas de protocolos distintos para poder utilizar estas interfaces. No obstante, nos vamos a concentrar en uno: REST APIs (por “Representation State Transfer”). Vamos a usar, desde Python, FastAPI (https://fastapi.tiangolo.com/) para poder hacer APIs.\nUn concepto importante dentro de esto es el de asynchronous I/O, que queda fuera del scope de este curso (o al menos de este TP), pero se invita al lector a darle un vistazo: https://docs.python.org/3/library/asyncio-task.html.\n\nEjercicios\n1. (★★) Nuestro primer servidor con FastAPI\nSiguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/first-steps/), inicializar un servidor que devuelva números aleatorios en la ruta “/” al hacer get, y que permita obtener un valor al azar al pasar una lista de nombres en la dirección “/” al hacer put.\n2. (★★★) SQL desde FastAPI\nSiguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/sql-databases/), inicializador un servidor con una base de datos local que permita resolver el ejercicio 1 de SQL a través de una API, e implementar la API que permita obtener los promedios anteriormente mencionados a través de los endpoints correctos.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "APIs (★★)\nAPI es un acrónimo para “Application Programming Interface”. Para poder conectar una aplicación con otra, es común utilizar este concepto. Por ejemplo, si queremos que nuestra aplicación sea capaz de utilizar alguna aplicación que se provee en internet, o si queremos que nuestra aplicación pueda ser usada a través de internet.\nExisten centenas de protocolos distintos para poder utilizar estas interfaces. No obstante, nos vamos a concentrar en uno: REST APIs (por “Representation State Transfer”). Vamos a usar, desde Python, FastAPI (https://fastapi.tiangolo.com/) para poder hacer APIs.\nUn concepto importante dentro de esto es el de asynchronous I/O, que queda fuera del scope de este curso (o al menos de este TP), pero se invita al lector a darle un vistazo: https://docs.python.org/3/library/asyncio-task.html.\n\nEjercicios\n1. (★★) Nuestro primer servidor con FastAPI\nSiguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/first-steps/), inicializar un servidor que devuelva números aleatorios en la ruta “/” al hacer get, y que permita obtener un valor al azar al pasar una lista de nombres en la dirección “/” al hacer put.\n2. (★★★) SQL desde FastAPI\nSiguiendo el ejemplo que se encuentra en la documentación de FastAPI (https://fastapi.tiangolo.com/tutorial/sql-databases/), inicializador un servidor con una base de datos local que permita resolver el ejercicio 1 de SQL a través de una API, e implementar la API que permita obtener los promedios anteriormente mencionados a través de los endpoints correctos."
   },
   {
     "objectID": "tps/tp_0.html#code-quality",
     "href": "tps/tp_0.html#code-quality",
     "title": "TP0: Tooling",
     "section": "Code Quality (★★★)",
-    "text": "Code Quality (★★★)\nEl testing unitario es una práctica esencial en el desarrollo de software. Nos permite validar la funcionalidad de cada componente de manera aislada, asegurando que cada parte del código funcione según lo esperado. Esta metodología es clave para identificar y corregir errores tempranamente, facilitando un desarrollo más ágil y eficiente.\nEl code coverage mide el porcentaje de código que está siendo cubierto por tests automáticos. Esta métrica es importante para asegurarnos de que nuestras pruebas abarcan una amplia extensión del código, lo que reduce la posibilidad de que existan errores no detectados.\nUna buena práctica en el desarrollo de software es mantener un formato de código consistente y legible. El formateo de código ayuda a estandarizar el estilo a lo largo del proyecto, haciendo el código más accesible y fácil de entender para todos los miembros del equipo.\nEl uso de tipado (typing) en Python contribuye a la claridad y robustez del código. Aunque Python es un lenguaje de tipado dinámico, el tipado estático puede ayudar a prevenir ciertos errores y mejorar la mantenibilidad del código.\nEl análisis estático del código es el proceso de revisar y analizar el código fuente sin ejecutarlo. Esta técnica puede detectar errores, bugs, y problemas de estilo, así como mejorar la calidad y seguridad del código.\n\nHerramientas en Python\nPara aplicar estas prácticas en Python, contamos con varias herramientas útiles:\n\nPytest: Facilita la escritura y ejecución de pruebas unitarias.\nBlack: Una herramienta de formateo de código que asegura la consistencia del estilo.\nCoverage: Mide el code coverage para garantizar la efectividad de las pruebas.\nFlake8: Proporciona análisis de estilo y errores potenciales en el código.\nMypy: Realiza un chequeo de tipos estáticos para detectar problemas de tipado.\n\n\n\nEjercicios\nPartiendo del siguiente script (que está claramente erróneo):\ndef multiplicar(b, a):\nreturn a * b\n\ndef sumar(a,b):\nreturn a+b\n\n(★★★) Testing con Pytest:\n\nEscribe tests para tus funciones en un archivo test_mi_script.py usando Pytest.\n\n(★★★) Aplicación de Black y Flake8:\n\nEjecuta Black sobre tu script para estandarizar el estilo (black mi_script.py).\nUtiliza Flake8 para identificar posibles problemas de estilo o errores en tu código (flake8 mi_script.py).\n\n(★★★) Medición de Code Coverage:\n\nUtiliza Coverage para medir la cobertura de tus tests. Ejecuta los tests con Coverage y verifica que cubran la totalidad de tus funciones.\n\n(★★★) Análisis de Tipos con Mypy:\n\nEjecuta Mypy para asegurarte de que las anotaciones de tipos en tu script sean correctas (mypy mi_script.py).",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Code Quality (★★★)\nEl testing unitario es una práctica esencial en el desarrollo de software. Nos permite validar la funcionalidad de cada componente de manera aislada, asegurando que cada parte del código funcione según lo esperado. Esta metodología es clave para identificar y corregir errores tempranamente, facilitando un desarrollo más ágil y eficiente.\nEl code coverage mide el porcentaje de código que está siendo cubierto por tests automáticos. Esta métrica es importante para asegurarnos de que nuestras pruebas abarcan una amplia extensión del código, lo que reduce la posibilidad de que existan errores no detectados.\nUna buena práctica en el desarrollo de software es mantener un formato de código consistente y legible. El formateo de código ayuda a estandarizar el estilo a lo largo del proyecto, haciendo el código más accesible y fácil de entender para todos los miembros del equipo.\nEl uso de tipado (typing) en Python contribuye a la claridad y robustez del código. Aunque Python es un lenguaje de tipado dinámico, el tipado estático puede ayudar a prevenir ciertos errores y mejorar la mantenibilidad del código.\nEl análisis estático del código es el proceso de revisar y analizar el código fuente sin ejecutarlo. Esta técnica puede detectar errores, bugs, y problemas de estilo, así como mejorar la calidad y seguridad del código.\n\nHerramientas en Python\nPara aplicar estas prácticas en Python, contamos con varias herramientas útiles:\n\nPytest: Facilita la escritura y ejecución de pruebas unitarias.\nBlack: Una herramienta de formateo de código que asegura la consistencia del estilo.\nCoverage: Mide el code coverage para garantizar la efectividad de las pruebas.\nFlake8: Proporciona análisis de estilo y errores potenciales en el código.\nMypy: Realiza un chequeo de tipos estáticos para detectar problemas de tipado.\n\n\n\nEjercicios\nPartiendo del siguiente script (que está claramente erróneo):\ndef multiplicar(b, a):\nreturn a * b\n\ndef sumar(a,b):\nreturn a+b\n\n(★★★) Testing con Pytest:\n\nEscribe tests para tus funciones en un archivo test_mi_script.py usando Pytest.\n\n(★★★) Aplicación de Black y Flake8:\n\nEjecuta Black sobre tu script para estandarizar el estilo (black mi_script.py).\nUtiliza Flake8 para identificar posibles problemas de estilo o errores en tu código (flake8 mi_script.py).\n\n(★★★) Medición de Code Coverage:\n\nUtiliza Coverage para medir la cobertura de tus tests. Ejecuta los tests con Coverage y verifica que cubran la totalidad de tus funciones.\n\n(★★★) Análisis de Tipos con Mypy:\n\nEjecuta Mypy para asegurarte de que las anotaciones de tipos en tu script sean correctas (mypy mi_script.py)."
   },
   {
     "objectID": "tps/tp_0.html#user-interface",
     "href": "tps/tp_0.html#user-interface",
     "title": "TP0: Tooling",
     "section": "User Interface (★★★)",
-    "text": "User Interface (★★★)\nNaturalmente, todos llegamos a un punto en la vida en el cual conectamos cientos de cablecitos para que se hablen (una base de datos con una API, que le habla a otra API a través de internet, que a su vez es capaz de intentar dominar al mundo) pero si no tenemos algo gráfico que nos permita visualizar cómo todo funciona, quizás nos sintamos un poco vacíos. O quizás el vacío sea existencial.\nDesde esta perspectiva, es común buscar crear interfaces de usuario gráficas que nos permitan interactuar con nuestros programas. Hoy les presento Streamlit, que es una librería de python que nos permite tener una interfaz gráfica sencilla funcionando en muy poco tiempo.\n\nEjercicios\n\n(★★★) Prueba de streamlit: Seguir el tutorial Create an app de Streamlit para crear una aplicación de prueba.\n(★★★) Database management: Usando SQLAlchemy y pandas, crear una aplicación que permita controlar la base de datos del ejercicio 1 de SQL.\n(★★★) API UI Wrapper: Usando SQLAlchemy, pandas, y FastAPI, crear una aplicación que permita controlar la base de datos del ejercicio 2 de APIs.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "User Interface (★★★)\nNaturalmente, todos llegamos a un punto en la vida en el cual conectamos cientos de cablecitos para que se hablen (una base de datos con una API, que le habla a otra API a través de internet, que a su vez es capaz de intentar dominar al mundo) pero si no tenemos algo gráfico que nos permita visualizar cómo todo funciona, quizás nos sintamos un poco vacíos. O quizás el vacío sea existencial.\nDesde esta perspectiva, es común buscar crear interfaces de usuario gráficas que nos permitan interactuar con nuestros programas. Hoy les presento Streamlit, que es una librería de python que nos permite tener una interfaz gráfica sencilla funcionando en muy poco tiempo.\n\nEjercicios\n\n(★★★) Prueba de streamlit: Seguir el tutorial Create an app de Streamlit para crear una aplicación de prueba.\n(★★★) Database management: Usando SQLAlchemy y pandas, crear una aplicación que permita controlar la base de datos del ejercicio 1 de SQL.\n(★★★) API UI Wrapper: Usando SQLAlchemy, pandas, y FastAPI, crear una aplicación que permita controlar la base de datos del ejercicio 2 de APIs."
   },
   {
     "objectID": "tps/tp_0.html#docker",
     "href": "tps/tp_0.html#docker",
     "title": "TP0: Tooling",
     "section": "Docker (★★★)",
-    "text": "Docker (★★★)\n¿Escucharon alguna vez: “en mi computadora funciona, no sé por qué en la tuya no”? El objetivo de docker es erradicar esa problemática. Docker es un sistema que permite, a través de imágenes, enviar sistemas operativos con aplicaciones preinstaladas en “contenedores”, que funcionan directamente sobre una plataforma de docker, como una versión “lightweight” de máquinas virtuales.\nLa genialidad de esto no es sólo el hecho de hacer un container con una aplicación, que ponga-donde-se-ponga funciona, sino también la enorme capacidad de componer estos containers. Es decir: podemos hacer una aplicación completa con bloquecitos: una API, un modelo, una cache, una base de datos, etcétera. Básicamente logra que terminemos jugando con legos en vez de escribiendo código. Si bien esto se puede hacer de muchas formas, la más sencilla es docker-compose.\n\nEjercicios\n\n(★★★) Imagen de API: A partir del ejercicio 1 de FastAPI, escribir un Dockerfile que, a partir de la imagen base de python-3.9, permita correr el servidor propuesto. Tutorial: https://fastapi.tiangolo.com/deployment/docker/.\n(★★★) Imagen de DB: Resolver el ejercicio 1 de la guía de SQL utilizando una imagen de docker de PostgreSQL.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Docker (★★★)\n¿Escucharon alguna vez: “en mi computadora funciona, no sé por qué en la tuya no”? El objetivo de docker es erradicar esa problemática. Docker es un sistema que permite, a través de imágenes, enviar sistemas operativos con aplicaciones preinstaladas en “contenedores”, que funcionan directamente sobre una plataforma de docker, como una versión “lightweight” de máquinas virtuales.\nLa genialidad de esto no es sólo el hecho de hacer un container con una aplicación, que ponga-donde-se-ponga funciona, sino también la enorme capacidad de componer estos containers. Es decir: podemos hacer una aplicación completa con bloquecitos: una API, un modelo, una cache, una base de datos, etcétera. Básicamente logra que terminemos jugando con legos en vez de escribiendo código. Si bien esto se puede hacer de muchas formas, la más sencilla es docker-compose.\n\nEjercicios\n\n(★★★) Imagen de API: A partir del ejercicio 1 de FastAPI, escribir un Dockerfile que, a partir de la imagen base de python-3.9, permita correr el servidor propuesto. Tutorial: https://fastapi.tiangolo.com/deployment/docker/.\n(★★★) Imagen de DB: Resolver el ejercicio 1 de la guía de SQL utilizando una imagen de docker de PostgreSQL."
   },
   {
     "objectID": "tps/tp_0.html#microservices",
     "href": "tps/tp_0.html#microservices",
     "title": "TP0: Tooling",
     "section": "Microservices (★★★★)",
-    "text": "Microservices (★★★★)\nA partir de lo visto en Docker, APIs y SQL, construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.\n\n\n\nArquitectura básica para la aplicación containerizada\n\n\n\nEjercicios\n\n(★★★★) Integración: Reutilizar el ejercicio 1 y 2 de Docker en un archivo de docker-compose para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de User Interface.",
-    "crumbs": [
-      "Practicas",
-      "TP0: Tooling"
-    ]
+    "text": "Microservices (★★★★)\nA partir de lo visto en Docker, APIs y SQL, construyamos una aplicación conteinarizada que tenga una interfaz gráfica, una API y una base de datos.\n\n\n\nArquitectura básica para la aplicación containerizada\n\n\n\nEjercicios\n\n(★★★★) Integración: Reutilizar el ejercicio 1 y 2 de Docker en un archivo de docker-compose para resolver el ejercicio 2 de APIs, y agregar además una interfaz gráfica a través del ejercicio 2 de User Interface."
+  },
+  {
+    "objectID": "tps/tp_3.html#resumen",
+    "href": "tps/tp_3.html#resumen",
+    "title": "TP3: Unsupervised Learning",
+    "section": "Resumen",
+    "text": "Resumen\nEl TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio\n\n\nImportante:\nEs probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un pull a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con pytest, para obtener feedback automático. Mil disculpas, gracias por tanto."
+  },
+  {
+    "objectID": "tps/tp_3.html#clustering-k-means",
+    "href": "tps/tp_3.html#clustering-k-means",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★) 1. Clustering K-means",
+    "text": "(★) 1. Clustering K-means\n\nImplementa el algoritmo KMeans en el script ej1/k_means.py\nEmplea el notebook ej1/explore_train.ipynb para explorar el archivo ej1/data/synthetic_dataset_1.csv. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.\nVaría el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).\nExplora el archivo data/synthetic_dataset_2.csv y agrupa en clusters usando KMeans.\nUtiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook ej1/ej1_explore_train.ipynb)."
+  },
+  {
+    "objectID": "tps/tp_3.html#pca",
+    "href": "tps/tp_3.html#pca",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★) 2. PCA",
+    "text": "(★) 2. PCA\n\nHaz un breve EDA del dataset “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb. Grafica la variable targetpara distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?\nTu tarea es completar la implementación de la clase PCA en el archivo pca.py.\nUna vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb.\nMuestra e interpreta tus resultados.\nDetermina de vuelta las componentes principales, pero esta vez usando la librería sklearn.\nObtener los loadings de las variables en los componentes principales. Hint:use pca.components_, Nos interesa saber los factores más importantes a la hora de elegir un vino!.\n(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?"
+  },
+  {
+    "objectID": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
+    "href": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
+    "title": "TP3: Unsupervised Learning",
+    "section": "(★★) 3. Embeddings y Reducción de la dimensionalidad",
+    "text": "(★★) 3. Embeddings y Reducción de la dimensionalidad\n\nRecursos disponibles:\n\nModelo de Vocabulario: Se proporciona un archivo de vectores FastText pre-entrenado en formato .vec. Puedes descargar el archivo de vectores desde el siguiente enlace:\n\nDescargar vectores FastText en español.\nUna vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.\n\nFunción load_vectors en el notebook ej3/ej3.ipynb: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.\n\n\n\nTareas:\n\nReducción de Dimensionalidad:\n\nAplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.\nGuarda los resultados de la transformación para la visualización posterior.\n\nVisualización en 3D:\n\nUtiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.\nCada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.\nIncluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.\n\nInterpretación:\n\nAnaliza el gráfico y discute cómo las palabras con significados similares están agrupadas.\nReflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.\nIdentifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos."
+  },
+  {
+    "objectID": "tps/tp_4.html#resumen",
+    "href": "tps/tp_4.html#resumen",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "Resumen",
+    "text": "Resumen\nEl TP4 parte 1 (1/2) apunta a familiarizarse con conceptos introductorios de Redes Neuronales y Deep Learning, tales como backpropagation, redes feed forward (densas) y redes convolucionales (CNN). Esta guía tiene tres ejercicios, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio"
+  },
+  {
+    "objectID": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
+    "href": "tps/tp_4.html#red-neuronal-feed-forward-from-scratch",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★) 1. Red Neuronal Feed Forward (from Scratch)",
+    "text": "(★) 1. Red Neuronal Feed Forward (from Scratch)\nEl objetivo de este ejercicio es implementar una red neuronal para la clasificación de imágenes del conjunto de datos CIFAR-10 desde cero utilizando únicamente la librería NumPy (solamente se usa tensorflow para cargar el dataset por simplicidad). Para ello debes completar el script ej1.py, y presentar los resultados del entrenamiento, tales como visualizaciones de la función de Loss y Accuracy en función de las épocas de entrenamiento, y posteriormente sobre los datos de test. (Puedes presentarlo en un notebook .ipynb)\n\nDescripción del Problema:\nCIFAR-10 es un conjunto de datos que contiene 60,000 imágenes (50,000 para train y 10,000 para test) en color (RGB) de 32x32 píxeles, distribuidas en 10 clases diferentes (como aviones, automóviles, aves, etc.). Para este ejercicio, implementarás una red neuronal con la siguiente arquitectura:\nUna capa de entrada que recibe las imágenes aplanadas (tamaño 32x32x3). Una capa oculta con 100 neuronas y función de activación ReLU. Una capa de salida con 10 neuronas y función de activación softmax, una por cada clase."
+  },
+  {
+    "objectID": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
+    "href": "tps/tp_4.html#implementación-de-una-red-neuronal-convolucional-cnn-para-clasificación-de-imágenes.",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.",
+    "text": "(★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.\nResuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales Presenta tus resultados en el notebook ej2.ipynb. Te recomendamos fuertemente usar Google Colab, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías Keras y Pytorch están optimizadas para tareas paralelizables."
+  },
+  {
+    "objectID": "tps/tp_4.html#micro-keras-from-scratch",
+    "href": "tps/tp_4.html#micro-keras-from-scratch",
+    "title": "TP4 (1/2): Deep Learning",
+    "section": "(★★★) 3. Micro Keras from scratch",
+    "text": "(★★★) 3. Micro Keras from scratch\nEl objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy.\n\nEstructura (recomendada) del Código\nLa biblioteca deberá estar organizada organizada en los siguientes módulos:\n\nmetrics.py\nlosses.py\nactivations.py\nmodels.py\nlayers.py\noptimizers.py\n\n\n\nDescripción de los Módulos\n\n1. metrics.py\nAccuracy: Calcula la precisión de las predicciones. MSE: Calcula el error cuadrático medio (Mean Squared Error).\n\n\n2. losses.py\nLoss: Interfaz de las funciones de costo que define el método call y gradient. MSE: Implementación de la función de costo Mean Squared Error.\n\n\n3. activations.py\nReLU: Implementa la función de activación ReLU y su derivada. Tanh: Implementa la función de activación Tanh y su derivada. Sigmoid: Implementa la función de activación Sigmoid y su derivada.\n\n\n4. models.py\nNetwork: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.\n\n\n5. layers.py\nBaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward. Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer. Layer: Clase base para capas con pesos. Hereda de BaseLayer. Dense: Representa una capa densa (fully connected) que hereda de Layer.\n\n\n6. optimizers.py\nOptimizer: Interfaz para optimizadores. Define el método update. SGD: Implementa el optimizador Stochastic Gradient Descent.\n\n\n\nCaso de prueba\nPara validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas)."
+  },
+  {
+    "objectID": "tps/tp_5.html#resumen",
+    "href": "tps/tp_5.html#resumen",
+    "title": "TP5: Transformers y LLMs",
+    "section": "Resumen",
+    "text": "Resumen\nEn el TP5 vamos a trabajar mayoritariamente con modelos que están basados en la arquitectura de Transformers. En particular, en los campos de audio, texto e imágenes. Vamos a usar para casi todo HuggingFace y Ollama, una librería que contiene en su interior una gran cantidad de modelos OpenSource. Como disclaimer, se pueden utilizar APIs en vez de modelos si se quisiera evitar correr modelos localmente, pero debido a que no es gratis, vamos por el Open Source. By the way, long live open source.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_5.html#you-only-look-once---image-processing",
+    "href": "tps/tp_5.html#you-only-look-once---image-processing",
+    "title": "TP5: Transformers y LLMs",
+    "section": "(★) 1. You Only Look Once - Image Processing",
+    "text": "(★) 1. You Only Look Once - Image Processing\nEl primer ejercicio consiste en correr una red liviana que permite detectar objetos en imágenes, segmentar, o estimar poses. Para eso usaremos YOLOv8. YOLO es “You Only Look Once”.\nSigamos el siguiente ejemplo de Ultralytics (luego de instalar el paquete con pip install ultralytics):\nfrom ultralytics import YOLO\n\n# Load a model\ndetection_model = YOLO(\"yolov8n.pt\")\nseg_model = YOLO(\"yolov8n-seg.pt\")\npose_model = YOLO(\"yolov8n-pose.pt\")\n\n# Use the model\ndetection_results = detection_model(\"https://ultralytics.com/images/bus.jpg\")\nseg_results = seg_model(\"https://ultralytics.com/images/bus.jpg\")\npose_results = pose_model(\"https://ultralytics.com/images/bus.jpg\")\n\nfor r in detection_results + seg_results + pose_results:\n    image_array = r.plot()  # plot a BGR numpy array of predictions\n    image = Image.fromarray(image_array[..., ::-1])  # RGB PIL image\n    display(image)\nPara la consigna de este ejercicio, escriba una notebook que permita hacer detección de objetos en alguna imagen de su elección. Tambien segmentarlos y por ultimo, estimar poses."
+  },
+  {
+    "objectID": "tps/tp_5.html#nuestro-primer-llm-local",
+    "href": "tps/tp_5.html#nuestro-primer-llm-local",
+    "title": "TP5: Transformers y LLMs",
+    "section": "(★) 2. Nuestro primer LLM local",
+    "text": "(★) 2. Nuestro primer LLM local\nEste ejercicio es clave puesto que todos los subsiguientes que utilizen LLMs se montan sobre el mismo, en especial en caso de que\nVamos a instalar Ollama -si estan en una maquina con GNU, alcanza con correr curl -fsSL https://ollama.com/install.sh | sh. Ollama genera un servidor local que luego correrá algún LLM open source. En este momento están disponibles Llama 3, Phi 3, Mistral y Gemma. Debido al tamaño del modelo, se recomienda o Gemma2B o Phi3 3.8B, que correrán en un tiempo razonable en cualquier PC con CPU (obviamente, teniendo GPU es mucho mejor). Una vez descargado Ollama y con el comando corriendo en la terminal (es decir, pudiendo hacer ollama y obteniendo algo de vuelta), debemos inicializar el servidor:\nEn una terminal:\nollama serve\nY en otra:\n# $MODEL es uno de los siguientes:\n# gemma:2b, gemma:7b, llama3, o phi3\n# llama3 es excelente\nollama pull $MODEL\nUna vez que eso esté corriendo, se puede utilizar el servidor de Ollama como una API local y con ello hacerle requests para obtener respuestas:\ncurl http://localhost:11434/api/generate -d '{\n  \"model\": \"$MODEL\",\n  \"prompt\":\"Why is the sky blue?\"\n}'\n¿Qué observa en esta API local?\nUtilicemosla desde python con el siguiente texto:\nimport requests\n\nURL = \"http://localhost:11434/api/generate\"\nPROMPT = \"tell me your favorite joke!\"\nMODEL = \"phi3\"\n\nresponse = requests.post(\n    URL,\n    json={\n        \"model\": MODEL, \n        \"stream\": False, \n        \"prompt\": PROMPT\n    },\n)\nprint(response.json()[\"response\"])\n¿Cuál es la broma favorita de Phi3?"
+  },
+  {
+    "objectID": "tps/tp_5.html#retrieval-augmented-generation-llamaindex",
+    "href": "tps/tp_5.html#retrieval-augmented-generation-llamaindex",
+    "title": "TP5: Transformers y LLMs",
+    "section": "(★★) 3. Retrieval Augmented Generation & LlamaIndex",
+    "text": "(★★) 3. Retrieval Augmented Generation & LlamaIndex\nRetrieval Augmented Generation (o RAG) es un patrón de diseño de aplicaciones de LLM que busca mitigar uno de los problemas más prevalentes de las mismas: las alucinaciones. En general tienen dos pasos: primero buscamos información relevante en una base de datos (en general, a través de similaridad semántica) y luego con esa información aumenta el prompt original para generar respuestas.\nResuelva este tutorial. Está integrado con Ollama y HuggingFace. No se arrepentirá."
+  },
+  {
+    "objectID": "tps/tp_5.html#api-callingtool-usage-langchain",
+    "href": "tps/tp_5.html#api-callingtool-usage-langchain",
+    "title": "TP5: Transformers y LLMs",
+    "section": "(★★) 4. API Calling/Tool usage & LangChain",
+    "text": "(★★) 4. API Calling/Tool usage & LangChain\nAPI calling es otro patrón sumamente importante, y resalta la capacidad que tienen las LLMs de usar herramientas programáticas.\nLangChain es una librería que encapsula los conceptos de ReAct/Chain of thought en (a) cadenas, con pasos predefinidos que utilizan LLMs, y (b) agentes, que pueden utilizar diversas herramientas para llevar a cabo tareas.\nLes recomendamos que observen uno de estos tutoriales (llm app, chatbot, o agent) y que lean la documentación. Es buen framework para empezar a resolver problemas LLM based. Además, se puede jugar bastante con el uso de “herramientas” (a.k.a. “API Calling”)."
+  },
+  {
+    "objectID": "tps/tp_5.html#sam-segment-anything-model",
+    "href": "tps/tp_5.html#sam-segment-anything-model",
+    "title": "TP5: Transformers y LLMs",
+    "section": "(★★★) 5. SAM (Segment Anything Model)",
+    "text": "(★★★) 5. SAM (Segment Anything Model)\nCorra el siguiente tutorial para utilizar Segment Anything Model.\n¿Qué diferencias encuentra con YOLO? ¿Cómo se compara el comportamiento de ambos modelos frente a una misma imagen?"
+  },
+  {
+    "objectID": "tps/tp_2.html",
+    "href": "tps/tp_2.html",
+    "title": "TP2: Linear and Tree models",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_2.html#resumen",
+    "href": "tps/tp_2.html#resumen",
+    "title": "TP2: Linear and Tree models",
+    "section": "",
+    "text": "El TP2 apunta a familiarizarse con los estimadores lineales (lineal y logístico) y los modelos de árboles, ademas de obligarlos a trabajar en la estructura de código de una librería muy sencilla, y también de trabajar en un pipeline end to end. Esta guía tiene dos ejercicios solamente, pero ambos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_2.html#your-own-scikit-learn-library",
+    "href": "tps/tp_2.html#your-own-scikit-learn-library",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 1. Your own Scikit Learn library",
+    "text": "(★) 1. Your own Scikit Learn library\nEncontrará en la carpeta “ej1” archivos relacionados a Regresión Lineal, Regresión Logística y Tree Stumps. Todos heredan de una interfaz común, Estimator, y donde además los modelos lineales se entrenan por SGD. Por último, se provee GradientBoostingEstimator, que permite generar un ensamble de modelos a partir de Gradient Boosting.\nDicho esto, resuelva los siguientes incisos:\n\nImplemente el proceso de entrenamiento de SGD en SGDEstimator.\nImplemente LinearRegressor.\nImplemente LogisticClassifier.\nEn la notebook explore.ipynb, explore dataset_A.pkl y dataset_B.pkl, y elija el modelo correcto para cada dataset. ¿Qué miro para tomar esa decisión?\nEn la notebook train.ipynb use esas clases para entrenal los modelos respectivos. Utilice un split de train/test y mida la precisión para cada caso.\nEn la notebook explore.ipynb, explore dataset_C.pkl e identifique qué comportamineto se observa frente a las variables de entrada.\nImplemente la clase TreeStumpRegressor.\nImplemente la clase GradientBoostingEstimator.\nIntente utilizar una regresión lineal y un clasificador logístico para fittear dataset_C.pkl. Luego utilice GradientBoosting con modelos de árboles. ¿Cómo se compara la precisión de ámbos modelos? ¿Cómo explica este fenómeno?\nReescriba todo el procedimiento en la notebook sklearn.ipynb utilizando la librería de sklearn en vez de su implementación. ¿Qué diferencias nota? ¿A qué se deben estas diferencias?\n\nEste ejercicio es entregable!\nAdemás: los datasets provistos están en formato pickle, un tipo de serialización común de python. Puede leerlos a través de una apertura binaria de los archivos, utilizando pickle.load."
+  },
+  {
+    "objectID": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "href": "tps/tp_2.html#your-first-end-to-end-machine-learning-pipeline",
+    "title": "TP2: Linear and Tree models",
+    "section": "(★) 2. Your first end to end Machine Learning pipeline",
+    "text": "(★) 2. Your first end to end Machine Learning pipeline\nA partir del ejercico 5 de la práctica anterior (EDA), vamos a implementar el primer pipeline end to end de machine learning. El mismo consiste en:\n\nCargar los datos del dataset provisto anteriormente, splittear en train y test,\nPreprocesar los datos en un formato adecuado para entrenar un modelo,\nDefinir una grilla de búsqueda de hiperparámetros (los que corresponda según la arquitectura)\nUtilizar modelos lineales y de árboles (random forest, gradient boosting) para encontrar un predictor adecuado. Se recomienda LightGBM. Buscar a través de KFold o alguna técnica de validación cruzada.\nGraficar y reportar métricas de performance y gráficas de calibración para los datos de test.\nEscribir un pipeline de Scikit Learn que resuma los pasos anteriores.\n\nEncontrará un archivo ej2.ipynb donde implementar este ejercicio."
+  },
+  {
+    "objectID": "tps/tp_1.html",
+    "href": "tps/tp_1.html",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_1.html#resumen",
+    "href": "tps/tp_1.html#resumen",
+    "title": "TP1: Data/Error",
+    "section": "",
+    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you."
+  },
+  {
+    "objectID": "tps/tp_1.html#accuracy-and-loss-functions",
+    "href": "tps/tp_1.html#accuracy-and-loss-functions",
+    "title": "TP1: Data/Error",
+    "section": "(★) 1. Accuracy and Loss functions",
+    "text": "(★) 1. Accuracy and Loss functions\nA fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:\ndef read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...\n\ndef precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny escriba un main que ejercite estas implementaciones utilizando el archivo ej1.csv."
+  },
+  {
+    "objectID": "tps/tp_1.html#confusion-matrix",
+    "href": "tps/tp_1.html#confusion-matrix",
+    "title": "TP1: Data/Error",
+    "section": "(★) 2. Confusion Matrix",
+    "text": "(★) 2. Confusion Matrix\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?"
+  },
+  {
+    "objectID": "tps/tp_1.html#numerical-and-categorical-features",
+    "href": "tps/tp_1.html#numerical-and-categorical-features",
+    "title": "TP1: Data/Error",
+    "section": "(★) 3. Numerical and Categorical features",
+    "text": "(★) 3. Numerical and Categorical features\nSe brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:\ndef histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...\n\ndef one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...\nUtilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas."
+  },
+  {
+    "objectID": "tps/tp_1.html#over-and-underfitting",
+    "href": "tps/tp_1.html#over-and-underfitting",
+    "title": "TP1: Data/Error",
+    "section": "(★) 4. Over and Underfitting",
+    "text": "(★) 4. Over and Underfitting\nSe provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:\ndef read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...\n\ndef plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...\ndonde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio."
+  },
+  {
+    "objectID": "tps/tp_1.html#eda-a-entregar",
+    "href": "tps/tp_1.html#eda-a-entregar",
+    "title": "TP1: Data/Error",
+    "section": "(★) 5. EDA [A entregar]",
+    "text": "(★) 5. EDA [A entregar]\nComplete el archivo ej5.ipynb que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos."
+  },
+  {
+    "objectID": "tps/tp_1.html#calibration-curves",
+    "href": "tps/tp_1.html#calibration-curves",
+    "title": "TP1: Data/Error",
+    "section": "(★★) 6. Calibration Curves",
+    "text": "(★★) 6. Calibration Curves\nUna herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales \\(y \\in \\{1, 0\\}\\) y la probabilidad predicha de que \\(y == 1\\), \\(p_y \\in [0, 1]\\), la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:\nCalibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).\nUtilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo ej6.csv."
   },
   {
     "objectID": "index.html",
@@ -236,148 +285,5 @@
     "title": "Bienvenidos!👋",
     "section": "",
     "text": "Bienvenidos!👋\nBienvenidos a la página de Fundamentos de Machine Learning del Instituto Balseiro. Esta página actúa como repositorio de todos los elementos que pueden llegar a necesitar para el desarrollo de la misma:\n\nClases teóricas.\nTrabajos prácticos.\n\nLorem Ipsum?\nCronograma?\nPrograma?\nMetodología de evaluación?\nBibliografía?\nCátedra?\nSi la inflamación se va, el dolor vuelve?"
-  },
-  {
-    "objectID": "lectures/clase_0.html",
-    "href": "lectures/clase_0.html",
-    "title": "L0: Tooling",
-    "section": "",
-    "text": "Completar con lo que demos en la lecture",
-    "crumbs": [
-      "Lectures",
-      "L0: Tooling"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html",
-    "href": "tps/tp_1.html",
-    "title": "TP1: Data/Error",
-    "section": "",
-    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#resumen",
-    "href": "tps/tp_1.html#resumen",
-    "title": "TP1: Data/Error",
-    "section": "",
-    "text": "El TP1 apunta a familiarizarse con el manejo de datos y algunas tecnicas de preprocesado, ademas de metricas de bondad y funciones de perdida. Por sobre todo, el ejercicio entregable de este TP es “EDA”, que tiene maximo sentido debido a que es una herramienta fundamental de takeaway practico de esta tematica.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#accuracy-and-loss-functions",
-    "href": "tps/tp_1.html#accuracy-and-loss-functions",
-    "title": "TP1: Data/Error",
-    "section": "(★) 1. Accuracy and Loss functions",
-    "text": "(★) 1. Accuracy and Loss functions\nA fin de experimentar con metricas de bondad y funciones de perdida, implemente las funciones que encontrara en el ejercicio 1 del repositorio base, respetando las interfaces propuestas para cada una de ellas:\ndef read_from_csv(filename: str) -&gt; Tuple[pd.Series, pd.Series]: ...\n\ndef precision(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef recall(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef f1_score(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef mse(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\n\ndef cross_entropy(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny escriba un main que ejercite estas implementaciones utilizando el archivo ej1.csv.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#confusion-matrix",
-    "href": "tps/tp_1.html#confusion-matrix",
-    "title": "TP1: Data/Error",
-    "section": "(★) 2. Confusion Matrix",
-    "text": "(★) 2. Confusion Matrix\nImplemente la funcion dada por la siguiente firma:\ndef confusion_matrix(y_true: pd.Series, y_pred: pd.Series) -&gt; float: ...\ny utilice los tres archivos provistos en un main para graficar matrices de confusion en variables binarias y de multiples clases. Encuentra algun patron significativo en los datos?",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#numerical-and-categorical-features",
-    "href": "tps/tp_1.html#numerical-and-categorical-features",
-    "title": "TP1: Data/Error",
-    "section": "(★) 3. Numerical and Categorical features",
-    "text": "(★) 3. Numerical and Categorical features\nSe brinda un dataset de juguete en el archivo ej3.csv. Se pide implementar dos funciones:\ndef histogram(feature: pd.Series, n_bins: int) -&gt; pd.Series: ...\n\ndef one_hot_encoder(feature: pd.Series) -&gt; pd.DataFrame: ...\nUtilice estas funciones dentro de un main que las ejercite con el dataset de juguete, para cada una de las features numericas y categoricas.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#over-and-underfitting",
-    "href": "tps/tp_1.html#over-and-underfitting",
-    "title": "TP1: Data/Error",
-    "section": "(★) 4. Over and Underfitting",
-    "text": "(★) 4. Over and Underfitting\nSe provee un csv que contiene tres pares de curvas de entrenamiento, de funcion de perdida de entrenamiento y de validacion. Se pide implementar las siguientes funciones:\ndef read_from_csv(filename: str) -&gt; Tuple[Tuple[pd.Series, pd.Series]]: ...\n\ndef plot_loss(loss_train: pd.Series, loss_val: pd.Series) -&gt; None: ...\ndonde plot_loss permite graficar la funcion de perdida. Ejercite esta implementacion en un main. Ademas, rellene la funcion “write_results” de forma que se identifiquen claramente los casos y suba el archivo .csv al repositorio.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#eda-a-entregar",
-    "href": "tps/tp_1.html#eda-a-entregar",
-    "title": "TP1: Data/Error",
-    "section": "(★) 5. EDA [A entregar]",
-    "text": "(★) 5. EDA [A entregar]\nComplete el archivo ej5.ipynb que encontrara dentro del repositorio. Este notebook contiene la estructura básica de un EDA, completa las celdas requeridas y responde con tus propias palabras a las preguntas planteadas. Este archivo sera corregido in-situ por la catedra, es decir, no tiene tests automaticos.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_1.html#calibration-curves",
-    "href": "tps/tp_1.html#calibration-curves",
-    "title": "TP1: Data/Error",
-    "section": "(★★) 6. Calibration Curves",
-    "text": "(★★) 6. Calibration Curves\nUna herramienta sumamente util a la hora de diagnosticar el comportamiento de un modelo clasico es su curva de calibracion (tambien llamado reliability diagram). En general, partiendo de los valores reales \\(y \\in \\{1, 0\\}\\) y la probabilidad predicha de que \\(y == 1\\), \\(p_y \\in [0, 1]\\), la curva de calibracion obtiene bines. De su explicacion en la documentacion de sklearn:\nCalibration curves, also referred to as reliability diagrams (Wilks 1995 [2]), compare how well the probabilistic predictions of a binary classifier are calibrated. It plots the frequency of the positive label (to be more precise, an estimation of the conditional event probability) on the y-axis against the predicted probability predict_proba of a model on the x-axis. The tricky part is to get values for the y-axis. In scikit-learn, this is accomplished by binning the predictions such that the x-axis represents the average predicted probability in each bin. The y-axis is then the fraction of positives given the predictions of that bin, i.e. the proportion of samples whose class is the positive class (in each bin).\nUtilizando la liberia sklearn, grafique la curva de calibracion para los datos presentados en el archivo ej6.csv.",
-    "crumbs": [
-      "Practicas",
-      "TP1: Data/Error"
-    ]
-  },
-  {
-    "objectID": "tps/tp_3.html#resumen",
-    "href": "tps/tp_3.html#resumen",
-    "title": "TP3: Unsupervised Learning",
-    "section": "Resumen",
-    "text": "Resumen\nEl TP3 apunta a familiarizarse con algoritmos de aprendizaje no supervisado, tales como clustering, descomposición en componentes principales y algoritmos de reducción de la dimensionalidad. Esta guía tiene tres ejercicios solamente, de los cuales los primeros dos son entregables.\nEncontrará los ejercicios con diferentes marcas:\n\n★: Ejercicio Obligatorio - no tenés opción.\n★★: Ejercicio recomendado - hacelo, que no te gane la timidez.\n★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.\n★★★★: Ejercicio de integración - if you gaze long into an abyss, the abyss also gazes into you.\n\n\nLink al repositorio\n\n\nImportante:\nEs probable que no funcionen los tests automáticos del autograding en github, estamos trabajando en solucionarlo. Una vez que lo hayamos solucionado les avisaremos para que hagan un pull a su repositorio local con los cambios que hayamos efectuado; mientras tanto les recomendamos correr los tests de manera local con pytest, para obtener feedback automático. Mil disculpas, gracias por tanto.",
-    "crumbs": [
-      "Practicas",
-      "TP3: Unsupervised Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_3.html#clustering-k-means",
-    "href": "tps/tp_3.html#clustering-k-means",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★) 1. Clustering K-means",
-    "text": "(★) 1. Clustering K-means\n\nImplementa el algoritmo KMeans en el script ej1/k_means.py\nEmplea el notebook ej1/explore_train.ipynb para explorar el archivo ej1/data/synthetic_dataset_1.csv. Posteriormente “entrena/fitea” el algoritmo KMeans que implementaste anteriormente para etiquetar los puntos según los K clusters.\nVaría el número K para armar “the elbow curve” y elige el K óptimo (agrega tu respuesta en una celda).\nExplora el archivo data/synthetic_dataset_2.csv y agrupa en clusters usando KMeans.\nUtiliza el algoritmo DBSCAN (Density-Based Spatial Clustering of Applications with Noise) disponible en la librería sklearn para agrupar en clusters los datos (en el notebook ej1/ej1_explore_train.ipynb).",
-    "crumbs": [
-      "Practicas",
-      "TP3: Unsupervised Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_3.html#pca",
-    "href": "tps/tp_3.html#pca",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★) 2. PCA",
-    "text": "(★) 2. PCA\n\nHaz un breve EDA del dataset “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb. Grafica la variable targetpara distintas combinaciones de 2 features (una en el eje horizontal y otra en el vertical). A ojímetro: ¿Puedes agrupar los tipos de vino fácilmente en algún subespacio de features?\nTu tarea es completar la implementación de la clase PCA en el archivo pca.py.\nUna vez que hayas completado la clase PCA, úsala para determinar los componentes principales del conjunto de datos “Wine” de sklearn en el notebook ej2/ej2_explore_train.ipynb.\nMuestra e interpreta tus resultados.\nDetermina de vuelta las componentes principales, pero esta vez usando la librería sklearn.\nObtener los loadings de las variables en los componentes principales. Hint:use pca.components_, Nos interesa saber los factores más importantes a la hora de elegir un vino!.\n(Opcional) ¿Cómo podría agregarle esta funcionalidad a su implementación?",
-    "crumbs": [
-      "Practicas",
-      "TP3: Unsupervised Learning"
-    ]
-  },
-  {
-    "objectID": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
-    "href": "tps/tp_3.html#embeddings-y-reducción-de-la-dimensionalidad",
-    "title": "TP3: Unsupervised Learning",
-    "section": "(★★) 3. Embeddings y Reducción de la dimensionalidad",
-    "text": "(★★) 3. Embeddings y Reducción de la dimensionalidad\n\nRecursos disponibles:\n\nModelo de Vocabulario: Se proporciona un archivo de vectores FastText pre-entrenado en formato .vec. Puedes descargar el archivo de vectores desde el siguiente enlace:\n\nDescargar vectores FastText en español.\nUna vez que tengas descargado el modelo de vectores, guardalo en la carpeta ‘ej3/vec_model’.\n\nFunción load_vectors en el notebook ej3/ej3.ipynb: Utiliza esta función proporcionada para cargar los embeddings de palabras, y continúa la implementación de las tareas asignadas en ese notebook.\n\n\n\nTareas:\n\nReducción de Dimensionalidad:\n\nAplica un algoritmo de reducción de dimensionalidad para transformar los embeddings de palabras desde su espacio original a un espacio de 3 componentes. Puedes elegir entre t-SNE, o UMAP para esta tarea.\nGuarda los resultados de la transformación para la visualización posterior.\n\nVisualización en 3D:\n\nUtiliza una herramienta de visualización dinámica como Plotly para crear un gráfico tridimensional interactivo de las palabras transformadas.\nCada punto en el gráfico debe estar etiquetado con la palabra correspondiente para facilitar la identificación.\nIncluye ejes claramente marcados y proporciona una breve descripción de lo que representa cada eje.\n\nInterpretación:\n\nAnaliza el gráfico y discute cómo las palabras con significados similares están agrupadas.\nReflexiona sobre si la reducción de dimensionalidad ha logrado capturar y visualizar relaciones semánticas entre palabras.\nIdentifica cualquier agrupación interesante o patrones inesperados y ofrece posibles explicaciones para estos hallazgos.",
-    "crumbs": [
-      "Practicas",
-      "TP3: Unsupervised Learning"
-    ]
   }
 ]
