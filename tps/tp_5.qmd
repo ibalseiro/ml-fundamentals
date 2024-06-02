@@ -1,0 +1,182 @@
+---
+title: "TP5: Transformers y LLMs"
+---
+## Fecha de entrega: miércoles 12/06/2024
+
+## Resumen
+
+En el TP5 vamos a trabajar mayoritariamente con modelos que están basados en la arquitectura de Transformers. En particular, en los campos de audio, texto e imágenes. Vamos a usar para casi todo [HuggingFace](https://huggingface.co/) y [Ollama](https://ollama.com/), una librería que contiene en su interior una _gran_ cantidad de modelos OpenSource. Como disclaimer, se pueden utilizar APIs en vez de modelos si se quisiera evitar correr modelos localmente, pero debido a que no es gratis, vamos por el Open Source. _By the way, long live open source._
+
+Encontrará los ejercicios con diferentes marcas:
+
+-   ★: Ejercicio Obligatorio - no tenés opción.
+-   ★★: Ejercicio recomendado - hacelo, que no te gane la timidez.
+-   ★★★: Ejercicio avanzado - preguntate dos veces si querés entrar en el rabbit hole.
+-   ★★★★: Ejercicio de integración - ***if you gaze long into an abyss, the abyss also gazes into you.***
+
+## (★) 1. You Only Look Once - Image Processing
+
+El primer ejercicio consiste en correr una red liviana que permite detectar objetos en imágenes, segmentar, o estimar poses. Para eso usaremos YOLOv8. YOLO es "You Only Look Once". 
+
+Sigamos el siguiente ejemplo de Ultralytics (luego de instalar el paquete con `pip install ultralytics`):
+
+```python
+from ultralytics import YOLO
+
+# Load a model
+detection_model = YOLO("yolov8n.pt")
+seg_model = YOLO("yolov8n-seg.pt")
+pose_model = YOLO("yolov8n-pose.pt")
+
+# Use the model
+detection_results = detection_model("https://ultralytics.com/images/bus.jpg")
+seg_results = seg_model("https://ultralytics.com/images/bus.jpg")
+pose_results = pose_model("https://ultralytics.com/images/bus.jpg")
+
+for r in detection_results + seg_results + pose_results:
+    image_array = r.plot()  # plot a BGR numpy array of predictions
+    image = Image.fromarray(image_array[..., ::-1])  # RGB PIL image
+    display(image)
+```
+
+Para la consigna de este ejercicio, escriba una notebook que permita hacer detección de objetos en alguna imagen de su elección. Tambien segmentarlos y por ultimo, estimar poses.
+
+
+## (★) 2. Nuestro primer LLM local
+
+Este ejercicio es clave puesto que todos los subsiguientes que utilizen LLMs se montan sobre el mismo, en especial en caso de que 
+
+
+Vamos a instalar [`Ollama`](https://ollama.com/) -si estan en una maquina con GNU, alcanza con correr `curl -fsSL https://ollama.com/install.sh | sh`. Ollama genera un servidor local que luego correrá algún LLM open source. En este momento están disponibles Llama 3, Phi 3, Mistral y Gemma. Debido al tamaño del modelo, se recomienda o Gemma2B o Phi3 3.8B, que correrán en un tiempo razonable en cualquier PC con CPU (obviamente, teniendo GPU es mucho mejor).
+Una vez descargado Ollama y con el comando corriendo en la terminal (es decir, pudiendo hacer `ollama` y obteniendo algo de vuelta), debemos inicializar el servidor:
+
+En una terminal:
+
+```sh
+ollama serve
+```
+
+Y en otra:
+
+```sh
+# $MODEL es uno de los siguientes:
+# gemma:2b, gemma:7b, llama3, o phi3
+# llama3 es excelente
+ollama pull $MODEL
+```
+
+Una vez que eso esté corriendo, se puede utilizar el servidor de Ollama como una API local y con ello hacerle requests para obtener respuestas:
+
+```sh
+curl http://localhost:11434/api/generate -d '{
+  "model": "$MODEL",
+  "prompt":"Why is the sky blue?"
+}'
+```
+
+¿Qué observa en esta API local?
+
+
+Utilicemosla desde python con el siguiente texto:
+
+
+```python
+import requests
+
+URL = "http://localhost:11434/api/generate"
+PROMPT = "tell me your favorite joke!"
+MODEL = "phi3"
+
+response = requests.post(
+    URL,
+    json={
+        "model": MODEL, 
+        "stream": False, 
+        "prompt": PROMPT
+    },
+)
+print(response.json()["response"])
+```
+
+
+¿Cuál es la broma favorita de Phi3?
+
+## (★★) 3. Retrieval Augmented Generation & LlamaIndex
+
+Retrieval Augmented Generation (o RAG) es un patrón de diseño de aplicaciones de LLM que busca mitigar uno de los problemas más prevalentes de las mismas: las alucinaciones. En general tienen dos pasos: primero buscamos información relevante en una base de datos (en general, a través de similaridad semántica) y luego con esa información aumenta el prompt original para generar respuestas.
+
+[Resuelva este tutorial](https://docs.llamaindex.ai/en/stable/getting_started/starter_example_local/). Está integrado con Ollama y HuggingFace. No se arrepentirá. 
+ 
+## (★★) 4. API Calling/Tool usage & LangChain
+
+API calling es otro patrón sumamente importante, y resalta la capacidad que tienen las LLMs de usar herramientas programáticas.
+
+LangChain es una librería que encapsula los conceptos de ReAct/Chain of thought en (a) cadenas, con pasos predefinidos que utilizan LLMs, y (b) agentes, que pueden utilizar diversas herramientas para llevar a cabo tareas.
+
+Les recomendamos que observen [uno de estos tutoriales (llm app, chatbot, o agent)](https://python.langchain.com/v0.2/docs/introduction/#tutorials) y que lean la documentación. Es buen framework para empezar a resolver problemas LLM based. Además, se puede jugar bastante con el uso de "herramientas" (a.k.a. "API Calling"). 
+
+## (★★★) 5. SAM (Segment Anything Model)
+
+Corra el [siguiente tutorial](https://github.com/facebookresearch/segment-anything) para utilizar Segment Anything Model.
+
+¿Qué diferencias encuentra con YOLO? ¿Cómo se compara el comportamiento de ambos modelos frente a una misma imagen?
+
+
+
+
+
+## (★) 2. Implementación de una red neuronal convolucional (CNN) para clasificación de imágenes.
+
+Resuelve el problema de clasificación de CIFAR-10, pero usando redes neuronales convolucionales
+Presenta tus resultados en el notebook `ej2.ipynb`.
+Te recomendamos fuertemente usar `Google Colab`, ya que a diferencia de tu implementación en el ejercicio anterior, las librerías `Keras` y `Pytorch` están optimizadas para tareas paralelizables.
+
+## (★★★) 3. Micro Keras from scratch
+
+El objetivo de este ejercicio es desarrollar una biblioteca modular en Python para la construcción de redes neuronales feedforward de manera flexible desde cero, utilizando solo la librería NumPy. 
+
+### Estructura (recomendada) del Código
+La biblioteca deberá estar organizada organizada en los siguientes módulos:
+
+1. metrics.py
+2. losses.py
+3. activations.py
+4. models.py
+5. layers.py
+6. optimizers.py
+
+### Descripción de los Módulos
+#### 1. metrics.py
+
+Accuracy: Calcula la precisión de las predicciones.
+MSE: Calcula el error cuadrático medio (Mean Squared Error).
+
+#### 2. losses.py
+
+Loss: Interfaz de las funciones de costo que define el método __call__ y gradient.
+MSE: Implementación de la función de costo Mean Squared Error.
+
+#### 3. activations.py
+
+ReLU: Implementa la función de activación ReLU y su derivada.
+Tanh: Implementa la función de activación Tanh y su derivada.
+Sigmoid: Implementa la función de activación Sigmoid y su derivada.
+
+#### 4. models.py
+
+Network: Clase que implementa una red neuronal feedforward. Deberá permitir agregar capas, compilar el modelo, realizar forward propagation, backward propagation, entrenar el modelo y hacer predicciones.
+
+#### 5. layers.py
+
+BaseLayer: Clase base para cualquier tipo de capa. Define las interfaces forward y backward.
+Input: Representa la capa de entrada de la red neuronal, heredando de BaseLayer.
+Layer: Clase base para capas con pesos. Hereda de BaseLayer.
+Dense: Representa una capa densa (fully connected) que hereda de Layer.
+
+#### 6. optimizers.py
+
+Optimizer: Interfaz para optimizadores. Define el método update.
+SGD: Implementa el optimizador Stochastic Gradient Descent.
+
+### Caso de prueba
+Para validar la implementación, se utilizará el problema XOR (un problema facilito para que puedan hacer pruebas rápidas).

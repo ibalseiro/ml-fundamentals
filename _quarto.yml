@@ -19,6 +19,7 @@ website:
           - tps/tp_2.qmd
           - tps/tp_3.qmd
           - tps/tp_4.qmd
+          - tps/tp_5.qmd
 format:
   html:
     theme: cosmo
